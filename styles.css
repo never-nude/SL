@@ -333,12 +333,13 @@ body.discoverPage .tileDiscover .tileHead {
   flex: 0 0 var(--poster-w);
   width: var(--poster-w);
   height: var(--poster-h);
-  border: 1px solid #7f7f7f;
-  background: #d2d2d2;
+  border: 0;
+  background: transparent;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: opacity var(--fade-ms) linear;
 }
 
 .tilePoster.isZoomable {
@@ -346,7 +347,7 @@ body.discoverPage .tileDiscover .tileHead {
 }
 
 .tilePoster.isZoomable:hover {
-  border-color: #6d6d6d;
+  opacity: 0.94;
 }
 
 .tilePoster.isZoomable:focus-visible {
@@ -360,6 +361,7 @@ body.discoverPage .tileDiscover .tileHead {
   object-fit: contain;
   object-position: center;
   filter: grayscale(18%) contrast(1.04);
+  background: transparent;
 }
 
 .tilePosterFallback {
