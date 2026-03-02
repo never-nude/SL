@@ -326,7 +326,7 @@
     var bridged = pickGraphBridge(anchor, basePool);
     if (bridged) return bridged;
 
-    return pickOneWeightedByYear(basePool);
+    return pickOneWeightedForDiscover(basePool);
   }
 
   function pickGraphBridge(anchor, basePool) {
@@ -405,6 +405,40 @@
     }
 
     return weighted[weighted.length - 1].item;
+  }
+
+  function isExpandedCatalogItem(item) {
+    if (!item || !item.id) return false;
+    return /^film_wd_|^tv_tmz_|^book_ol_/i.test(item.id);
+  }
+
+  function splitByCatalogLayer(items) {
+    var base = [];
+    var expanded = [];
+
+    for (var i = 0; i < items.length; i++) {
+      if (isExpandedCatalogItem(items[i])) expanded.push(items[i]);
+      else base.push(items[i]);
+    }
+
+    return { base: base, expanded: expanded };
+  }
+
+  function pickOneWeightedForDiscover(items) {
+    if (!items || !items.length) return null;
+
+    var grouped = splitByCatalogLayer(items);
+    var source = items;
+
+    if (grouped.expanded.length && grouped.base.length) {
+      source = Math.random() < 0.78 ? grouped.expanded : grouped.base;
+    } else if (grouped.expanded.length) {
+      source = grouped.expanded;
+    } else if (grouped.base.length) {
+      source = grouped.base;
+    }
+
+    return pickOneWeightedByYear(source);
   }
 
   function yearWeight(item) {

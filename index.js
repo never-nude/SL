@@ -34,7 +34,7 @@
 
   function pickInitialNine() {
     var eligible = store.eligibleTitles(catalog);
-    return pickManyWeightedByYear(eligible, 9);
+    return pickManyWeightedForIndex(eligible, 9);
   }
 
   function renderInitial() {
@@ -107,7 +107,7 @@
     }
 
     var source = freshPool.length >= 9 ? freshPool : eligible;
-    return pickManyWeightedByYear(source, 9);
+    return pickManyWeightedForIndex(source, 9);
   }
 
   function pickNextForSlot() {
@@ -132,7 +132,7 @@
     var pool = unseen.length ? unseen : fallback;
     if (!pool.length) return null;
 
-    return pickOneWeightedByYear(pool);
+    return pickOneWeightedForIndex(pool);
   }
 
   function buildTile(item, slotIndex) {
@@ -402,6 +402,40 @@
     return 1;
   }
 
+  function isExpandedCatalogItem(item) {
+    if (!item || !item.id) return false;
+    return /^film_wd_|^tv_tmz_|^book_ol_/i.test(item.id);
+  }
+
+  function splitByCatalogLayer(items) {
+    var base = [];
+    var expanded = [];
+
+    for (var i = 0; i < items.length; i++) {
+      if (isExpandedCatalogItem(items[i])) expanded.push(items[i]);
+      else base.push(items[i]);
+    }
+
+    return { base: base, expanded: expanded };
+  }
+
+  function pickOneWeightedForIndex(items) {
+    if (!items || !items.length) return null;
+
+    var grouped = splitByCatalogLayer(items);
+    var source = items;
+
+    if (grouped.base.length && grouped.expanded.length) {
+      source = Math.random() < 0.84 ? grouped.base : grouped.expanded;
+    } else if (grouped.base.length) {
+      source = grouped.base;
+    } else if (grouped.expanded.length) {
+      source = grouped.expanded;
+    }
+
+    return pickOneWeightedByYear(source);
+  }
+
   function pickOneWeightedByYear(items) {
     if (!items || !items.length) return null;
     var recentPool = [];
@@ -437,6 +471,27 @@
 
       for (var i = 0; i < pool.length; i++) {
         if (pool[i] === chosen) {
+          pool.splice(i, 1);
+          break;
+        }
+      }
+    }
+
+    return out;
+  }
+
+  function pickManyWeightedForIndex(items, count) {
+    var pool = (items || []).slice();
+    var out = [];
+    var target = Math.max(0, Number(count) || 0);
+
+    while (out.length < target && pool.length) {
+      var chosen = pickOneWeightedForIndex(pool);
+      if (!chosen) break;
+      out.push(chosen);
+
+      for (var i = 0; i < pool.length; i++) {
+        if (pool[i].id === chosen.id) {
           pool.splice(i, 1);
           break;
         }
