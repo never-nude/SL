@@ -72,6 +72,16 @@ body.discoverPage {
   line-height: 1.22;
 }
 
+body.indexPage .subtitle,
+body.discoverPage .subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: clamp(16px, 1vw, 19px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.22;
+}
+
 .main {
   width: 100%;
   max-width: none;
@@ -277,6 +287,8 @@ body.discoverPage .titleRowDiscover {
   justify-content: flex-start;
   gap: 8px 14px;
   margin-bottom: 10px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 body.discoverPage .titleRowDiscover .tileTitle {
@@ -434,21 +446,24 @@ body.discoverPage .tileDiscover .tileHead {
 }
 
 body.discoverPage .starsDiscover {
+  --discover-star-gap: clamp(4px, 0.45vw, 8px);
   flex: 0 1 100%;
   margin-left: 0;
   width: min(100%, 220px);
   max-width: 100%;
-  gap: clamp(4px, 0.45vw, 8px);
+  min-width: 0;
+  gap: var(--discover-star-gap);
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
 }
 
 body.discoverPage .starsDiscover .starBtn {
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
-  max-width: 34px;
-  min-width: 16px;
+  max-width: none;
+  min-width: 0;
   justify-self: start;
 }
 
@@ -852,6 +867,13 @@ body.screenPage .nav {
 
   .subtitle {
     font-size: 13px;
+  }
+
+  body.indexPage .subtitle,
+  body.discoverPage .subtitle {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.22;
   }
 
   .nav {
