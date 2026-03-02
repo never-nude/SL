@@ -24,12 +24,12 @@
   var mixStats = { total: 0, mainstream: 0, recent: 0, queue: [] };
   var RECENT_CUTOFF_YEAR = 2016;
   var MIX_WINDOW_SIZE = 60;
-  var TARGET_MAINSTREAM = 0.67;
-  var TARGET_RECENT = 0.63;
-  var MIN_MAINSTREAM = 0.60;
-  var MAX_MAINSTREAM = 0.70;
-  var MIN_RECENT = 0.60;
-  var MAX_RECENT = 0.70;
+  var TARGET_MAINSTREAM = 0.78;
+  var TARGET_RECENT = 0.32;
+  var MIN_MAINSTREAM = 0.72;
+  var MAX_MAINSTREAM = 0.95;
+  var MIN_RECENT = 0.22;
+  var MAX_RECENT = 0.44;
 
   init();
 
@@ -455,7 +455,7 @@
     var source = items;
 
     if (expandedSafe.length && grouped.base.length) {
-      source = Math.random() < 0.72 ? expandedSafe : grouped.base;
+      source = Math.random() < 0.24 ? expandedSafe : grouped.base;
     } else if (expandedSafe.length) {
       source = expandedSafe;
     } else if (grouped.base.length) {
@@ -486,24 +486,20 @@
     if (!isExpandedCatalogItem(item)) return true;
     if (looksObscureTitle(item.title)) return false;
 
-    if (/^tv_tmz_/i.test(item.id)) return true;
-    if (/^book_ol_/i.test(item.id)) return true;
-
-    if (/^film_wd_/i.test(item.id)) {
-      return false;
-    }
-
     return false;
   }
 
   function isAllowedExpansionItem(item) {
     if (!item) return false;
     if (!isExpandedCatalogItem(item)) return true;
+    if (typeof item.mainstream === "boolean") return true;
     if (/^film_wd_/i.test(item.id)) {
-      if (looksObscureTitle(item.title)) return false;
-      return Number(item.year) >= RECENT_CUTOFF_YEAR;
+      return false;
     }
-    return true;
+    if (/^tv_tmz_/i.test(item.id) || /^book_ol_/i.test(item.id)) {
+      return Number(item.year) < RECENT_CUTOFF_YEAR;
+    }
+    return false;
   }
 
   function pickOneBalancedForDiscover(source, stats, overflowSource) {
@@ -522,7 +518,7 @@
       var item = candidates[i];
       var simulated = simulateMixAfterPick(stats, item);
       var score = mixScore(simulated.mainRatio, simulated.recentRatio);
-      if (isRecentItem(item)) score -= 0.04;
+      if (isRecentItem(item)) score += 0.03;
 
       scored.push({
         item: item,
@@ -678,20 +674,23 @@
   function yearWeight(item) {
     var y = Number(item && item.year);
     if (!y) return 1;
-    if (y >= 2022) return 3.4;
-    if (y >= 2019) return 2.8;
-    if (y >= 2016) return 2.2;
-    if (y >= 2010) return 1.4;
-    return 1;
+    if (y >= 2022) return 0.85;
+    if (y >= 2019) return 0.92;
+    if (y >= 2016) return 1;
+    if (y >= 2010) return 1.2;
+    if (y >= 2000) return 1.35;
+    if (y >= 1990) return 1.5;
+    if (y >= 1980) return 1.45;
+    return 1.3;
   }
 
   function pickOneWeightedByYear(items) {
     if (!items || !items.length) return null;
-    var recentPool = [];
+    var legacyPool = [];
     for (var r = 0; r < items.length; r++) {
-      if (Number(items[r].year) >= 2016) recentPool.push(items[r]);
+      if (Number(items[r].year) < RECENT_CUTOFF_YEAR) legacyPool.push(items[r]);
     }
-    var source = recentPool.length && Math.random() < 0.74 ? recentPool : items;
+    var source = legacyPool.length && Math.random() < 0.72 ? legacyPool : items;
 
     var total = 0;
 

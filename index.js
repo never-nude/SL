@@ -13,6 +13,10 @@
   var slotNodes = new Array(9);
   var sessionSeen = {};
   var isRefreshing = false;
+  var mixStats = { total: 0, mainstream: 0, recent: 0 };
+  var RECENT_CUTOFF_YEAR = 2016;
+  var TARGET_MAINSTREAM = 0.78;
+  var TARGET_RECENT = 0.34;
 
   init();
 
@@ -395,11 +399,14 @@
   function yearWeight(item) {
     var y = Number(item && item.year);
     if (!y) return 1;
-    if (y >= 2022) return 3.4;
-    if (y >= 2019) return 2.8;
-    if (y >= 2016) return 2.2;
-    if (y >= 2010) return 1.4;
-    return 1;
+    if (y >= 2022) return 0.85;
+    if (y >= 2019) return 0.92;
+    if (y >= 2016) return 1;
+    if (y >= 2010) return 1.2;
+    if (y >= 2000) return 1.35;
+    if (y >= 1990) return 1.5;
+    if (y >= 1980) return 1.45;
+    return 1.3;
   }
 
   function isExpandedCatalogItem(item) {
@@ -423,26 +430,99 @@
     if (!items || !items.length) return null;
 
     var grouped = splitByCatalogLayer(items);
+    var expandedSafe = [];
+    for (var x = 0; x < grouped.expanded.length; x++) {
+      if (isAllowedExpansionItem(grouped.expanded[x])) expandedSafe.push(grouped.expanded[x]);
+    }
     var source = items;
 
-    if (grouped.base.length && grouped.expanded.length) {
-      source = Math.random() < 0.84 ? grouped.base : grouped.expanded;
+    if (grouped.base.length && expandedSafe.length) {
+      source = Math.random() < 0.84 ? grouped.base : expandedSafe;
     } else if (grouped.base.length) {
       source = grouped.base;
-    } else if (grouped.expanded.length) {
-      source = grouped.expanded;
+    } else if (expandedSafe.length) {
+      source = expandedSafe;
     }
 
-    return pickOneWeightedByYear(source);
+    var mixPool = filterPoolForMix(source, mixStats, TARGET_MAINSTREAM, TARGET_RECENT);
+    var chosen = pickOneWeightedByYear(mixPool.length ? mixPool : source);
+    if (chosen) noteMixPick(chosen, mixStats);
+    return chosen;
+  }
+
+  function isRecentItem(item) {
+    return Number(item && item.year) >= RECENT_CUTOFF_YEAR;
+  }
+
+  function looksObscureTitle(title) {
+    var t = String(title || "").trim();
+    if (!t) return true;
+    if (/^q\d+$/i.test(t)) return true;
+    if (/^(untitled|pilot)$/i.test(t)) return true;
+    if (/title card|demo reel|test footage|compilation/i.test(t)) return true;
+    return false;
+  }
+
+  function isMainstreamItem(item) {
+    if (!item) return false;
+    if (typeof item.mainstream === "boolean") return item.mainstream;
+    if (!isExpandedCatalogItem(item)) return true;
+    if (looksObscureTitle(item.title)) return false;
+    return false;
+  }
+
+  function isAllowedExpansionItem(item) {
+    if (!item) return false;
+    if (!isExpandedCatalogItem(item)) return true;
+    if (typeof item.mainstream === "boolean") return true;
+    if (/^film_wd_/i.test(item.id)) {
+      return false;
+    }
+    if (/^tv_tmz_/i.test(item.id) || /^book_ol_/i.test(item.id)) {
+      return Number(item.year) < RECENT_CUTOFF_YEAR;
+    }
+    return false;
+  }
+
+  function filterPoolForMix(source, stats, mainTarget, recentTarget) {
+    if (!source || !source.length) return source || [];
+
+    var needMain = stats.total === 0 ? true : (stats.mainstream / stats.total) < mainTarget;
+    var needRecent = stats.total === 0 ? true : (stats.recent / stats.total) < recentTarget;
+
+    var both = [];
+    var mains = [];
+    var recents = [];
+
+    for (var i = 0; i < source.length; i++) {
+      var item = source[i];
+      var isMain = isMainstreamItem(item);
+      var isRecent = isRecentItem(item);
+      if (isMain) mains.push(item);
+      if (isRecent) recents.push(item);
+      if (isMain && isRecent) both.push(item);
+    }
+
+    if (needMain && needRecent && both.length) return both;
+    if (needMain && mains.length) return mains;
+    if (needRecent && recents.length) return recents;
+    return source;
+  }
+
+  function noteMixPick(item, stats) {
+    if (!item || !stats) return;
+    stats.total += 1;
+    if (isMainstreamItem(item)) stats.mainstream += 1;
+    if (isRecentItem(item)) stats.recent += 1;
   }
 
   function pickOneWeightedByYear(items) {
     if (!items || !items.length) return null;
-    var recentPool = [];
+    var legacyPool = [];
     for (var r = 0; r < items.length; r++) {
-      if (Number(items[r].year) >= 2016) recentPool.push(items[r]);
+      if (Number(items[r].year) < RECENT_CUTOFF_YEAR) legacyPool.push(items[r]);
     }
-    var source = recentPool.length && Math.random() < 0.74 ? recentPool : items;
+    var source = legacyPool.length && Math.random() < 0.72 ? legacyPool : items;
 
     var total = 0;
 
