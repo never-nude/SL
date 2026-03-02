@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-02T18:28:17Z",
-  "newCount": 832,
+  "generatedAt": "2026-03-02T19:39:21Z",
+  "newCount": 1230,
   "byType": {
-    "film": 417,
-    "tv": 342,
-    "book": 73
+    "film": 495,
+    "tv": 700,
+    "book": 35
   },
   "mainstreamPct": 100.0,
-  "pre2016Pct": 83.5,
+  "pre2016Pct": 86.8,
   "targets": {
-    "film": 520,
-    "tv": 420,
-    "book": 560
+    "film": 900,
+    "tv": 700,
+    "book": 300
   },
   "pre2016ShareTarget": {
     "film": 0.78,
     "tv": 0.72,
     "book": 0.9
   },
-  "overrideCount": 3832
+  "overrideCount": 4230
 }

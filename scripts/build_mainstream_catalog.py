@@ -13,9 +13,9 @@ OUT_REPORT = ROOT / "catalog_mainstream_report.json"
 
 RECENT_CUTOFF_YEAR = 2016
 TARGETS = {
-    "film": 520,
-    "tv": 420,
-    "book": 560,
+    "film": 900,
+    "tv": 700,
+    "book": 300,
 }
 PRE_2016_SHARE = {
     "film": 0.78,
@@ -24,19 +24,22 @@ PRE_2016_SHARE = {
 }
 
 FILM_QUERIES = [
-    (2010, 2025, 14, 420),
-    (2000, 2009, 12, 400),
-    (1990, 1999, 10, 360),
-    (1980, 1989, 9, 320),
-    (1970, 1979, 8, 280),
+    (2021, 2025, 13, 240),
+    (2016, 2020, 12, 260),
+    (2010, 2015, 11, 280),
+    (2000, 2009, 10, 360),
+    (1990, 1999, 9, 360),
+    (1980, 1989, 8, 320),
+    (1970, 1979, 8, 300),
     (1960, 1969, 7, 260),
     (1950, 1959, 6, 240),
 ]
 
 TV_QUERIES = [
-    (2010, 2025, 12, 440),
-    (1990, 2009, 10, 420),
-    (1950, 1989, 8, 360),
+    (2016, 2025, 14, 280),
+    (2000, 2015, 12, 360),
+    (1980, 1999, 10, 360),
+    (1950, 1979, 8, 300),
 ]
 
 BOOK_SUBJECTS = [
@@ -50,8 +53,6 @@ BOOK_SUBJECTS = [
     "historical_fiction",
     "young_adult_fiction",
     "horror",
-    "biography",
-    "memoir",
     "literary_fiction",
 ]
 
@@ -207,7 +208,7 @@ LIMIT {limit}
 """
 
     url = "https://query.wikidata.org/sparql?format=json&query=" + urllib.parse.quote(query)
-    data = fetch_json(url, retries=6, backoff=0.8, timeout=95)
+    data = fetch_json(url, retries=6, backoff=0.8, timeout=70)
     rows = (((data or {}).get("results") or {}).get("bindings") or [])
 
     out = []
@@ -240,6 +241,20 @@ LIMIT {limit}
         )
 
     return out
+
+
+def wikidata_query_candidates_relaxed(instance_qid, date_prop, start_year, end_year, min_sitelinks, limit):
+    thresholds = [min_sitelinks, max(4, min_sitelinks - 2), max(2, min_sitelinks - 4)]
+    best = []
+
+    for threshold in thresholds:
+        rows = wikidata_query_candidates(instance_qid, date_prop, start_year, end_year, threshold, limit)
+        if len(rows) > len(best):
+            best = rows
+        if len(rows) >= max(60, int(limit * 0.35)):
+            return rows
+
+    return best
 
 
 def collapse_wikidata_candidates(rows, media_type):
@@ -311,7 +326,7 @@ def pick_with_pre2016_bias(candidates, target_count, pre_share):
 def build_films(state):
     rows = []
     for start, end, min_links, limit in FILM_QUERIES:
-        part = wikidata_query_candidates("Q11424", "P577", start, end, min_links, limit)
+        part = wikidata_query_candidates_relaxed("Q11424", "P577", start, end, min_links, limit)
         rows.extend(part)
         log("film query", f"{start}-{end}", "rows", len(part), "total", len(rows))
 
@@ -340,7 +355,7 @@ def build_films(state):
 def build_tv(state):
     rows = []
     for start, end, min_links, limit in TV_QUERIES:
-        part = wikidata_query_candidates("Q5398426", "P580", start, end, min_links, limit)
+        part = wikidata_query_candidates_relaxed("Q5398426", "P580", start, end, min_links, limit)
         rows.extend(part)
         log("tv query", f"{start}-{end}", "rows", len(part), "total", len(rows))
 
@@ -363,13 +378,79 @@ def build_tv(state):
         }
         unique_push(out, item, c["image"], state)
 
+    if len(out) < TARGETS["tv"]:
+        for fallback in build_tvmaze_fallback(state, TARGETS["tv"] - len(out)):
+            out.append(fallback)
+
     return out
+
+
+def build_tvmaze_fallback(state, needed):
+    if needed <= 0:
+        return []
+
+    cands = []
+    for page in range(0, 130):
+        url = f"https://api.tvmaze.com/shows?page={page}"
+        data = fetch_json(url, retries=4, backoff=0.35, timeout=40)
+        if not isinstance(data, list) or not data:
+            break
+
+        for show in data:
+            show_id = show.get("id")
+            name = str(show.get("name") or "").strip()
+            premiered = str(show.get("premiered") or "")
+            image = show.get("image") or {}
+            image_url = image.get("original") or image.get("medium")
+            if not show_id or not name or not image_url:
+                continue
+
+            year = int(premiered[:4]) if len(premiered) >= 4 and premiered[:4].isdigit() else 0
+            if not (1950 <= year <= 2025):
+                continue
+
+            weight = float(show.get("weight") or 0)
+            rating = float(((show.get("rating") or {}).get("average")) or 0)
+            score = weight * 1.5 + rating * 8 + score_year_bias(year)
+
+            cands.append(
+                {
+                    "id": f"tv_pop_tmz_{show_id}_{year}",
+                    "title": normalize_title(name, "TV"),
+                    "type": "TV",
+                    "year": year,
+                    "mainstream": True,
+                    "image": image_url,
+                    "score": score,
+                }
+            )
+
+        if page % 20 == 0:
+            log("tvmaze page", page, "candidates", len(cands))
+
+    cands.sort(key=lambda x: (x["score"], x["year"]), reverse=True)
+    picked = []
+    for c in cands:
+        if len(picked) >= needed:
+            break
+        item = {
+            "id": c["id"],
+            "title": c["title"],
+            "type": c["type"],
+            "year": c["year"],
+            "mainstream": True,
+        }
+        if unique_push(picked, item, c["image"], state):
+            continue
+
+    log("tvmaze fallback added", len(picked), "needed", needed)
+    return picked
 
 
 def openlibrary_subject_candidates():
     out = []
     for subject in BOOK_SUBJECTS:
-        for offset in range(0, 1000, 100):
+        for offset in range(0, 600, 100):
             url = (
                 "https://openlibrary.org/subjects/"
                 + urllib.parse.quote(subject)
@@ -413,7 +494,7 @@ def openlibrary_subject_candidates():
 def openlibrary_search_candidates():
     out = []
     for q in BOOK_QUERIES:
-        for page in range(1, 12):
+        for page in range(1, 8):
             url = (
                 "https://openlibrary.org/search.json?q="
                 + urllib.parse.quote(q)
@@ -439,6 +520,9 @@ def openlibrary_search_candidates():
                 if not (1850 <= year <= 2025):
                     continue
                 if "/works/" not in key:
+                    continue
+
+                if int(edition_count or 0) < 18:
                     continue
 
                 out.append(
@@ -526,14 +610,10 @@ def main():
     log("Building mainstream expansion catalog")
 
     catalog_scripts = ["catalog.js", "catalog_generated.js"]
-    if OUT_CATALOG.exists():
-        catalog_scripts.append(OUT_CATALOG.name)
 
     all_existing_catalog = load_catalog_from_scripts(catalog_scripts)
 
     override_scripts = ["artwork_overrides.js", "artwork_overrides_generated.js"]
-    if OUT_OVERRIDES.exists():
-        override_scripts.append(OUT_OVERRIDES.name)
 
     all_existing_overrides = load_overrides_from_scripts(override_scripts)
 

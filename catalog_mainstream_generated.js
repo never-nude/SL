@@ -28,10 +28,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q190086_1959",
-    "title": "Some Like It Hot",
+    "id": "film_pop_wd_q182692_1979",
+    "title": "Apocalypse Now",
     "type": "Film",
-    "year": 1959,
+    "year": 1979,
     "mainstream": true
   },
   {
@@ -91,17 +91,24 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q270470_1953",
+    "title": "Peter Pan",
+    "type": "Film",
+    "year": 1953,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q181086_1971",
+    "title": "A Clockwork Orange",
+    "type": "Film",
+    "year": 1971,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q109331_1989",
     "title": "Back to the Future Part II",
     "type": "Film",
     "year": 1989,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q179215_1984",
-    "title": "Indiana Jones and the Temple of Doom",
-    "type": "Film",
-    "year": 1984,
     "mainstream": true
   },
   {
@@ -112,17 +119,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q188718_1957",
-    "title": "The Bridge on the River Kwai",
+    "id": "film_pop_wd_q179215_1984",
+    "title": "Indiana Jones and the Temple of Doom",
     "type": "Film",
-    "year": 1957,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q189540_1954",
-    "title": "Seven Samurai",
-    "type": "Film",
-    "year": 1954,
+    "year": 1984,
     "mainstream": true
   },
   {
@@ -203,10 +203,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q108297_1960",
-    "title": "Spartacus",
+    "id": "film_pop_wd_q274167_1973",
+    "title": "The Exorcist",
     "type": "Film",
-    "year": 1960,
+    "year": 1973,
     "mainstream": true
   },
   {
@@ -221,6 +221,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Rashomon",
     "type": "Film",
     "year": 1950,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q189330_2012",
+    "title": "The Dark Knight Rises",
+    "type": "Film",
+    "year": 2012,
     "mainstream": true
   },
   {
@@ -252,10 +259,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q201215_1964",
-    "title": "My Fair Lady",
+    "id": "film_pop_wd_q193066_1961",
+    "title": "Breakfast at Tiffany's",
     "type": "Film",
-    "year": 1964,
+    "year": 1961,
     "mainstream": true
   },
   {
@@ -273,10 +280,31 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q19069_1960",
+    "title": "The Magnificent Seven",
+    "type": "Film",
+    "year": 1960,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q34414_1954",
     "title": "Rear Window",
     "type": "Film",
     "year": 1954,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q271830_1950",
+    "title": "The Third Man",
+    "type": "Film",
+    "year": 1950,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q183066_2008",
+    "title": "The Hurt Locker",
+    "type": "Film",
+    "year": 2008,
     "mainstream": true
   },
   {
@@ -301,10 +329,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q110043_1963",
-    "title": "The Birds",
+    "id": "film_pop_wd_q107914_1971",
+    "title": "Diamonds Are Forever",
     "type": "Film",
-    "year": 1963,
+    "year": 1971,
     "mainstream": true
   },
   {
@@ -329,17 +357,17 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q239756_1957",
+    "title": "Wild Strawberries",
+    "type": "Film",
+    "year": 1957,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q222720_1996",
     "title": "Fargo",
     "type": "Film",
     "year": 1996,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q372514_1987",
-    "title": "RoboCop",
-    "type": "Film",
-    "year": 1987,
     "mainstream": true
   },
   {
@@ -354,13 +382,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Raging Bull",
     "type": "Film",
     "year": 1980,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q61696_1969",
-    "title": "Midnight Cowboy",
-    "type": "Film",
-    "year": 1969,
     "mainstream": true
   },
   {
@@ -392,24 +413,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q270510_1960",
-    "title": "The Apartment",
-    "type": "Film",
-    "year": 1960,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q217182_1990",
     "title": "Edward Scissorhands",
     "type": "Film",
     "year": 1990,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q464032_1988",
-    "title": "Cinema Paradiso",
-    "type": "Film",
-    "year": 1988,
     "mainstream": true
   },
   {
@@ -476,6 +483,20 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q181776_1967",
+    "title": "Bonnie and Clyde",
+    "type": "Film",
+    "year": 1967,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q177922_1962",
+    "title": "To Kill a Mockingbird",
+    "type": "Film",
+    "year": 1962,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q309153_1952",
     "title": "Singin' in the Rain",
     "type": "Film",
@@ -532,6 +553,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q320588_1977",
+    "title": "Close Encounters of the Third Kind",
+    "type": "Film",
+    "year": 1977,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q162331_1959",
     "title": "The 400 Blows",
     "type": "Film",
@@ -574,6 +602,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q464032_1990",
+    "title": "Cinema Paradiso",
+    "type": "Film",
+    "year": 1990,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q626483_1982",
     "title": "Tron",
     "type": "Film",
@@ -592,13 +627,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Planet of the Apes",
     "type": "Film",
     "year": 1968,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q867283_1999",
-    "title": "The Iron Giant",
-    "type": "Film",
-    "year": 1999,
     "mainstream": true
   },
   {
@@ -700,13 +728,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q496255_1954",
-    "title": "Dial M for Murder",
-    "type": "Film",
-    "year": 1954,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q278997_2003",
     "title": "Big Fish",
     "type": "Film",
@@ -735,13 +756,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q468484_1962",
-    "title": "The Longest Day",
-    "type": "Film",
-    "year": 1962,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q128761_1960",
     "title": "Two Women",
     "type": "Film",
@@ -756,24 +770,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q426346_1955",
-    "title": "Rebel Without a Cause",
-    "type": "Film",
-    "year": 1955,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q237116_1955",
     "title": "Marty",
     "type": "Film",
     "year": 1955,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q313315_1963",
-    "title": "Tom Jones",
-    "type": "Film",
-    "year": 1963,
     "mainstream": true
   },
   {
@@ -784,10 +784,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q275553_2008",
-    "title": "Changeling",
+    "id": "film_pop_wd_q844883_1997",
+    "title": "Seven Years in Tibet",
     "type": "Film",
-    "year": 2008,
+    "year": 1997,
     "mainstream": true
   },
   {
@@ -798,10 +798,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q748986_1994",
-    "title": "Natural Born Killers",
+    "id": "film_pop_wd_q725552_1990",
+    "title": "Misery",
     "type": "Film",
-    "year": 1994,
+    "year": 1990,
     "mainstream": true
   },
   {
@@ -809,6 +809,20 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Wings of Desire",
     "type": "Film",
     "year": 1987,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q179743_1966",
+    "title": "Bringing Up Baby",
+    "type": "Film",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q577757_1958",
+    "title": "Gigi",
+    "type": "Film",
+    "year": 1958,
     "mainstream": true
   },
   {
@@ -823,13 +837,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Con Air",
     "type": "Film",
     "year": 1997,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q124697_1976",
-    "title": "1900",
-    "type": "Film",
-    "year": 1976,
     "mainstream": true
   },
   {
@@ -903,13 +910,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q462409_1984",
-    "title": "Way of the Dragon",
-    "type": "Film",
-    "year": 1984,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q129895_1964",
     "title": "Marnie",
     "type": "Film",
@@ -924,24 +924,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q427186_1960",
-    "title": "Rocco and His Brothers",
+    "id": "film_pop_wd_q465773_1953",
+    "title": "The Wages of Fear",
     "type": "Film",
-    "year": 1960,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q290679_1955",
-    "title": "The Seven Year Itch",
-    "type": "Film",
-    "year": 1955,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q499639_1951",
-    "title": "Strangers on a Train",
-    "type": "Film",
-    "year": 1951,
+    "year": 1953,
     "mainstream": true
   },
   {
@@ -959,17 +945,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q935945_1988",
-    "title": "Child's Play",
+    "id": "film_pop_wd_q657079_1984",
+    "title": "Serpico",
     "type": "Film",
-    "year": 1988,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q636043_1985",
-    "title": "The Goonies",
-    "type": "Film",
-    "year": 1985,
+    "year": 1984,
     "mainstream": true
   },
   {
@@ -977,6 +956,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Fitzcarraldo",
     "type": "Film",
     "year": 1982,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q257515_1959",
+    "title": "Plan 9 from Outer Space",
+    "type": "Film",
+    "year": 1959,
     "mainstream": true
   },
   {
@@ -1008,13 +994,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q517958_1989",
-    "title": "Field of Dreams",
-    "type": "Film",
-    "year": 1989,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q237222_1984",
     "title": "Blood Simple",
     "type": "Film",
@@ -1022,10 +1001,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q572440_1980",
-    "title": "Monsieur Verdoux",
+    "id": "film_pop_wd_q753449_1983",
+    "title": "Christine",
     "type": "Film",
-    "year": 1980,
+    "year": 1983,
     "mainstream": true
   },
   {
@@ -1057,10 +1036,17 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q207482_1979",
+    "id": "film_pop_wd_q504697_1983",
+    "title": "WarGames",
+    "type": "Film",
+    "year": 1983,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q207482_1980",
     "title": "1941",
     "type": "Film",
-    "year": 1979,
+    "year": 1980,
     "mainstream": true
   },
   {
@@ -1099,13 +1085,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q381731_2008",
-    "title": "Burn After Reading",
-    "type": "Film",
-    "year": 2008,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q168010_1998",
     "title": "City of Angels",
     "type": "Film",
@@ -1131,6 +1110,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Clerks",
     "type": "Film",
     "year": 1994,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q850312_1981",
+    "title": "Halloween II",
+    "type": "Film",
+    "year": 1981,
     "mainstream": true
   },
   {
@@ -1176,6 +1162,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q739498_1995",
+    "title": "Assassins",
+    "type": "Film",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q588464_1986",
     "title": "The Message",
     "type": "Film",
@@ -1190,20 +1183,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q425992_1951",
-    "title": "The Day the Earth Stood Still",
-    "type": "Film",
-    "year": 1951,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q274895_2002",
-    "title": "8 Women",
-    "type": "Film",
-    "year": 2002,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q314642_1999",
     "title": "Asterix & Obelix Take On Caesar",
     "type": "Film",
@@ -1215,6 +1194,20 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Kindergarten Cop",
     "type": "Film",
     "year": 1990,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q736788_1987",
+    "title": "Planes, Trains and Automobiles",
+    "type": "Film",
+    "year": 1987,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q503338_1985",
+    "title": "Pale Rider",
+    "type": "Film",
+    "year": 1985,
     "mainstream": true
   },
   {
@@ -1239,17 +1232,17 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q501703_1997",
-    "title": "Austin Powers: International Man of Mystery",
-    "type": "Film",
-    "year": 1997,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q543462_1995",
     "title": "Total Eclipse",
     "type": "Film",
     "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q1141873_1993",
+    "title": "Little Buddha",
+    "type": "Film",
+    "year": 1993,
     "mainstream": true
   },
   {
@@ -1274,6 +1267,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q859494_1986",
+    "title": "Big Trouble in Little China",
+    "type": "Film",
+    "year": 1986,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q602522_1980",
     "title": "The Eiger Sanction",
     "type": "Film",
@@ -1288,13 +1288,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q241925_1964",
-    "title": "Marriage Italian-Style",
-    "type": "Film",
-    "year": 1964,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q26644_1962",
     "title": "What Ever Happened to Baby Jane?",
     "type": "Film",
@@ -1306,13 +1299,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "The Big Country",
     "type": "Film",
     "year": 1958,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q380848_2009",
-    "title": "Julie & Julia",
-    "type": "Film",
-    "year": 2009,
     "mainstream": true
   },
   {
@@ -1351,13 +1337,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q509913_1985",
-    "title": "Legend",
-    "type": "Film",
-    "year": 1985,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q589896_1985",
     "title": "Police Academy 2: Their First Assignment",
     "type": "Film",
@@ -1372,6 +1351,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q399647_1964",
+    "title": "Red Desert",
+    "type": "Film",
+    "year": 1964,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q150867_1959",
     "title": "The Great War",
     "type": "Film",
@@ -1379,31 +1365,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q158023_2009",
-    "title": "The White Ribbon",
+    "id": "film_pop_wd_q472390_1956",
+    "title": "The Wrong Man",
     "type": "Film",
-    "year": 2009,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q273676_2008",
-    "title": "Asterix at the Olympic Games",
-    "type": "Film",
-    "year": 2008,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q383173_2005",
-    "title": "Caché",
-    "type": "Film",
-    "year": 2005,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q937762_1998",
-    "title": "Pi",
-    "type": "Film",
-    "year": 1998,
+    "year": 1956,
     "mainstream": true
   },
   {
@@ -1442,6 +1407,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q502530_1950",
+    "title": "Stage Fright",
+    "type": "Film",
+    "year": 1950,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q300555_2009",
     "title": "A Serious Man",
     "type": "Film",
@@ -1477,6 +1449,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q700694_1982",
+    "title": "The Eagle Has Landed",
+    "type": "Film",
+    "year": 1982,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q18429_1976",
     "title": "Fellini's Casanova",
     "type": "Film",
@@ -1505,31 +1484,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q937087_1991",
-    "title": "The Doors",
-    "type": "Film",
-    "year": 1991,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q510180_1989",
-    "title": "Sea of Love",
-    "type": "Film",
-    "year": 1989,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q18416_1969",
     "title": "Satyricon",
     "type": "Film",
     "year": 1969,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q478395_1960",
-    "title": "Peeping Tom",
-    "type": "Film",
-    "year": 1960,
     "mainstream": true
   },
   {
@@ -1582,6 +1540,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q783069_1980",
+    "title": "Black Christmas",
+    "type": "Film",
+    "year": 1980,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q16403_1971",
     "title": "And Now for Something Completely Different",
     "type": "Film",
@@ -1603,27 +1568,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q334735_1963",
-    "title": "Lilies of the Field",
-    "type": "Film",
-    "year": 1963,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q332427_1962",
-    "title": "The Exterminating Angel",
-    "type": "Film",
-    "year": 1962,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q163549_2006",
-    "title": "Black Book",
-    "type": "Film",
-    "year": 2006,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q473628_1993",
     "title": "Free Willy",
     "type": "Film",
@@ -1638,17 +1582,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q500296_1960",
-    "title": "The Little Shop of Horrors",
+    "id": "film_pop_wd_q944291_1997",
+    "title": "Kundun",
     "type": "Film",
-    "year": 1960,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q936576_1996",
-    "title": "The Nutty Professor",
-    "type": "Film",
-    "year": 1996,
+    "year": 1997,
     "mainstream": true
   },
   {
@@ -1659,24 +1596,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q600950_1986",
-    "title": "Sid and Nancy",
-    "type": "Film",
-    "year": 1986,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q467953_1984",
     "title": "Children of the Corn",
     "type": "Film",
     "year": 1984,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q744102_1982",
-    "title": "Creepshow",
-    "type": "Film",
-    "year": 1982,
     "mainstream": true
   },
   {
@@ -1708,13 +1631,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q244115_1963",
-    "title": "55 Days at Peking",
-    "type": "Film",
-    "year": 1963,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q18409_1962",
     "title": "Boccaccio '70",
     "type": "Film",
@@ -1726,6 +1642,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Gunfight at the O.K. Corral",
     "type": "Film",
     "year": 1957,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q194726_2011",
+    "title": "From Up on Poppy Hill",
+    "type": "Film",
+    "year": 2011,
     "mainstream": true
   },
   {
@@ -1761,6 +1684,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Dazed and Confused",
     "type": "Film",
     "year": 1993,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q510180_1990",
+    "title": "Sea of Love",
+    "type": "Film",
+    "year": 1990,
     "mainstream": true
   },
   {
@@ -1834,17 +1764,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q426352_1950",
-    "title": "Samson and Delilah",
+    "id": "film_pop_wd_q749988_2010",
+    "title": "The City of Lost Children",
     "type": "Film",
-    "year": 1950,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q663014_1998",
-    "title": "Dr. Dolittle",
-    "type": "Film",
-    "year": 1998,
+    "year": 2010,
     "mainstream": true
   },
   {
@@ -1862,15 +1785,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q609091_1989",
-    "title": "Uncle Buck",
+    "id": "film_pop_wd_q18433_1980",
+    "title": "City of Women",
     "type": "Film",
-    "year": 1989,
+    "year": 1980,
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q18433_1980",
-    "title": "City of Women",
+    "id": "film_pop_wd_q503033_1980",
+    "title": "The Final Countdown",
     "type": "Film",
     "year": 1980,
     "mainstream": true
@@ -1904,17 +1827,17 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q780469_1983",
-    "title": "Yentl",
+    "id": "film_pop_wd_q848285_1982",
+    "title": "Death Wish II",
     "type": "Film",
-    "year": 1983,
+    "year": 1982,
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q262980_1966",
-    "title": "Harper",
+    "id": "film_pop_wd_q174513_1961",
+    "title": "One-Eyed Jacks",
     "type": "Film",
-    "year": 1966,
+    "year": 1961,
     "mainstream": true
   },
   {
@@ -1932,8 +1855,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q522185_2002",
-    "title": "Femme Fatale",
+    "id": "film_pop_wd_q266596_1950",
+    "title": "Panic in the Streets",
+    "type": "Film",
+    "year": 1950,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q179100_2002",
+    "title": "Enough",
     "type": "Film",
     "year": 2002,
     "mainstream": true
@@ -1988,13 +1918,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q406936_1965",
-    "title": "The Sucker",
-    "type": "Film",
-    "year": 1965,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q142751_1964",
     "title": "The Train",
     "type": "Film",
@@ -2027,6 +1950,20 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Appointment with Death",
     "type": "Film",
     "year": 1988,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q848274_1987",
+    "title": "Death Wish 4: The Crackdown",
+    "type": "Film",
+    "year": 1987,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q645770_1980",
+    "title": "The Desert of the Tartars",
+    "type": "Film",
+    "year": 1980,
     "mainstream": true
   },
   {
@@ -2065,6 +2002,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q263583_1959",
+    "title": "House on Haunted Hill",
+    "type": "Film",
+    "year": 1959,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q185834_1958",
     "title": "A Time to Love and a Time to Die",
     "type": "Film",
@@ -2100,17 +2044,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q743487_1996",
-    "title": "One Fine Day",
+    "id": "film_pop_wd_q609091_1991",
+    "title": "Uncle Buck",
     "type": "Film",
-    "year": 1996,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q535295_1985",
-    "title": "Down and Dirty",
-    "type": "Film",
-    "year": 1985,
+    "year": 1991,
     "mainstream": true
   },
   {
@@ -2125,13 +2062,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Salon Kitty",
     "type": "Film",
     "year": 1976,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q131842_1974",
-    "title": "The Legend of the 7 Golden Vampires",
-    "type": "Film",
-    "year": 1974,
     "mainstream": true
   },
   {
@@ -2163,20 +2093,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q328442_1964",
-    "title": "Santa Claus Conquers the Martians",
-    "type": "Film",
-    "year": 1964,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q499144_1952",
-    "title": "Duck and Cover",
-    "type": "Film",
-    "year": 1952,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q244865_1950",
     "title": "Champion",
     "type": "Film",
@@ -2184,10 +2100,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q425904_1950",
-    "title": "Night and the City",
+    "id": "film_pop_wd_q348534_2001",
+    "title": "3000 Miles to Graceland",
     "type": "Film",
-    "year": 1950,
+    "year": 2001,
     "mainstream": true
   },
   {
@@ -2200,6 +2116,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
   {
     "id": "film_pop_wd_q666017_1991",
     "title": "Europa",
+    "type": "Film",
+    "year": 1991,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q994421_1991",
+    "title": "The Wing or the Thigh",
     "type": "Film",
     "year": 1991,
     "mainstream": true
@@ -2219,6 +2142,20 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q839294_1980",
+    "title": "Death of a Corrupt Man",
+    "type": "Film",
+    "year": 1980,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q880665_1980",
+    "title": "Bad Timing",
+    "type": "Film",
+    "year": 1980,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q409064_1979",
     "title": "The Concorde ... Airport '79",
     "type": "Film",
@@ -2230,6 +2167,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "My Friends",
     "type": "Film",
     "year": 1975,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q369028_1958",
+    "title": "The Brothers Karamazov",
+    "type": "Film",
+    "year": 1958,
     "mainstream": true
   },
   {
@@ -2258,13 +2202,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "La Belle Noiseuse",
     "type": "Film",
     "year": 1991,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q597579_1984",
-    "title": "Double Trouble",
-    "type": "Film",
-    "year": 1984,
     "mainstream": true
   },
   {
@@ -2303,6 +2240,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q848297_1994",
+    "title": "Death Wish V: The Face of Death",
+    "type": "Film",
+    "year": 1994,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q525421_1993",
     "title": "The Secret Garden",
     "type": "Film",
@@ -2324,17 +2268,24 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q732518_1980",
+    "title": "Herbie Goes Bananas",
+    "type": "Film",
+    "year": 1980,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q375725_1975",
+    "title": "Fantozzi",
+    "type": "Film",
+    "year": 1975,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q1365_1974",
     "title": "Swept Away",
     "type": "Film",
     "year": 1974,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q261854_1969",
-    "title": "The Undefeated",
-    "type": "Film",
-    "year": 1969,
     "mainstream": true
   },
   {
@@ -2345,22 +2296,22 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q442390_1965",
-    "title": "I Knew Her Well",
+    "id": "film_pop_wd_q177438_1963",
+    "title": "Mahanagar",
     "type": "Film",
-    "year": 1965,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q497924_1957",
-    "title": "A Face in the Crowd",
-    "type": "Film",
-    "year": 1957,
+    "year": 1963,
     "mainstream": true
   },
   {
     "id": "film_pop_wd_q50937_1955",
     "title": "It Came from Beneath the Sea",
+    "type": "Film",
+    "year": 1955,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q265203_1955",
+    "title": "Dreams",
     "type": "Film",
     "year": 1955,
     "mainstream": true
@@ -2380,8 +2331,22 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q659037_1994",
+    "title": "Angels in the Outfield",
+    "type": "Film",
+    "year": 1994,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q187561_1991",
     "title": "Madonna: Truth or Dare",
+    "type": "Film",
+    "year": 1991,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q535295_1991",
+    "title": "Down and Dirty",
     "type": "Film",
     "year": 1991,
     "mainstream": true
@@ -2415,20 +2380,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q774269_1999",
-    "title": "Buena Vista Social Club",
-    "type": "Film",
-    "year": 1999,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q668280_1995",
-    "title": "Ulysses' Gaze",
-    "type": "Film",
-    "year": 1995,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q129283_1991",
     "title": "King Ralph",
     "type": "Film",
@@ -2443,20 +2394,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q541727_1988",
-    "title": "Powaqqatsi",
-    "type": "Film",
-    "year": 1988,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q664234_1988",
-    "title": "Itinéraire d'un enfant gâté",
-    "type": "Film",
-    "year": 1988,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q291178_1987",
     "title": "The Cure for Insomnia",
     "type": "Film",
@@ -2464,10 +2401,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q426923_1960",
+    "id": "film_pop_wd_q426923_1959",
     "title": "Estate Violenta",
     "type": "Film",
-    "year": 1960,
+    "year": 1959,
     "mainstream": true
   },
   {
@@ -2485,6 +2422,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q997206_1996",
+    "title": "Ghosts of Mississippi",
+    "type": "Film",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q653281_1990",
     "title": "Memphis Belle",
     "type": "Film",
@@ -2492,17 +2436,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q912557_1989",
-    "title": "La Révolution française",
+    "id": "film_pop_wd_q840568_1985",
+    "title": "Parole de flic",
     "type": "Film",
-    "year": 1989,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q728499_1988",
-    "title": "Amsterdamned",
-    "type": "Film",
-    "year": 1988,
+    "year": 1985,
     "mainstream": true
   },
   {
@@ -2515,6 +2452,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
   {
     "id": "film_pop_wd_q18421_1970",
     "title": "The Clowns",
+    "type": "Film",
+    "year": 1970,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q377422_1970",
+    "title": "L'homme orchestre",
     "type": "Film",
     "year": 1970,
     "mainstream": true
@@ -2562,6 +2506,13 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
+    "id": "film_pop_wd_q949784_1993",
+    "title": "Caro diario",
+    "type": "Film",
+    "year": 1993,
+    "mainstream": true
+  },
+  {
     "id": "film_pop_wd_q376117_1987",
     "title": "The Only Son",
     "type": "Film",
@@ -2583,17 +2534,17 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q248051_1973",
-    "title": "The Devil in Miss Jones",
-    "type": "Film",
-    "year": 1973,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q38815_1968",
     "title": "The Day of the Owl",
     "type": "Film",
     "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q508112_1965",
+    "title": "I Saw What You Did",
+    "type": "Film",
+    "year": 1965,
     "mainstream": true
   },
   {
@@ -2611,10 +2562,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q699028_1990",
-    "title": "Moon 44",
+    "id": "film_pop_wd_q438272_1951",
+    "title": "As Young as You Feel",
     "type": "Film",
-    "year": 1990,
+    "year": 1951,
     "mainstream": true
   },
   {
@@ -2632,20 +2583,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q780835_1981",
-    "title": "Buddy Goes West",
-    "type": "Film",
-    "year": 1981,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q596358_1980",
-    "title": "Shaft in Africa",
-    "type": "Film",
-    "year": 1980,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q137960_1975",
     "title": "Rooster Cogburn",
     "type": "Film",
@@ -2660,17 +2597,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q324615_1971",
-    "title": "The House That Dripped Blood",
+    "id": "film_pop_wd_q111788_1972",
+    "title": "Vampire Circus",
     "type": "Film",
-    "year": 1971,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q583265_1967",
-    "title": "The Honey Pot",
-    "type": "Film",
-    "year": 1967,
+    "year": 1972,
     "mainstream": true
   },
   {
@@ -2678,6 +2608,20 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Old Surehand",
     "type": "Film",
     "year": 1965,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q239630_1964",
+    "title": "Before the Revolution",
+    "type": "Film",
+    "year": 1964,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q560053_1964",
+    "title": "The Visit (1964 film)",
+    "type": "Film",
+    "year": 1964,
     "mainstream": true
   },
   {
@@ -2695,10 +2639,17 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q260887_1953",
-    "title": "Robot Monster",
+    "id": "film_pop_wd_q303213_2009",
+    "title": "Whip It",
     "type": "Film",
-    "year": 1953,
+    "year": 2009,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q880226_1998",
+    "title": "Black Dog",
+    "type": "Film",
+    "year": 1998,
     "mainstream": true
   },
   {
@@ -2723,10 +2674,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q473803_1983",
-    "title": "They Called Him Bulldozer",
+    "id": "film_pop_wd_q338495_1980",
+    "title": "North Sea Hijack",
     "type": "Film",
-    "year": 1983,
+    "year": 1980,
     "mainstream": true
   },
   {
@@ -2758,17 +2709,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q584212_1967",
-    "title": "Idiot in Paris",
+    "id": "film_pop_wd_q318825_1971",
+    "title": "In the Name of the Italian People",
     "type": "Film",
-    "year": 1967,
-    "mainstream": true
-  },
-  {
-    "id": "film_pop_wd_q442399_1962",
-    "title": "Sherlock Holmes and the Deadly Necklace",
-    "type": "Film",
-    "year": 1962,
+    "year": 1971,
     "mainstream": true
   },
   {
@@ -2786,13 +2730,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q303833_1950",
-    "title": "House by the River",
-    "type": "Film",
-    "year": 1950,
-    "mainstream": true
-  },
-  {
     "id": "film_pop_wd_q23892_1950",
     "title": "Africa Screams",
     "type": "Film",
@@ -2800,8 +2737,8 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q495924_1950",
-    "title": "The Big Lift",
+    "id": "film_pop_wd_q303833_1950",
+    "title": "House by the River",
     "type": "Film",
     "year": 1950,
     "mainstream": true
@@ -2828,17 +2765,17 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q340911_1980",
-    "title": "Rollercoaster",
+    "id": "film_pop_wd_q552560_1980",
+    "title": "Where the Buffalo Roam",
     "type": "Film",
     "year": 1980,
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q128718_1971",
-    "title": "In Prison Awaiting Trial",
+    "id": "film_pop_wd_q340911_1977",
+    "title": "Rollercoaster",
     "type": "Film",
-    "year": 1971,
+    "year": 1977,
     "mainstream": true
   },
   {
@@ -2849,15 +2786,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q130612_1959",
-    "title": "Agi Murad, il diavolo bianco",
+    "id": "film_pop_wd_q130803_1959",
+    "title": "The Magliari",
     "type": "Film",
     "year": 1959,
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q130803_1959",
-    "title": "The Magliari",
+    "id": "film_pop_wd_q130612_1959",
+    "title": "Agi Murad, il diavolo bianco",
     "type": "Film",
     "year": 1959,
     "mainstream": true
@@ -2877,10 +2814,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q642516_1992",
-    "title": "American Me",
+    "id": "film_pop_wd_q905959_1990",
+    "title": "My Father's Glory",
     "type": "Film",
-    "year": 1992,
+    "year": 1990,
     "mainstream": true
   },
   {
@@ -2898,15 +2835,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q596773_1983",
-    "title": "Eddie Macon's Run",
+    "id": "film_pop_wd_q753367_1983",
+    "title": "The Revolt of Job",
     "type": "Film",
     "year": 1983,
     "mainstream": true
   },
   {
-    "id": "film_pop_wd_q916870_1980",
-    "title": "Early Spring",
+    "id": "film_pop_wd_q850096_1980",
+    "title": "Why Did You Pick On Me?",
     "type": "Film",
     "year": 1980,
     "mainstream": true
@@ -2916,6 +2853,615 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "The Pink Phink",
     "type": "Film",
     "year": 1964,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q152163_1960",
+    "title": "Last Woman on Earth",
+    "type": "Film",
+    "year": 1960,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q75569_1957",
+    "title": "Oh! Sabella",
+    "type": "Film",
+    "year": 1957,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q2575434_1953",
+    "title": "Duck Dodgers in the 24½th Century",
+    "type": "Film",
+    "year": 1953,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q328096_1953",
+    "title": "Martin Luther",
+    "type": "Film",
+    "year": 1953,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q453088_1952",
+    "title": "Invasion U.S.A.",
+    "type": "Film",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q728267_1996",
+    "title": "T2-3D: Battle Across Time",
+    "type": "Film",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q1440760_1995",
+    "title": "Runaway Brain",
+    "type": "Film",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q2040607_1994",
+    "title": "Sabotage",
+    "type": "Film",
+    "year": 1994,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q426397_1993",
+    "title": "The Innocent",
+    "type": "Film",
+    "year": 1993,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q16016999_1985",
+    "title": "Night on the Galactic Railroad",
+    "type": "Film",
+    "year": 1985,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q476311_1980",
+    "title": "The Left-Handed Woman",
+    "type": "Film",
+    "year": 1980,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q6838747_1969",
+    "title": "Mickey Mouse in Vietnam",
+    "type": "Film",
+    "year": 1969,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q54990_1967",
+    "title": "Sami swoi",
+    "type": "Film",
+    "year": 1967,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q163898_1966",
+    "title": "Ten Thousand Dollars for a Massacre",
+    "type": "Film",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q18331_1965",
+    "title": "Docking the Boat",
+    "type": "Film",
+    "year": 1965,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q325621_1955",
+    "title": "Samurai II: Duel at Ichijoji Temple",
+    "type": "Film",
+    "year": 1955,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q366975_1954",
+    "title": "Jail Bait",
+    "type": "Film",
+    "year": 1954,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q281168_1993",
+    "title": "Acción mutante",
+    "type": "Film",
+    "year": 1993,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q587973_1980",
+    "title": "Breakthrough",
+    "type": "Film",
+    "year": 1980,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q54968_1978",
+    "title": "What Will You Do When You Catch Me?",
+    "type": "Film",
+    "year": 1978,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q2257521_1970",
+    "title": "Notes Towards an African Orestes",
+    "type": "Film",
+    "year": 1970,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q4156667_1969",
+    "title": "Ded Moroz and Summer",
+    "type": "Film",
+    "year": 1969,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q222732_1966",
+    "title": "Lt. Robin Crusoe, U.S.N.",
+    "type": "Film",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q232190_1961",
+    "title": "The Fascist",
+    "type": "Film",
+    "year": 1961,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q114665_1955",
+    "title": "Strange Lady in Town",
+    "type": "Film",
+    "year": 1955,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q153519_1953",
+    "title": "Split Second",
+    "type": "Film",
+    "year": 1953,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q3505669_1952",
+    "title": "Susie the Little Blue Coupe",
+    "type": "Film",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q39422_1951",
+    "title": "My Forbidden Past",
+    "type": "Film",
+    "year": 1951,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q325651_1950",
+    "title": "The Big Cat",
+    "type": "Film",
+    "year": 1950,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q478944_1989",
+    "title": "Tap",
+    "type": "Film",
+    "year": 1989,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q375636_1975",
+    "title": "The Suspicious Death of a Minor",
+    "type": "Film",
+    "year": 1975,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q151715_1972",
+    "title": "Nothing But the Night",
+    "type": "Film",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q562304_1963",
+    "title": "The Hook",
+    "type": "Film",
+    "year": 1963,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q11612766_1962",
+    "title": "High Steaks",
+    "type": "Film",
+    "year": 1962,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q205506_1961",
+    "title": "Alias Gardelito",
+    "type": "Film",
+    "year": 1961,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q5750914_1954",
+    "title": "Hic-cup Pup",
+    "type": "Film",
+    "year": 1954,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q4319279_1952",
+    "title": "Radar Men from the Moon",
+    "type": "Film",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q367980_1950",
+    "title": "47 morto che parla",
+    "type": "Film",
+    "year": 1950,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q810881_1996",
+    "title": "Bat Pussy",
+    "type": "Film",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q2397978_1990",
+    "title": "The Immaculate Collection",
+    "type": "Film",
+    "year": 1990,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q261415_1990",
+    "title": "My Mother's Castle",
+    "type": "Film",
+    "year": 1990,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q184544_1962",
+    "title": "Ten Italians for One German",
+    "type": "Film",
+    "year": 1962,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q176754_1960",
+    "title": "The Inheritance of Bjorndal",
+    "type": "Film",
+    "year": 1960,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q46568_1960",
+    "title": "Sweet Delusions",
+    "type": "Film",
+    "year": 1960,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q337806_1958",
+    "title": "Sweet Anna",
+    "type": "Film",
+    "year": 1958,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q8073795_1952",
+    "title": "Zombies of the Stratosphere",
+    "type": "Film",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q226810_1952",
+    "title": "The Dream of Zorro",
+    "type": "Film",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q7502930_1957",
+    "title": "Show Biz Bugs",
+    "type": "Film",
+    "year": 1957,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q4035069_1954",
+    "title": "Bewitched Bunny",
+    "type": "Film",
+    "year": 1954,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q3354067_1952",
+    "title": "Operation: Rabbit",
+    "type": "Film",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q5477341_1952",
+    "title": "Foxy by Proxy",
+    "type": "Film",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q357541_1995",
+    "title": "Haunted",
+    "type": "Film",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q557990_1995",
+    "title": "Emil i Lönneberga",
+    "type": "Film",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q317510_1991",
+    "title": "Go Trabi Go",
+    "type": "Film",
+    "year": 1991,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q19347583_2016",
+    "title": "The Danish Girl",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q20962283_2016",
+    "title": "Passengers",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q19850715_2016",
+    "title": "The Big Short",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q61740820_2021",
+    "title": "Nomadland",
+    "type": "Film",
+    "year": 2021,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q18822138_2016",
+    "title": "Creed",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q16994327_2016",
+    "title": "Goosebumps",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q16996794_2016",
+    "title": "The Lobster",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q636043_2019",
+    "title": "The Goonies",
+    "type": "Film",
+    "year": 2019,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q18692630_2016",
+    "title": "Trumbo",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q19824642_2016",
+    "title": "Embrace of the Serpent",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q19824796_2016",
+    "title": "Mustang",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q17182571_2016",
+    "title": "Legend",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q17984058_2016",
+    "title": "The Last Witch Hunter",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q21065355_2016",
+    "title": "Look Who's Back",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q20992425_2016",
+    "title": "The Man Who Knew Infinity",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q64590532_2021",
+    "title": "Spiral",
+    "type": "Film",
+    "year": 2021,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q65972529_2019",
+    "title": "Ne Zha",
+    "type": "Film",
+    "year": 2019,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q18198599_2016",
+    "title": "Bone Tomahawk",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q2095178_2018",
+    "title": "The Man Who Killed Don Quixote",
+    "type": "Film",
+    "year": 2018,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q19806501_2016",
+    "title": "Our Little Sister",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q15303493_2016",
+    "title": "Wolf Totem",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q19800919_2017",
+    "title": "My Mother",
+    "type": "Film",
+    "year": 2017,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q17155559_2016",
+    "title": "Rock the Kasbah",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q97850363_2022",
+    "title": "Lunana: A Yak in the Classroom",
+    "type": "Film",
+    "year": 2022,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q18354827_2016",
+    "title": "Truth",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q19798030_2016",
+    "title": "Mon roi",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q98079445_2021",
+    "title": "Bigfoot Family",
+    "type": "Film",
+    "year": 2021,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q18377827_2016",
+    "title": "Mr. Right",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q19817055_2016",
+    "title": "The Measure of a Man",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q3186820_2016",
+    "title": "Diary of a Chambermaid",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q20770561_2016",
+    "title": "3 Generations",
+    "type": "Film",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q60737594_2021",
+    "title": "Resistance",
+    "type": "Film",
+    "year": 2021,
+    "mainstream": true
+  },
+  {
+    "id": "film_pop_wd_q97828875_2021",
+    "title": "New Order",
+    "type": "Film",
+    "year": 2021,
     "mainstream": true
   },
   {
@@ -4039,15 +4585,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1462394_1977",
-    "title": "The Amazing Spider-Man",
+    "id": "tv_pop_wd_q1247292_1977",
+    "title": "Soap",
     "type": "TV",
     "year": 1977,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1247292_1977",
-    "title": "Soap",
+    "id": "tv_pop_wd_q1462394_1977",
+    "title": "The Amazing Spider-Man",
     "type": "TV",
     "year": 1977,
     "mainstream": true
@@ -4074,15 +4620,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1247551_1964",
-    "title": "Peyton Place",
+    "id": "tv_pop_wd_q1086390_1964",
+    "title": "The Munsters",
     "type": "TV",
     "year": 1964,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1086390_1964",
-    "title": "The Munsters",
+    "id": "tv_pop_wd_q1247551_1964",
+    "title": "Peyton Place",
     "type": "TV",
     "year": 1964,
     "mainstream": true
@@ -4277,15 +4823,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q956446_2007",
-    "title": "The Killing",
+    "id": "tv_pop_wd_q837329_2007",
+    "title": "El Internado",
     "type": "TV",
     "year": 2007,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q837329_2007",
-    "title": "El Internado",
+    "id": "tv_pop_wd_q956446_2007",
+    "title": "The Killing",
     "type": "TV",
     "year": 2007,
     "mainstream": true
@@ -4438,15 +4984,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q748615_1971",
-    "title": "The Onedin Line",
+    "id": "tv_pop_wd_q151788_1971",
+    "title": "Die Sendung mit der Maus",
     "type": "TV",
     "year": 1971,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q151788_1971",
-    "title": "Die Sendung mit der Maus",
+    "id": "tv_pop_wd_q748615_1971",
+    "title": "The Onedin Line",
     "type": "TV",
     "year": 1971,
     "mainstream": true
@@ -4554,6 +5100,1273 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "McCloud",
     "type": "TV",
     "year": 1970,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1211572_1969",
+    "title": "Tiger Mask",
+    "type": "TV",
+    "year": 1969,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1234407_1965",
+    "title": "The F.B.I.",
+    "type": "TV",
+    "year": 1965,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q123760_1964",
+    "title": "Voyage to the Bottom of the Sea",
+    "type": "TV",
+    "year": 1964,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1030713_1964",
+    "title": "Another World",
+    "type": "TV",
+    "year": 1964,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1636527_1959",
+    "title": "The Quick Draw McGraw Show",
+    "type": "TV",
+    "year": 1959,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q20820889_2015",
+    "title": "Trapped",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q12746825_2014",
+    "title": "Queen of Hearts",
+    "type": "TV",
+    "year": 2014,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q44925_2013",
+    "title": "Corazón indomable",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q848992_2011",
+    "title": "Power Rangers Samurai",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1140254_2007",
+    "title": "Transformers: Animated",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3585951_2004",
+    "title": "24 Oras",
+    "type": "TV",
+    "year": 2004,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1816205_1995",
+    "title": "The Thin Blue Line",
+    "type": "TV",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q406641_1995",
+    "title": "What a Cartoon!",
+    "type": "TV",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1196705_1982",
+    "title": "Space Sheriff Gavan",
+    "type": "TV",
+    "year": 1982,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1757014_1979",
+    "title": "Allsång på Skansen",
+    "type": "TV",
+    "year": 1979,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q887639_1969",
+    "title": "The Genie Family",
+    "type": "TV",
+    "year": 1969,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1617740_1967",
+    "title": "The High Chaparral",
+    "type": "TV",
+    "year": 1967,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2699578_1966",
+    "title": "Ultra Q",
+    "type": "TV",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1185758_1961",
+    "title": "Mister Ed",
+    "type": "TV",
+    "year": 1961,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1287308_1954",
+    "title": "Father Knows Best",
+    "type": "TV",
+    "year": 1954,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q20856971_2015",
+    "title": "Master of None",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q560416_2013",
+    "title": "Power Rangers Megaforce",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q492339_2011",
+    "title": "Robocar Poli",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q283073_2010",
+    "title": "The Pillars of the Earth",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q539284_2003",
+    "title": "Kaleido Star",
+    "type": "TV",
+    "year": 2003,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q463700_2003",
+    "title": "American Chopper",
+    "type": "TV",
+    "year": 2003,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q848941_2003",
+    "title": "Brainiac: Science Abuse",
+    "type": "TV",
+    "year": 2003,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q64003_2000",
+    "title": "Abrázame Muy Fuerte",
+    "type": "TV",
+    "year": 2000,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2836862_1996",
+    "title": "Mighty Morphin Alien Rangers",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q16170990_1983",
+    "title": "The Winds of War",
+    "type": "TV",
+    "year": 1983,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q666833_1983",
+    "title": "Monchhichi",
+    "type": "TV",
+    "year": 1983,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1806831_1982",
+    "title": "Late Night with David Letterman",
+    "type": "TV",
+    "year": 1982,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1275157_1978",
+    "title": "Matador",
+    "type": "TV",
+    "year": 1978,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1023688_1977",
+    "title": "CHiPs",
+    "type": "TV",
+    "year": 1977,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q929924_1975",
+    "title": "Miś Uszatek",
+    "type": "TV",
+    "year": 1975,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q808487_1975",
+    "title": "Barney Miller",
+    "type": "TV",
+    "year": 1975,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1055809_1972",
+    "title": "The Adventures of Pinocchio",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q898940_1968",
+    "title": "Fabeltjeskrant",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1671694_1967",
+    "title": "The Invaders",
+    "type": "TV",
+    "year": 1967,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2595862_1955",
+    "title": "Children in Need",
+    "type": "TV",
+    "year": 1955,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q463447_1952",
+    "title": "American Bandstand",
+    "type": "TV",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q19361054_2015",
+    "title": "El Ministerio del Tiempo",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q18786436_2015",
+    "title": "The Adventures of Puss in Boots",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q5837184_2013",
+    "title": "Pac-Man and the Ghostly Adventures",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247235_2009",
+    "title": "United States of Tara",
+    "type": "TV",
+    "year": 2009,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1055793_2004",
+    "title": "Long Way Round",
+    "type": "TV",
+    "year": 2004,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1545845_2000",
+    "title": "Homestar Runner",
+    "type": "TV",
+    "year": 2000,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q672978_2000",
+    "title": "Sheep in the Big City",
+    "type": "TV",
+    "year": 2000,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q885450_1990",
+    "title": "Blossom",
+    "type": "TV",
+    "year": 1990,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q467775_1985",
+    "title": "The Black Forest Clinic",
+    "type": "TV",
+    "year": 1985,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2284586_1983",
+    "title": "V: The Original Miniseries",
+    "type": "TV",
+    "year": 1983,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2747673_1981",
+    "title": "Verano azul",
+    "type": "TV",
+    "year": 1981,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1192946_1978",
+    "title": "All Creatures Great and Small",
+    "type": "TV",
+    "year": 1978,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248019_1976",
+    "title": "Alice",
+    "type": "TV",
+    "year": 1976,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248669_1975",
+    "title": "One Day at a Time",
+    "type": "TV",
+    "year": 1975,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2628322_1974",
+    "title": "Majokko Megu-chan",
+    "type": "TV",
+    "year": 1974,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q808420_1973",
+    "title": "Barnaby Jones",
+    "type": "TV",
+    "year": 1973,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247562_1972",
+    "title": "Maude",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q390220_1972",
+    "title": "OTI Song Festival",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1424202_1970",
+    "title": "The Odd Couple",
+    "type": "TV",
+    "year": 1970,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248625_1968",
+    "title": "The Mod Squad",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248504_1967",
+    "title": "The Flying Nun",
+    "type": "TV",
+    "year": 1967,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247452_1966",
+    "title": "Family Affair",
+    "type": "TV",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1157768_1966",
+    "title": "Daktari",
+    "type": "TV",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1294344_1965",
+    "title": "Des chiffres et des lettres",
+    "type": "TV",
+    "year": 1965,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3230693_1965",
+    "title": "Green Acres",
+    "type": "TV",
+    "year": 1965,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248754_1961",
+    "title": "The Defenders",
+    "type": "TV",
+    "year": 1961,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q63677_1958",
+    "title": "The Donna Reed Show",
+    "type": "TV",
+    "year": 1958,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1308543_1958",
+    "title": "The Rifleman",
+    "type": "TV",
+    "year": 1958,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247688_1957",
+    "title": "Leave It to Beaver",
+    "type": "TV",
+    "year": 1957,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248082_1957",
+    "title": "Have Gun – Will Travel",
+    "type": "TV",
+    "year": 1957,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1565777_1950",
+    "title": "The Jack Benny Program",
+    "type": "TV",
+    "year": 1950,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q16389306_2014",
+    "title": "Kurt Seyit ve Şura",
+    "type": "TV",
+    "year": 2014,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q15920409_2013",
+    "title": "Jodha Akbar",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q8029963_2012",
+    "title": "Wolfblood",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q7690305_2010",
+    "title": "Tayo the Little Bus",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3530198_2008",
+    "title": "Chhota Bheem",
+    "type": "TV",
+    "year": 2008,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q776675_2006",
+    "title": "WWE ECW",
+    "type": "TV",
+    "year": 2006,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247170_2006",
+    "title": "The New Adventures of Old Christine",
+    "type": "TV",
+    "year": 2006,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2395140_2006",
+    "title": "Sıla",
+    "type": "TV",
+    "year": 2006,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q777406_2003",
+    "title": "Spider-Man: The New Animated Series",
+    "type": "TV",
+    "year": 2003,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q19655_2002",
+    "title": "The Young Turks",
+    "type": "TV",
+    "year": 2002,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1146803_2001",
+    "title": "Cuéntame cómo pasó",
+    "type": "TV",
+    "year": 2001,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q94828_1995",
+    "title": "Lazos de Amor",
+    "type": "TV",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1818186_1991",
+    "title": "Brum",
+    "type": "TV",
+    "year": 1991,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1477218_1989",
+    "title": "Navarro",
+    "type": "TV",
+    "year": 1989,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q646233_1984",
+    "title": "Heimat trilogy",
+    "type": "TV",
+    "year": 1984,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1585055_1983",
+    "title": "Hardcastle and McCormick",
+    "type": "TV",
+    "year": 1983,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1217770_1982",
+    "title": "Voyagers!",
+    "type": "TV",
+    "year": 1982,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1197705_1975",
+    "title": "The Invisible Man",
+    "type": "TV",
+    "year": 1975,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247463_1972",
+    "title": "Emergency!",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248395_1972",
+    "title": "Sanford and Son",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248656_1969",
+    "title": "Marcus Welby, M.D.",
+    "type": "TV",
+    "year": 1969,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q556119_1968",
+    "title": "L'Odissea",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1035150_1967",
+    "title": "Captain Scarlet and the Mysterons",
+    "type": "TV",
+    "year": 1967,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q304999_1966",
+    "title": "The Green Hornet",
+    "type": "TV",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1170884_1963",
+    "title": "The Magic Roundabout",
+    "type": "TV",
+    "year": 1963,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q831105_1963",
+    "title": "The Enchanted Pencil",
+    "type": "TV",
+    "year": 1963,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248480_1963",
+    "title": "Burke's Law",
+    "type": "TV",
+    "year": 1963,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1266491_1961",
+    "title": "Hazel",
+    "type": "TV",
+    "year": 1961,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248499_1960",
+    "title": "Route 66",
+    "type": "TV",
+    "year": 1960,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2107839_1959",
+    "title": "Dennis the Menace",
+    "type": "TV",
+    "year": 1959,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q268543_1958",
+    "title": "77 Sunset Strip",
+    "type": "TV",
+    "year": 1958,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247770_1958",
+    "title": "Peter Gunn",
+    "type": "TV",
+    "year": 1958,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1210870_1955",
+    "title": "The Adventures of Robin Hood",
+    "type": "TV",
+    "year": 1955,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q952841_1952",
+    "title": "The Adventures of Ozzie and Harriet",
+    "type": "TV",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3230894_1952",
+    "title": "Death Valley Days",
+    "type": "TV",
+    "year": 1952,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q5437572_2013",
+    "title": "Father Brown",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q13479326_2013",
+    "title": "RWBY",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q6595270_2012",
+    "title": "Qubool Hai",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1351744_2011",
+    "title": "Un passo dal cielo",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q16547115_2007",
+    "title": "Super Why!",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3663706_2001",
+    "title": "Operación Triunfo",
+    "type": "TV",
+    "year": 2001,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q5476534_1998",
+    "title": "Fox & Friends",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q855907_1997",
+    "title": "Incantesimo",
+    "type": "TV",
+    "year": 1997,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q11317001_1997",
+    "title": "Tabaluga",
+    "type": "TV",
+    "year": 1997,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2277578_1996",
+    "title": "The Crocodile Hunter",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3052933_1979",
+    "title": "Antiques Roadshow",
+    "type": "TV",
+    "year": 1979,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q683575_1978",
+    "title": "Hospital at the End of the City",
+    "type": "TV",
+    "year": 1978,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q323197_1975",
+    "title": "Michel Strogoff",
+    "type": "TV",
+    "year": 1975,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247556_1974",
+    "title": "Rhoda",
+    "type": "TV",
+    "year": 1974,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248045_1974",
+    "title": "Good Times",
+    "type": "TV",
+    "year": 1974,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2704139_1974",
+    "title": "Ultraman Leo",
+    "type": "TV",
+    "year": 1974,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q406497_1972",
+    "title": "Dick Clark's New Year's Rockin' Eve",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q4423254_1971",
+    "title": "Investigation Held by ZnaToKi",
+    "type": "TV",
+    "year": 1971,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2095958_1971",
+    "title": "Alias Smith and Jones",
+    "type": "TV",
+    "year": 1971,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1657946_1968",
+    "title": "It Takes a Thief",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1249677_1968",
+    "title": "The Ghost & Mrs. Muir",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2479534_1966",
+    "title": "Tarzan",
+    "type": "TV",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1160120_1964",
+    "title": "Daniel Boone",
+    "type": "TV",
+    "year": 1964,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247567_1961",
+    "title": "Car 54, Where Are You?",
+    "type": "TV",
+    "year": 1961,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248011_1960",
+    "title": "My Three Sons",
+    "type": "TV",
+    "year": 1960,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3986139_1960",
+    "title": "The Bugs Bunny Show",
+    "type": "TV",
+    "year": 1960,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1071394_1955",
+    "title": "Cheyenne",
+    "type": "TV",
+    "year": 1955,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1415350_1954",
+    "title": "The Adventures of Rin Tin Tin",
+    "type": "TV",
+    "year": 1954,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q15483532_2014",
+    "title": "24: Live Another Day",
+    "type": "TV",
+    "year": 2014,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1194073_2010",
+    "title": "HeartCatch PreCure!",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q66121500_2010",
+    "title": "Battle for Dream Island",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q558413_2009",
+    "title": "K-9",
+    "type": "TV",
+    "year": 2009,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q699955_2006",
+    "title": "Türkisch für Anfänger",
+    "type": "TV",
+    "year": 2006,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1236363_2005",
+    "title": "Los hombres de Paco",
+    "type": "TV",
+    "year": 2005,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q8082055_1999",
+    "title": "Świat według Kiepskich",
+    "type": "TV",
+    "year": 1999,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q735749_1998",
+    "title": "Hornblower",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2363314_1998",
+    "title": "WWE Heat",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1756461_1979",
+    "title": "To the Manor Born",
+    "type": "TV",
+    "year": 1979,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1093154_1977",
+    "title": "Eight Is Enough",
+    "type": "TV",
+    "year": 1977,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1421950_1975",
+    "title": "Welcome Back, Kotter",
+    "type": "TV",
+    "year": 1975,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q10689374_1974",
+    "title": "TV-aksjonen",
+    "type": "TV",
+    "year": 1974,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2706450_1973",
+    "title": "Ultraman Taro",
+    "type": "TV",
+    "year": 1973,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2071571_1972",
+    "title": "Banacek",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1076434_1972",
+    "title": "The Rookies",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247605_1968",
+    "title": "Adam-12",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1247960_1968",
+    "title": "The Name of the Game",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1111916_1968",
+    "title": "The Banana Splits",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1248561_1968",
+    "title": "Here Come the Brides",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1476466_1964",
+    "title": "The Rogues",
+    "type": "TV",
+    "year": 1964,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q5001203_1961",
+    "title": "Bus Stop",
+    "type": "TV",
+    "year": 1961,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q772909_1957",
+    "title": "Wagon Train",
+    "type": "TV",
+    "year": 1957,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2974328_1950",
+    "title": "The Cisco Kid",
+    "type": "TV",
+    "year": 1950,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2715144_2012",
+    "title": "Isabel",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1202553_2011",
+    "title": "Suite PreCure",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3282356_2011",
+    "title": "A Vida da Gente",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3131006_2007",
+    "title": "Nostalgia Critic",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2523064_2006",
+    "title": "Lewis",
+    "type": "TV",
+    "year": 2006,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q3840853_1997",
+    "title": "Lupo Alberto",
+    "type": "TV",
+    "year": 1997,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2635542_1996",
+    "title": "Dalziel and Pascoe",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1249577_1995",
+    "title": "Alondra",
+    "type": "TV",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q709824_1994",
+    "title": "Romance of the Three Kingdoms",
+    "type": "TV",
+    "year": 1994,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1172329_1992",
+    "title": "Dateline NBC",
+    "type": "TV",
+    "year": 1992,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q280974_2011",
+    "title": "Dos Hogares",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q487398_2011",
+    "title": "Flower Boy Ramen Shop",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1968790_2007",
+    "title": "Sea Patrol",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q942954_1996",
+    "title": "Sous le soleil",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2367409_1996",
+    "title": "Judge Judy",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q494_1992",
+    "title": "Beakman's World",
+    "type": "TV",
+    "year": 1992,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1768525_1990",
+    "title": "Have I Got News for You",
+    "type": "TV",
+    "year": 1990,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q10385058_2011",
+    "title": "Trunk Train",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q2338473_2011",
+    "title": "Dan Vs.",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1152081_2010",
+    "title": "Tensou Sentai Goseiger",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q1193889_2009",
+    "title": "Samurai Sentai Shinkenger",
+    "type": "TV",
+    "year": 2009,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q20667070_2015",
+    "title": "Tut",
+    "type": "TV",
+    "year": 2015,
     "mainstream": true
   },
   {
@@ -4858,15 +6671,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q60533038_2019",
-    "title": "The Secret Life of My Secretary",
+    "id": "tv_pop_wd_q65239752_2019",
+    "title": "Melting Me Softly",
     "type": "TV",
     "year": 2019,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q65239752_2019",
-    "title": "Melting Me Softly",
+    "id": "tv_pop_wd_q60533038_2019",
+    "title": "The Secret Life of My Secretary",
     "type": "TV",
     "year": 2019,
     "mainstream": true
@@ -4928,15 +6741,15 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q55621340_2019",
-    "title": "Love Alarm",
+    "id": "tv_pop_wd_q51572795_2019",
+    "title": "Quicksand",
     "type": "TV",
     "year": 2019,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q51572795_2019",
-    "title": "Quicksand",
+    "id": "tv_pop_wd_q55621340_2019",
+    "title": "Love Alarm",
     "type": "TV",
     "year": 2019,
     "mainstream": true
@@ -5187,136 +7000,1368 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1211572_1969",
-    "title": "Tiger Mask",
-    "type": "TV",
-    "year": 1969,
-    "mainstream": true
-  },
-  {
-    "id": "tv_pop_wd_q1234407_1965",
-    "title": "The F.B.I.",
-    "type": "TV",
-    "year": 1965,
-    "mainstream": true
-  },
-  {
-    "id": "tv_pop_wd_q123760_1964",
-    "title": "Voyage to the Bottom of the Sea",
-    "type": "TV",
-    "year": 1964,
-    "mainstream": true
-  },
-  {
-    "id": "tv_pop_wd_q1030713_1964",
-    "title": "Another World",
-    "type": "TV",
-    "year": 1964,
-    "mainstream": true
-  },
-  {
-    "id": "tv_pop_wd_q1636527_1959",
-    "title": "The Quick Draw McGraw Show",
-    "type": "TV",
-    "year": 1959,
-    "mainstream": true
-  },
-  {
-    "id": "tv_pop_wd_q20820889_2015",
-    "title": "Trapped",
+    "id": "tv_pop_wd_q19801736_2015",
+    "title": "Amor de barrio",
     "type": "TV",
     "year": 2015,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q12746825_2014",
-    "title": "Queen of Hearts",
+    "id": "tv_pop_wd_q19921776_2015",
+    "title": "El Chapulín Colorado",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q19960547_2015",
+    "title": "Zip Zip",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q17047801_2014",
+    "title": "Señora Acero",
     "type": "TV",
     "year": 2014,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q44925_2013",
-    "title": "Corazón indomable",
+    "id": "tv_pop_wd_q1653800_2012",
+    "title": "Halo 4: Forward Unto Dawn",
     "type": "TV",
-    "year": 2013,
+    "year": 2012,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q848992_2011",
-    "title": "Power Rangers Samurai",
+    "id": "tv_pop_wd_q2085782_2010",
+    "title": "Prisoners of War",
     "type": "TV",
-    "year": 2011,
+    "year": 2010,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1140254_2007",
-    "title": "Transformers: Animated",
+    "id": "tv_pop_wd_q2482795_2010",
+    "title": "Rally to Restore Sanity and/or Fear",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q8051210_2009",
+    "title": "Yeh Rishta Kya Kehlata Hai",
+    "type": "TV",
+    "year": 2009,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_wd_q579563_2007",
+    "title": "The Guild",
     "type": "TV",
     "year": 2007,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q3585951_2004",
-    "title": "24 Oras",
+    "id": "tv_pop_wd_q3473039_2007",
+    "title": "Upin & Ipin",
     "type": "TV",
-    "year": 2004,
+    "year": 2007,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1816205_1995",
-    "title": "The Thin Blue Line",
+    "id": "tv_pop_tmz_3321_1974",
+    "title": "NOVA",
     "type": "TV",
-    "year": 1995,
+    "year": 1974,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q406641_1995",
-    "title": "What a Cartoon!",
+    "id": "tv_pop_tmz_1505_1999",
+    "title": "One Piece",
     "type": "TV",
-    "year": 1995,
+    "year": 1999,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1196705_1982",
-    "title": "Space Sheriff Gavan",
+    "id": "tv_pop_tmz_2193_1984",
+    "title": "Jeopardy!",
+    "type": "TV",
+    "year": 1984,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1166_1989",
+    "title": "Agatha Christie's Poirot",
+    "type": "TV",
+    "year": 1989,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1825_2015",
+    "title": "The Expanse",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2102_1986",
+    "title": "Dragon Ball",
+    "type": "TV",
+    "year": 1986,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1128_1980",
+    "title": "Cosmos",
+    "type": "TV",
+    "year": 1980,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1216_2015",
+    "title": "Bosch",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1039_1983",
+    "title": "V",
+    "type": "TV",
+    "year": 1983,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3330_1982",
+    "title": "Nature",
     "type": "TV",
     "year": 1982,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1757014_1979",
-    "title": "Allsång på Skansen",
+    "id": "tv_pop_tmz_3288_1976",
+    "title": "The Muppet Show",
     "type": "TV",
-    "year": 1979,
+    "year": 1976,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q887639_1969",
-    "title": "The Genie Family",
+    "id": "tv_pop_tmz_3291_1973",
+    "title": "The World at War",
     "type": "TV",
-    "year": 1969,
+    "year": 1973,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q1617740_1967",
-    "title": "The High Chaparral",
+    "id": "tv_pop_tmz_1871_2015",
+    "title": "Mr. Robot",
     "type": "TV",
-    "year": 1967,
+    "year": 2015,
     "mainstream": true
   },
   {
-    "id": "tv_pop_wd_q2699578_1966",
-    "title": "Ultra Q",
+    "id": "tv_pop_tmz_4295_1987",
+    "title": "DuckTales",
+    "type": "TV",
+    "year": 1987,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3741_1981",
+    "title": "Hill Street Blues",
+    "type": "TV",
+    "year": 1981,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_5519_1978",
+    "title": "WKRP in Cincinnati",
+    "type": "TV",
+    "year": 1978,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3132_1964",
+    "title": "Horizon",
+    "type": "TV",
+    "year": 1964,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3509_1988",
+    "title": "American Experience",
+    "type": "TV",
+    "year": 1988,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3620_1966",
+    "title": "Mission: Impossible",
     "type": "TV",
     "year": 1966,
     "mainstream": true
   },
   {
-    "id": "book_pop_ol_ol78871w_1853",
-    "title": "Twelve years a slave",
-    "type": "Book",
-    "year": 1853,
+    "id": "tv_pop_tmz_1369_2015",
+    "title": "Marvel's Daredevil",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2705_2015",
+    "title": "Narcos",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1363_2015",
+    "title": "Humans",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1819_2015",
+    "title": "Dark Matter",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1487_1985",
+    "title": "Moonlighting",
+    "type": "TV",
+    "year": 1985,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3513_1973",
+    "title": "Star Trek: The Animated Series",
+    "type": "TV",
+    "year": 1973,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_8534_1953",
+    "title": "Panorama",
+    "type": "TV",
+    "year": 1953,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1272_2002",
+    "title": "Foyle's War",
+    "type": "TV",
+    "year": 2002,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2083_1984",
+    "title": "Murder, She Wrote",
+    "type": "TV",
+    "year": 1984,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1053_1996",
+    "title": "3rd Rock from the Sun",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_938_1996",
+    "title": "Silent Witness",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3564_1972",
+    "title": "Kolchak: The Night Stalker",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1007_2003",
+    "title": "Tru Calling",
+    "type": "TV",
+    "year": 2003,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3371_2015",
+    "title": "Unforgotten",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_4368_2014",
+    "title": "The Brokenwood Mysteries",
+    "type": "TV",
+    "year": 2014,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1852_2013",
+    "title": "Shetland",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2091_2013",
+    "title": "When Calls the Heart",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2246_2015",
+    "title": "Chicago Med",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_8304_1985",
+    "title": "Das Boot",
+    "type": "TV",
+    "year": 1985,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1641_2000",
+    "title": "Black Books",
+    "type": "TV",
+    "year": 2000,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2481_2010",
+    "title": "How the Universe Works",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1910_2011",
+    "title": "Bron / Broen",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2300_2015",
+    "title": "Into the Badlands",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1381_2004",
+    "title": "The First 48",
+    "type": "TV",
+    "year": 2004,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_4022_1968",
+    "title": "60 Minutes",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3083_2015",
+    "title": "The Magicians",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1056_1982",
+    "title": "'Allo 'Allo!",
+    "type": "TV",
+    "year": 1982,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1776_1974",
+    "title": "Porridge",
+    "type": "TV",
+    "year": 1974,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1489_1984",
+    "title": "Night Court",
+    "type": "TV",
+    "year": 1984,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_4286_1972",
+    "title": "The New Scooby-Doo Movies",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3254_1995",
+    "title": "Father Ted",
+    "type": "TV",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1536_2011",
+    "title": "Hunter x Hunter",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_32095_1999",
+    "title": "Naked News",
+    "type": "TV",
+    "year": 1999,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_4201_2015",
+    "title": "One-Punch Man",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1101_2000",
+    "title": "Frank Herbert's Dune",
+    "type": "TV",
+    "year": 2000,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1748_1986",
+    "title": "Matlock",
+    "type": "TV",
+    "year": 1986,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1837_1983",
+    "title": "Frontline",
+    "type": "TV",
+    "year": 1983,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2427_2015",
+    "title": "Ash vs Evil Dead",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2955_2015",
+    "title": "Taskmaster",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1828_2013",
+    "title": "Wentworth",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3302_2011",
+    "title": "Vera",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_6796_2002",
+    "title": "Australian Survivor",
+    "type": "TV",
+    "year": 2002,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1548_2014",
+    "title": "Grantchester",
+    "type": "TV",
+    "year": 2014,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_919_2013",
+    "title": "Attack on Titan",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1802_1979",
+    "title": "This Old House",
+    "type": "TV",
+    "year": 1979,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_5745_2005",
+    "title": "Jesse Stone",
+    "type": "TV",
+    "year": 2005,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_10095_1998",
+    "title": "White House Christmas",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_8126_1993",
+    "title": "Sharpe",
+    "type": "TV",
+    "year": 1993,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1302_1996",
+    "title": "Millennium",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1911_1992",
+    "title": "Highlander",
+    "type": "TV",
+    "year": 1992,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1367_2015",
+    "title": "Sense8",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_884_2012",
+    "title": "8 Out of 10 Cats Does Countdown",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3164_2007",
+    "title": "Heartland",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1139_2011",
+    "title": "Impractical Jokers",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_7845_1989",
+    "title": "Lonesome Dove",
+    "type": "TV",
+    "year": 1989,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3853_1960",
+    "title": "The Andy Griffith Show",
+    "type": "TV",
+    "year": 1960,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1294_1988",
+    "title": "The Wonder Years",
+    "type": "TV",
+    "year": 1988,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3692_1999",
+    "title": "Independent Lens",
+    "type": "TV",
+    "year": 1999,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2145_1962",
+    "title": "The Jetsons",
+    "type": "TV",
+    "year": 1962,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1596_2005",
+    "title": "UFC Fight Night",
+    "type": "TV",
+    "year": 2005,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2953_2005",
+    "title": "Dragons' Den",
+    "type": "TV",
+    "year": 2005,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3507_2000",
+    "title": "Secrets of the Dead",
+    "type": "TV",
+    "year": 2000,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_962_1968",
+    "title": "Hawaii Five-O",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1788_2015",
+    "title": "Killjoys",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3313_2014",
+    "title": "The Code",
+    "type": "TV",
+    "year": 2014,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3250_2010",
+    "title": "Rake",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3166_2008",
+    "title": "Inspector George Gently",
+    "type": "TV",
+    "year": 2008,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1506_1998",
+    "title": "Two Guys and a Girl",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_976_1996",
+    "title": "Sabrina the Teenage Witch",
+    "type": "TV",
+    "year": 1996,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2855_1985",
+    "title": "WWE Premium Live Events",
+    "type": "TV",
+    "year": 1985,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_7299_2015",
+    "title": "Married at First Sight",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1414_2003",
+    "title": "Air Crash Investigation",
+    "type": "TV",
+    "year": 2003,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_6199_1983",
+    "title": "Mama's Family",
+    "type": "TV",
+    "year": 1983,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_4948_1979",
+    "title": "Hart to Hart",
+    "type": "TV",
+    "year": 1979,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_5818_1995",
+    "title": "Space: Above and Beyond",
+    "type": "TV",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_6259_1992",
+    "title": "A Touch of Frost",
+    "type": "TV",
+    "year": 1992,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3593_2017",
+    "title": "Taboo",
+    "type": "TV",
+    "year": 2017,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1859_2016",
+    "title": "Lucifer",
+    "type": "TV",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3130_2005",
+    "title": "The Hotel Inspector",
+    "type": "TV",
+    "year": 2005,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2151_1977",
+    "title": "The Incredible Hulk",
+    "type": "TV",
+    "year": 1977,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_27848_2018",
+    "title": "Yellowstone",
+    "type": "TV",
+    "year": 2018,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2285_2016",
+    "title": "The Night Manager",
+    "type": "TV",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1559_2015",
+    "title": "See No Evil",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1615_2013",
+    "title": "Steven Universe",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_918_2007",
+    "title": "Pushing Daisies",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1935_2002",
+    "title": "Ghost in the Shell: Stand Alone Complex",
+    "type": "TV",
+    "year": 2002,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1468_1995",
+    "title": "The Drew Carey Show",
+    "type": "TV",
+    "year": 1995,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2548_1972",
+    "title": "Emmerdale",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1370_2015",
+    "title": "Marvel's Jessica Jones",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_6131_2015",
+    "title": "Le Bureau des Légendes",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_957_2007",
+    "title": "The Dresden Files",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1775_2015",
+    "title": "Schitt's Creek",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2957_2007",
+    "title": "Would I Lie to You?",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1179_2015",
+    "title": "Wayward Pines",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_13129_1966",
+    "title": "Dark Shadows",
+    "type": "TV",
+    "year": 1966,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1892_1986",
+    "title": "Sledge Hammer!",
+    "type": "TV",
+    "year": 1986,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_8757_1985",
+    "title": "The Equalizer",
+    "type": "TV",
+    "year": 1985,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3336_1968",
+    "title": "Gardeners' World",
+    "type": "TV",
+    "year": 1968,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_940_2002",
+    "title": "The Dead Zone",
+    "type": "TV",
+    "year": 2002,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_12374_1982",
+    "title": "Cagney & Lacey",
+    "type": "TV",
+    "year": 1982,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_16544_2017",
+    "title": "Marvel's The Punisher",
+    "type": "TV",
+    "year": 2017,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3293_2002",
+    "title": "John Doe",
+    "type": "TV",
+    "year": 2002,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3621_1988",
+    "title": "Mission: Impossible",
+    "type": "TV",
+    "year": 1988,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1371_2016",
+    "title": "Westworld",
+    "type": "TV",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1076_2003",
+    "title": "Frank Herbert's Children of Dune",
+    "type": "TV",
+    "year": 2003,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3893_2002",
+    "title": "Бригада",
+    "type": "TV",
+    "year": 2002,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1304_1998",
+    "title": "7 Days",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2327_2015",
+    "title": "Jonathan Strange & Mr. Norrell",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2002_2012",
+    "title": "Miss Fisher's Murder Mysteries",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1035_2007",
+    "title": "Life",
+    "type": "TV",
+    "year": 2007,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1481_1986",
+    "title": "L.A. Law",
+    "type": "TV",
+    "year": 1986,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1589_2015",
+    "title": "iZombie",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1869_2015",
+    "title": "Alone",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2052_2015",
+    "title": "UnREAL",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2203_2015",
+    "title": "BattleBots",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1824_2015",
+    "title": "Fear the Walking Dead",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2686_2015",
+    "title": "Sneaky Pete",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3142_2015",
+    "title": "Doctor Foster",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1855_2015",
+    "title": "Blindspot",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1606_1980",
+    "title": "Yes Minister",
+    "type": "TV",
+    "year": 1980,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3358_1969",
+    "title": "Scooby Doo, Where Are You!",
+    "type": "TV",
+    "year": 1969,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_18365_1979",
+    "title": "Sapphire and Steel",
+    "type": "TV",
+    "year": 1979,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1632_1998",
+    "title": "Horatio Hornblower",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_932_1993",
+    "title": "Modern Marvels",
+    "type": "TV",
+    "year": 1993,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2381_2003",
+    "title": "Jake 2.0",
+    "type": "TV",
+    "year": 2003,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1649_1998",
+    "title": "First Wave",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_18279_1997",
+    "title": "Beck",
+    "type": "TV",
+    "year": 1997,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1581_2015",
+    "title": "Gangland Undercover",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_8287_2012",
+    "title": "JoJo's Bizarre Adventure",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2039_1997",
+    "title": "Just Shoot Me!",
+    "type": "TV",
+    "year": 1997,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_7577_1972",
+    "title": "The Streets of San Francisco",
+    "type": "TV",
+    "year": 1972,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_28276_2019",
+    "title": "The Witcher",
+    "type": "TV",
+    "year": 2019,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1043_2013",
+    "title": "The White Queen",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3201_2012",
+    "title": "Bering Sea Gold",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1691_2009",
+    "title": "The Listener",
+    "type": "TV",
+    "year": 2009,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1115_1992",
+    "title": "Mad About You",
+    "type": "TV",
+    "year": 1992,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2225_2015",
+    "title": "Forged in Fire",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2609_2015",
+    "title": "The Aurora Teagarden Mysteries",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1451_2013",
+    "title": "A Place to Call Home",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3211_2012",
+    "title": "Finding Your Roots with Henry Louis Gates Jr.",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_7201_2008",
+    "title": "MasterChef: The Professionals",
+    "type": "TV",
+    "year": 2008,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3255_1984",
+    "title": "The Adventures of Sherlock Holmes",
+    "type": "TV",
+    "year": 1984,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_16501_2017",
+    "title": "Oasis",
+    "type": "TV",
+    "year": 2017,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2061_2004",
+    "title": "Elfen Lied",
+    "type": "TV",
+    "year": 2004,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2129_2002",
+    "title": "Who Wants to Be a Millionaire",
+    "type": "TV",
+    "year": 2002,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_22390_2017",
+    "title": "Strike",
+    "type": "TV",
+    "year": 2017,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3592_2015",
+    "title": "River",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_13215_2015",
+    "title": "Critical Role",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_9568_2013",
+    "title": "Banshee Origins",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3134_2011",
+    "title": "The Amazing World of Gumball",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_24119_2011",
+    "title": "Top Chef: Last Chance Kitchen",
+    "type": "TV",
+    "year": 2011,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1887_2010",
+    "title": "This is England",
+    "type": "TV",
+    "year": 2010,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_28717_2019",
+    "title": "Good Omens",
+    "type": "TV",
+    "year": 2019,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2219_2001",
+    "title": "The Guardian",
+    "type": "TV",
+    "year": 2001,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1769_2014",
+    "title": "Those Who Kill",
+    "type": "TV",
+    "year": 2014,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_3185_2012",
+    "title": "Highway Thru Hell",
+    "type": "TV",
+    "year": 2012,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2100_1998",
+    "title": "The Challenge",
+    "type": "TV",
+    "year": 1998,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2218_1978",
+    "title": "Taxi",
+    "type": "TV",
+    "year": 1978,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1305_1993",
+    "title": "The Adventures of Brisco County, Jr.",
+    "type": "TV",
+    "year": 1993,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_17078_2016",
+    "title": "The Grand Tour",
+    "type": "TV",
+    "year": 2016,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1814_2013",
+    "title": "The Doctor Blake Mysteries",
+    "type": "TV",
+    "year": 2013,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_2071_2009",
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "type": "TV",
+    "year": 2009,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1765_1987",
+    "title": "Tour of Duty",
+    "type": "TV",
+    "year": 1987,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_5079_2018",
+    "title": "Tom Clancy's Jack Ryan",
+    "type": "TV",
+    "year": 2018,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1432_2015",
+    "title": "Wolf Hall",
+    "type": "TV",
+    "year": 2015,
+    "mainstream": true
+  },
+  {
+    "id": "tv_pop_tmz_1758_2010",
+    "title": "DCI Banks",
+    "type": "TV",
+    "year": 2010,
     "mainstream": true
   },
   {
@@ -5324,20 +8369,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Ozma of Oz",
     "type": "Book",
     "year": 1907,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol76350w_1874",
-    "title": "Orthodoxy",
-    "type": "Book",
-    "year": 1874,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol76399w_1923",
-    "title": "Saint Francis of Assisi",
-    "type": "Book",
-    "year": 1923,
     "mainstream": true
   },
   {
@@ -5355,13 +8386,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "book_pop_ol_ol15451w_1871",
-    "title": "At the Back of the North Wind",
-    "type": "Book",
-    "year": 1871,
-    "mainstream": true
-  },
-  {
     "id": "book_pop_ol_ol25649539w_1871",
     "title": "The Red Badge of Courage",
     "type": "Book",
@@ -5369,31 +8393,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "book_pop_ol_ol357501w_1900",
-    "title": "Up from Slavery",
-    "type": "Book",
-    "year": 1900,
-    "mainstream": true
-  },
-  {
     "id": "book_pop_ol_ol29204473w_1852",
     "title": "Uncle Tom's Cabin",
     "type": "Book",
     "year": 1852,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol15692719w_1895",
-    "title": "Der Antichrist",
-    "type": "Book",
-    "year": 1895,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol1158921w_1855",
-    "title": "Les fleurs du mal",
-    "type": "Book",
-    "year": 1855,
     "mainstream": true
   },
   {
@@ -5411,87 +8414,10 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "book_pop_ol_ol266178w_1944",
-    "title": "Het Achterhuis",
-    "type": "Book",
-    "year": 1944,
-    "mainstream": true
-  },
-  {
     "id": "book_pop_ol_ol362026w_1980",
     "title": "Romeo and Juliet",
     "type": "Book",
     "year": 1980,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol77747w_1939",
-    "title": "Anne of Ingleside",
-    "type": "Book",
-    "year": 1939,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol3920712w_1901",
-    "title": "Acres of diamonds",
-    "type": "Book",
-    "year": 1901,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol145191w_1926",
-    "title": "Picasso",
-    "type": "Book",
-    "year": 1926,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol134334w_1950",
-    "title": "A history of the English-speaking peoples",
-    "type": "Book",
-    "year": 1950,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol1144827w_1860",
-    "title": "Apologia pro vita sua",
-    "type": "Book",
-    "year": 1860,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol134333w_1948",
-    "title": "The Second World War",
-    "type": "Book",
-    "year": 1948,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol100234w_1919",
-    "title": "Twelve Men",
-    "type": "Book",
-    "year": 1919,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol461995w_1896",
-    "title": "Margaret Ogilvy, and others",
-    "type": "Book",
-    "year": 1896,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol1067314w_1922",
-    "title": "Mein Kampf",
-    "type": "Book",
-    "year": 1922,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol528094w_1946",
-    "title": "Autobiography of a Yogi",
-    "type": "Book",
-    "year": 1946,
     "mainstream": true
   },
   {
@@ -5506,27 +8432,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "Dracula",
     "type": "Book",
     "year": 2019,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol17817548w_2017",
-    "title": "She Persisted",
-    "type": "Book",
-    "year": 2017,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol21298799w_2016",
-    "title": "William Makepeace Thackeray Library",
-    "type": "Book",
-    "year": 2016,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol17356252w_2016",
-    "title": "When Breath Becomes Air",
-    "type": "Book",
-    "year": 2016,
     "mainstream": true
   },
   {
@@ -5628,13 +8533,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "book_pop_ol_ol17357665w_2016",
-    "title": "Hillbilly Elegy",
-    "type": "Book",
-    "year": 2016,
-    "mainstream": true
-  },
-  {
     "id": "book_pop_ol_ol25427495w_2019",
     "title": "Mountain Delights",
     "type": "Book",
@@ -5684,13 +8582,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "mainstream": true
   },
   {
-    "id": "book_pop_ol_ol17824318w_2016",
-    "title": "Born a Crime",
-    "type": "Book",
-    "year": 2016,
-    "mainstream": true
-  },
-  {
     "id": "book_pop_ol_ol25422668w_2018",
     "title": "Hitched",
     "type": "Book",
@@ -5716,111 +8607,6 @@ window.SL_CATALOG = (window.SL_CATALOG || []).concat([
     "title": "The Fix",
     "type": "Book",
     "year": 2017,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol25419173w_2017",
-    "title": "T-Bone",
-    "type": "Book",
-    "year": 2017,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol25422935w_2017",
-    "title": "Spurred - Die Sporen Geben",
-    "type": "Book",
-    "year": 2017,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol17619634w_2016",
-    "title": "Norse Mythology",
-    "type": "Book",
-    "year": 2016,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol17625829w_2016",
-    "title": "Empire of Storms",
-    "type": "Book",
-    "year": 2016,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol17366738w_2016",
-    "title": "Patria",
-    "type": "Book",
-    "year": 2016,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol24212743w_2021",
-    "title": "Mrs. March",
-    "type": "Book",
-    "year": 2021,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol24868470w_2020",
-    "title": "Mountain Desire",
-    "type": "Book",
-    "year": 2020,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol25421287w_2018",
-    "title": "Tangled",
-    "type": "Book",
-    "year": 2018,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol25422472w_2018",
-    "title": "Wrangled",
-    "type": "Book",
-    "year": 2018,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol19356256w_2017",
-    "title": "End Game",
-    "type": "Book",
-    "year": 2017,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol17788230w_2017",
-    "title": "A Column of Fire",
-    "type": "Book",
-    "year": 2017,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol17597665w_2016",
-    "title": "Crooked Kingdom",
-    "type": "Book",
-    "year": 2016,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol25419549w_2019",
-    "title": "Skirt Steak",
-    "type": "Book",
-    "year": 2019,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol19755924w_2019",
-    "title": "Under Currents",
-    "type": "Book",
-    "year": 2019,
-    "mainstream": true
-  },
-  {
-    "id": "book_pop_ol_ol25425565w_2018",
-    "title": "Tri-Tip",
-    "type": "Book",
-    "year": 2018,
     "mainstream": true
   }
 ]);

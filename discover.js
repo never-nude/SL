@@ -492,14 +492,7 @@
   function isAllowedExpansionItem(item) {
     if (!item) return false;
     if (!isExpandedCatalogItem(item)) return true;
-    if (typeof item.mainstream === "boolean") return true;
-    if (/^film_wd_/i.test(item.id)) {
-      return false;
-    }
-    if (/^tv_tmz_/i.test(item.id) || /^book_ol_/i.test(item.id)) {
-      return Number(item.year) < RECENT_CUTOFF_YEAR;
-    }
-    return false;
+    return item.mainstream === true;
   }
 
   function pickOneBalancedForDiscover(source, stats, overflowSource) {
