@@ -21,6 +21,15 @@
   var centerItem = null;
   var rightItem = null;
   var isTransitioning = false;
+  var mixStats = { total: 0, mainstream: 0, recent: 0, queue: [] };
+  var RECENT_CUTOFF_YEAR = 2016;
+  var MIX_WINDOW_SIZE = 60;
+  var TARGET_MAINSTREAM = 0.67;
+  var TARGET_RECENT = 0.63;
+  var MIN_MAINSTREAM = 0.60;
+  var MAX_MAINSTREAM = 0.70;
+  var MIN_RECENT = 0.60;
+  var MAX_RECENT = 0.70;
 
   init();
 
@@ -388,10 +397,21 @@
         }
       }
 
+      noteMixPick(low.item, mixStats);
       return low.item;
     }
 
-    return pickWeightedItem(lane);
+    var laneItems = [];
+    for (var n = 0; n < lane.length; n++) laneItems.push(lane[n].item);
+    var chosen = pickOneBalancedForDiscover(laneItems, mixStats, basePool);
+    if (chosen) {
+      noteMixPick(chosen, mixStats);
+      return chosen;
+    }
+
+    var fallback = pickWeightedItem(lane);
+    if (fallback) noteMixPick(fallback, mixStats);
+    return fallback;
   }
 
   function pickWeightedItem(weighted) {
@@ -428,17 +448,231 @@
     if (!items || !items.length) return null;
 
     var grouped = splitByCatalogLayer(items);
+    var expandedSafe = [];
+    for (var x = 0; x < grouped.expanded.length; x++) {
+      if (isAllowedExpansionItem(grouped.expanded[x])) expandedSafe.push(grouped.expanded[x]);
+    }
     var source = items;
 
-    if (grouped.expanded.length && grouped.base.length) {
-      source = Math.random() < 0.78 ? grouped.expanded : grouped.base;
-    } else if (grouped.expanded.length) {
-      source = grouped.expanded;
+    if (expandedSafe.length && grouped.base.length) {
+      source = Math.random() < 0.72 ? expandedSafe : grouped.base;
+    } else if (expandedSafe.length) {
+      source = expandedSafe;
     } else if (grouped.base.length) {
       source = grouped.base;
     }
 
-    return pickOneWeightedByYear(source);
+    var chosen = pickOneBalancedForDiscover(source, mixStats, items);
+    if (chosen) noteMixPick(chosen, mixStats);
+    return chosen;
+  }
+
+  function isRecentItem(item) {
+    return Number(item && item.year) >= RECENT_CUTOFF_YEAR;
+  }
+
+  function looksObscureTitle(title) {
+    var t = String(title || "").trim();
+    if (!t) return true;
+    if (/^q\d+$/i.test(t)) return true;
+    if (/^(untitled|pilot)$/i.test(t)) return true;
+    if (/title card|demo reel|test footage|compilation/i.test(t)) return true;
+    return false;
+  }
+
+  function isMainstreamItem(item) {
+    if (!item) return false;
+    if (typeof item.mainstream === "boolean") return item.mainstream;
+    if (!isExpandedCatalogItem(item)) return true;
+    if (looksObscureTitle(item.title)) return false;
+
+    if (/^tv_tmz_/i.test(item.id)) return true;
+    if (/^book_ol_/i.test(item.id)) return true;
+
+    if (/^film_wd_/i.test(item.id)) {
+      return false;
+    }
+
+    return false;
+  }
+
+  function isAllowedExpansionItem(item) {
+    if (!item) return false;
+    if (!isExpandedCatalogItem(item)) return true;
+    if (/^film_wd_/i.test(item.id)) {
+      if (looksObscureTitle(item.title)) return false;
+      return Number(item.year) >= RECENT_CUTOFF_YEAR;
+    }
+    return true;
+  }
+
+  function pickOneBalancedForDiscover(source, stats, overflowSource) {
+    var constrained = applyMixConstraints(source, stats);
+    var candidates = constrained.length ? constrained : (source || []);
+
+    if (!candidates.length && overflowSource && overflowSource !== source) {
+      var overflowConstrained = applyMixConstraints(overflowSource, stats);
+      candidates = overflowConstrained.length ? overflowConstrained : overflowSource;
+    }
+
+    if (!candidates || !candidates.length) return null;
+
+    var scored = [];
+    for (var i = 0; i < candidates.length; i++) {
+      var item = candidates[i];
+      var simulated = simulateMixAfterPick(stats, item);
+      var score = mixScore(simulated.mainRatio, simulated.recentRatio);
+      if (isRecentItem(item)) score -= 0.04;
+
+      scored.push({
+        item: item,
+        score: score
+      });
+    }
+
+    if (!scored.length) return null;
+
+    scored.sort(function (a, b) {
+      if (a.score !== b.score) return a.score - b.score;
+      return yearWeight(b.item) - yearWeight(a.item);
+    });
+
+    var eliteCount = Math.max(8, Math.ceil(scored.length * 0.15));
+    if (eliteCount > scored.length) eliteCount = scored.length;
+    var elite = scored.slice(0, eliteCount);
+
+    var total = 0;
+    var weighted = [];
+    for (var j = 0; j < elite.length; j++) {
+      var entry = elite[j];
+      var w = 1 / (0.08 + Math.max(0, entry.score));
+      w *= yearWeight(entry.item);
+      weighted.push({ item: entry.item, w: w });
+      total += w;
+    }
+
+    if (total <= 0) return elite[0].item;
+
+    var roll = Math.random() * total;
+    for (var k = 0; k < weighted.length; k++) {
+      roll -= weighted[k].w;
+      if (roll <= 0) return weighted[k].item;
+    }
+
+    return weighted[weighted.length - 1].item;
+  }
+
+  function applyMixConstraints(source, stats) {
+    if (!source || !source.length) return [];
+
+    var total = stats && stats.total ? stats.total : 0;
+    var mainRatio = total ? (stats.mainstream / total) : TARGET_MAINSTREAM;
+    var recentRatio = total ? (stats.recent / total) : TARGET_RECENT;
+
+    var needMain = mainRatio < MIN_MAINSTREAM;
+    var avoidMain = mainRatio > MAX_MAINSTREAM;
+    var needRecent = recentRatio < MIN_RECENT;
+    var avoidRecent = recentRatio > MAX_RECENT;
+
+    var strict = filterByConstraint(source, needMain, avoidMain, needRecent, avoidRecent);
+    if (strict.length) return strict;
+
+    var mainGap = needMain ? (MIN_MAINSTREAM - mainRatio) : (avoidMain ? (mainRatio - MAX_MAINSTREAM) : 0);
+    var recentGap = needRecent ? (MIN_RECENT - recentRatio) : (avoidRecent ? (recentRatio - MAX_RECENT) : 0);
+
+    if ((needMain || avoidMain) && (needRecent || avoidRecent)) {
+      if (recentGap >= mainGap) {
+        var recentOnly = filterByConstraint(source, false, false, needRecent, avoidRecent);
+        if (recentOnly.length) return recentOnly;
+      }
+
+      var mainOnly = filterByConstraint(source, needMain, avoidMain, false, false);
+      if (mainOnly.length) return mainOnly;
+    }
+
+    if (needRecent || avoidRecent) {
+      var recents = filterByConstraint(source, false, false, needRecent, avoidRecent);
+      if (recents.length) return recents;
+    }
+
+    if (needMain || avoidMain) {
+      var mains = filterByConstraint(source, needMain, avoidMain, false, false);
+      if (mains.length) return mains;
+    }
+
+    return source;
+  }
+
+  function filterByConstraint(source, needMain, avoidMain, needRecent, avoidRecent) {
+    var out = [];
+
+    for (var i = 0; i < source.length; i++) {
+      var item = source[i];
+      var isMain = isMainstreamItem(item);
+      var isRecent = isRecentItem(item);
+
+      if (needMain && !isMain) continue;
+      if (avoidMain && isMain) continue;
+      if (needRecent && !isRecent) continue;
+      if (avoidRecent && isRecent) continue;
+
+      out.push(item);
+    }
+
+    return out;
+  }
+
+  function simulateMixAfterPick(stats, item) {
+    var total = (stats && stats.total ? stats.total : 0) + 1;
+    var mainstream = (stats && stats.mainstream ? stats.mainstream : 0) + (isMainstreamItem(item) ? 1 : 0);
+    var recent = (stats && stats.recent ? stats.recent : 0) + (isRecentItem(item) ? 1 : 0);
+
+    return {
+      mainRatio: mainstream / total,
+      recentRatio: recent / total
+    };
+  }
+
+  function mixScore(mainRatio, recentRatio) {
+    var score = Math.abs(mainRatio - TARGET_MAINSTREAM) + Math.abs(recentRatio - TARGET_RECENT);
+    score += bandPenalty(mainRatio, MIN_MAINSTREAM, MAX_MAINSTREAM);
+    score += bandPenalty(recentRatio, MIN_RECENT, MAX_RECENT);
+    return score;
+  }
+
+  function bandPenalty(ratio, min, max) {
+    if (ratio < min) return (min - ratio) * 4;
+    if (ratio > max) return (ratio - max) * 4;
+    return 0;
+  }
+
+  function noteMixPick(item, stats) {
+    if (!item || !stats) return;
+    var entry = {
+      main: isMainstreamItem(item),
+      recent: isRecentItem(item)
+    };
+
+    if (!stats.queue) stats.queue = [];
+    stats.queue.push(entry);
+
+    stats.total += 1;
+    if (entry.main) stats.mainstream += 1;
+    if (entry.recent) stats.recent += 1;
+
+    if (stats.queue.length > MIX_WINDOW_SIZE) {
+      var removed = stats.queue.shift();
+      stats.total -= 1;
+      if (removed.main) stats.mainstream -= 1;
+      if (removed.recent) stats.recent -= 1;
+    }
+
+    if (stats.total < 0) {
+      stats.total = 0;
+      stats.mainstream = 0;
+      stats.recent = 0;
+      stats.queue = [];
+    }
   }
 
   function yearWeight(item) {
