@@ -25,6 +25,21 @@ Open:
 - Storage boundary only in `storage.js`
 - Pool control in `pools.js`
 - Cross-media graph seed in `graph_seed.js` + `graph.js`
+- Artwork overrides in `artwork_overrides.js` (loaded before `artwork.js`)
+
+## Artwork Sweep
+
+To rescrape poster/cover artwork for all catalog titles:
+
+```bash
+cd "/Users/michael/Documents/New project/screenlit"
+node scripts/scrub_artwork.js --refresh
+```
+
+Generated files:
+
+- `artwork_overrides.js`: static map of `titleId -> imageUrl`
+- `artwork_scrub_report.json`: coverage + missing list
 
 ## Behavioral guarantees
 

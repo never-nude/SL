@@ -1,5 +1,6 @@
 window.SL_Artwork = (function () {
   var CACHE_KEY = "screenlit-artwork-v1";
+  var overrides = window.SL_ARTWORK_OVERRIDES || {};
   var memoryCache = Object.create(null);
   var pending = Object.create(null);
   var lightbox = null;
@@ -38,6 +39,13 @@ window.SL_Artwork = (function () {
   function cacheSet(id, value) {
     memoryCache[id] = value || "";
     saveCache();
+  }
+
+  function overrideGet(id) {
+    if (!id) return null;
+    if (!Object.prototype.hasOwnProperty.call(overrides, id)) return null;
+    var v = overrides[id];
+    return typeof v === "string" && v ? v : null;
   }
 
   function dedupe(arr) {
@@ -178,6 +186,12 @@ window.SL_Artwork = (function () {
 
   function getUrl(item) {
     if (!item || !item.id) return Promise.resolve(null);
+
+    var forced = overrideGet(item.id);
+    if (forced) {
+      cacheSet(item.id, forced);
+      return Promise.resolve(forced);
+    }
 
     var cached = cacheGet(item.id);
     if (cached !== null) return Promise.resolve(cached || null);
