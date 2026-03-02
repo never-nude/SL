@@ -13,6 +13,7 @@ CATALOG_JS = ROOT / "catalog.js"
 OUT_CATALOG = ROOT / "catalog_generated.js"
 OUT_OVERRIDES = ROOT / "artwork_overrides_generated.js"
 OUT_REPORT = ROOT / "catalog_build_report.json"
+MAX_TOTAL_CATALOG = 3000
 
 TARGETS = {
     "film": 800,
@@ -58,6 +59,29 @@ def fetch_json(url, retries=4, backoff=0.6, timeout=40):
                 time.sleep(backoff * (2 ** attempt))
                 continue
             return None
+
+
+def load_catalog_from_script(script_name):
+    node_code = rf'''
+const fs=require("fs"); const vm=require("vm");
+const code=fs.readFileSync("{script_name}","utf8");
+const ctx={{window:{{}}}}; ctx.window=ctx; vm.createContext(ctx); vm.runInContext(code,ctx);
+process.stdout.write(JSON.stringify(Array.isArray(ctx.SL_CATALOG)?ctx.SL_CATALOG:[]));
+'''
+    out = subprocess.check_output(["node", "-e", node_code], cwd=str(ROOT), text=True)
+    return json.loads(out)
+
+
+def load_overrides_from_script(script_name):
+    node_code = rf'''
+const fs=require("fs"); const vm=require("vm");
+const code=fs.readFileSync("{script_name}","utf8");
+const ctx={{window:{{}}}}; ctx.window=ctx; vm.createContext(ctx); vm.runInContext(code,ctx);
+const map=(ctx.SL_ARTWORK_OVERRIDES && typeof ctx.SL_ARTWORK_OVERRIDES==="object") ? ctx.SL_ARTWORK_OVERRIDES : {{}};
+process.stdout.write(JSON.stringify(map));
+'''
+    out = subprocess.check_output(["node", "-e", node_code], cwd=str(ROOT), text=True)
+    return json.loads(out)
 
 
 def load_base_catalog():
@@ -288,11 +312,27 @@ def main():
     log("Starting mass catalog build")
     base = load_base_catalog()
     log("base catalog", len(base))
+    existing_generated = []
+    existing_generated_overrides = {}
+
+    if OUT_CATALOG.exists():
+        try:
+            existing_generated = load_catalog_from_script("catalog_generated.js")
+        except Exception:
+            existing_generated = []
+
+    if OUT_OVERRIDES.exists():
+        try:
+            existing_generated_overrides = load_overrides_from_script("artwork_overrides_generated.js")
+        except Exception:
+            existing_generated_overrides = {}
+
+    log("existing generated", len(existing_generated))
 
     state = {
         "id_seen": set(),
         "key_seen": set(),
-        "overrides": {},
+        "overrides": dict(existing_generated_overrides),
     }
 
     for item in base:
@@ -301,16 +341,50 @@ def main():
         state["id_seen"].add(item["id"])
         state["key_seen"].add(entry_key(item.get("type"), item.get("title"), item.get("year")))
 
-    films = build_films(state, TARGETS["film"])
-    tv = build_tv(state, TARGETS["tv"])
-    books = build_books(state, TARGETS["book"])
+    filtered_existing_generated = []
+    for item in existing_generated:
+        if not item or not item.get("id"):
+            continue
+        k = entry_key(item.get("type"), item.get("title"), item.get("year"))
+        if item["id"] in state["id_seen"] or k in state["key_seen"]:
+            continue
+        state["id_seen"].add(item["id"])
+        state["key_seen"].add(k)
+        filtered_existing_generated.append(item)
 
-    generated = films + tv + books
+    max_generated = max(0, MAX_TOTAL_CATALOG - len(base))
+    capacity = max(0, max_generated - len(filtered_existing_generated))
+
+    target_sum = TARGETS["film"] + TARGETS["tv"] + TARGETS["book"]
+    film_target = min(TARGETS["film"], int(round(capacity * (TARGETS["film"] / target_sum)))) if capacity else 0
+    tv_target = min(TARGETS["tv"], int(round(capacity * (TARGETS["tv"] / target_sum)))) if capacity else 0
+    book_target = min(TARGETS["book"], capacity - film_target - tv_target) if capacity else 0
+    if book_target < 0:
+        book_target = 0
+    if film_target + tv_target + book_target < capacity:
+        book_target = min(TARGETS["book"], book_target + (capacity - (film_target + tv_target + book_target)))
+
+    log("capacity for new items", capacity, "targets", {"film": film_target, "tv": tv_target, "book": book_target})
+
+    films = build_films(state, film_target) if film_target else []
+    tv = build_tv(state, tv_target) if tv_target else []
+    books = build_books(state, book_target) if book_target else []
+
+    new_items = films + tv + books
+    generated = filtered_existing_generated + new_items
+
+    if len(generated) > max_generated:
+        generated = sorted(generated, key=lambda x: int(x.get("year") or 0), reverse=True)[:max_generated]
+        keep_ids = {x.get("id") for x in generated if x.get("id")}
+        state["overrides"] = {k: v for (k, v) in state["overrides"].items() if k in keep_ids}
+
     write_outputs(generated, state["overrides"])
 
     report = {
         "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "baseCount": len(base),
+        "existingGeneratedCount": len(filtered_existing_generated),
+        "newlyAddedCount": len(new_items),
         "generatedCount": len(generated),
         "totalCatalogCount": len(base) + len(generated),
         "addedByType": {
@@ -320,6 +394,7 @@ def main():
         },
         "overrideCount": len(state["overrides"]),
         "targets": TARGETS,
+        "maxTotalCatalog": MAX_TOTAL_CATALOG,
     }
 
     OUT_REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
