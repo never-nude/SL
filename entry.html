@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ScreenLit Mode</title>
+  <link rel="stylesheet" href="styles.css?v=sl-fit-7" />
+</head>
+<body class="entryPage">
+  <header class="header">
+    <div class="brand">ScreenLit</div>
+    <div class="subtitle">Choose how this session behaves.</div>
+  </header>
+
+  <main class="main">
+    <section class="modeCard">
+      <h1 class="modeTitle">Mode</h1>
+
+      <button id="modeGuest" class="modeBtn" type="button">Continue as Guest</button>
+      <p class="modeHint">Ephemeral session. Kept in this browser session only.</p>
+
+      <button id="modeProfile" class="modeBtn" type="button">Use Profile</button>
+      <p class="modeHint">Saved on this device and reused over time.</p>
+
+      <p id="modeStatus" class="modeStatus"></p>
+
+      <nav class="nav modeNav">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="discover.html">Discover</a>
+      </nav>
+    </section>
+  </main>
+
+  <script src="storage.js"></script>
+  <script src="entry.js"></script>
+</body>
+</html>

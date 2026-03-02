@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 140" role="img" aria-labelledby="t d">
+  <title id="t">ScreenLit Logo</title>
+  <desc id="d">A filmstrip S beside an open book.</desc>
+
+  <path d="M30 34 C130 5, 220 20, 285 42 C214 56, 126 64, 44 89 C125 112, 208 119, 290 99"
+        fill="none" stroke="#111" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g fill="#ececec">
+    <rect x="56" y="30" width="11" height="8" rx="2"/>
+    <rect x="92" y="24" width="11" height="8" rx="2"/>
+    <rect x="128" y="20" width="11" height="8" rx="2"/>
+    <rect x="164" y="22" width="11" height="8" rx="2"/>
+    <rect x="200" y="27" width="11" height="8" rx="2"/>
+
+    <rect x="66" y="96" width="11" height="8" rx="2"/>
+    <rect x="104" y="102" width="11" height="8" rx="2"/>
+    <rect x="142" y="106" width="11" height="8" rx="2"/>
+    <rect x="180" y="104" width="11" height="8" rx="2"/>
+    <rect x="218" y="98" width="11" height="8" rx="2"/>
+  </g>
+
+  <g transform="translate(300 18)">
+    <path d="M0 10 L16 0 L16 96 L0 108 Z" fill="#111"/>
+    <path d="M18 2 C49 18, 66 44, 72 88 L95 102 C89 61, 69 28, 39 8 Z" fill="#f6f6f6" stroke="#111" stroke-width="3"/>
+    <path d="M95 102 L173 95 L194 136 L90 136 C83 117, 84 110, 95 102 Z" fill="#f6f6f6" stroke="#111" stroke-width="3"/>
+    <path d="M92 102 C120 104, 145 104, 170 100" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M88 109 C118 111, 143 111, 166 107" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M85 116 C114 118, 137 118, 162 114" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M82 123 C110 125, 132 125, 157 121" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M79 130 C105 132, 127 132, 151 128" fill="none" stroke="#111" stroke-width="2"/>
+  </g>
+</svg>

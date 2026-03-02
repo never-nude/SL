@@ -1,0 +1,751 @@
+:root {
+  --bg: #dadada;
+  --tile-bg: #ececec;
+  --ink: #0f0f0f;
+  --muted: #333333;
+  --muted-2: #494949;
+  --line: #8f8f8f;
+
+  --gold: #d6b021;
+  --infer: #121212;
+  --preview: #353535;
+
+  --fade-side: 0.62;
+  --fade-ms: 180ms;
+
+  --tile-min-h: 210px;
+  --tile-pad: 18px;
+  --gap: 18px;
+  --poster-w: 132px;
+  --poster-h: 188px;
+
+  --font-main: "Avenir Next", "Avenir", "Helvetica Neue", "Nimbus Sans L", "Segoe UI", sans-serif;
+  --font-mono: "Menlo", "Consolas", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-main);
+}
+
+body {
+  padding: clamp(14px, 2.2vw, 34px);
+}
+
+body.screenPage {
+  min-height: 100vh;
+}
+
+body.discoverPage {
+  --poster-w: clamp(226px, 16.5vw, 292px);
+  --poster-h: calc(var(--poster-w) * 1.46);
+  --tile-pad: 22px;
+  --tile-min-h: 340px;
+}
+
+.header {
+  margin-bottom: 18px;
+}
+
+.brand {
+  font-size: 30px;
+  font-weight: 620;
+  line-height: 1.08;
+}
+
+.brandSub {
+  font-weight: 420;
+  color: var(--muted);
+}
+
+.subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.main {
+  width: 100%;
+  max-width: none;
+}
+
+body.screenPage .main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 120px);
+}
+
+.surfaceWrap {
+  overflow-x: visible;
+  padding-bottom: 6px;
+}
+
+body.screenPage .surfaceWrap {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+body.screenPage.indexPage .surfaceWrap {
+  height: calc(100vh - 190px);
+}
+
+body.screenPage.discoverPage .surfaceWrap {
+  height: calc(100vh - 215px);
+}
+
+body.screenPage.discoverPage .main {
+  min-height: 0;
+}
+
+body.screenPage.discoverPage .surfaceWrap {
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.grid,
+.conveyor {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+body.screenPage .grid,
+body.screenPage .conveyor {
+  height: 100%;
+}
+
+body.screenPage.indexPage .grid {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+body.screenPage.discoverPage .conveyor {
+  grid-template-rows: minmax(0, 1fr);
+}
+
+body.screenPage.discoverPage .conveyor {
+  height: auto;
+  grid-template-rows: none;
+  align-items: start;
+}
+
+.conveyor {
+  transition: opacity var(--fade-ms) linear;
+}
+
+.conveyor.isFading {
+  opacity: 0;
+}
+
+.slot {
+  opacity: 1;
+  transition: opacity var(--fade-ms) linear;
+}
+
+.slot.left,
+.slot.right {
+  opacity: var(--fade-side);
+}
+
+.slot .tile {
+  height: 100%;
+}
+
+body.screenPage.discoverPage .slot .tile {
+  height: auto;
+}
+
+.tile {
+  position: relative;
+  min-height: var(--tile-min-h);
+  border: 1px solid var(--line);
+  background: var(--tile-bg);
+  padding: var(--tile-pad);
+  padding-bottom: 42px;
+  transition: opacity var(--fade-ms) linear;
+}
+
+body.screenPage .tile {
+  min-height: 0;
+  height: 100%;
+}
+
+body.screenPage.discoverPage .tile {
+  height: auto;
+}
+
+.tile.fadeOut {
+  opacity: 0;
+}
+
+.tile.fadeIn {
+  animation: slFadeIn var(--fade-ms) linear 1;
+}
+
+@keyframes slFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tile.isClickable {
+  cursor: pointer;
+}
+
+body.discoverPage .tileDiscover {
+  padding-bottom: 56px;
+  min-height: calc(var(--poster-h) + 96px);
+}
+
+body.discoverPage .tileEmpty {
+  min-height: calc(var(--poster-h) + 96px);
+}
+
+.tileEmpty {
+  border-style: dashed;
+  color: #b3b3b3;
+}
+
+.tileTitle {
+  font-size: 17px;
+  font-weight: 610;
+  margin: 0;
+  line-height: 1.22;
+  overflow-wrap: anywhere;
+}
+
+.tileTitle.isZoomableTitle {
+  cursor: zoom-in;
+}
+
+.tileTitle.isZoomableTitle:hover {
+  color: #000;
+}
+
+.tileTitle.isZoomableTitle:focus-visible {
+  outline: 2px solid #a4a4a4;
+  outline-offset: 2px;
+}
+
+.tileMeta {
+  font-size: 13px;
+  color: var(--muted-2);
+  margin-bottom: 13px;
+}
+
+.tileHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.tileText {
+  min-width: 0;
+  flex: 1 1 auto;
+  min-height: var(--poster-h);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+body.discoverPage .titleRowDiscover {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px 14px;
+  margin-bottom: 10px;
+}
+
+body.discoverPage .titleRowDiscover .tileTitle {
+  flex: 1 1 100%;
+  max-width: 100%;
+  font-size: clamp(24px, 1.7vw, 34px);
+  line-height: 1.12;
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.tileFacts {
+  display: grid;
+  gap: 4px;
+  max-width: 100%;
+}
+
+body.discoverPage .tileFactsDiscover {
+  gap: 7px;
+}
+
+.tileMetaLine {
+  font-size: 13px;
+  color: var(--muted-2);
+  line-height: 1.24;
+  overflow-wrap: anywhere;
+}
+
+body.discoverPage .tileFactsDiscover .tileMetaLine {
+  font-size: clamp(15px, 1.02vw, 19px);
+  line-height: 1.24;
+  color: #3a3a3a;
+}
+
+body.discoverPage .tileDiscover .tileHead {
+  gap: 16px;
+}
+
+.tilePoster {
+  flex: 0 0 var(--poster-w);
+  width: var(--poster-w);
+  height: var(--poster-h);
+  border: 1px solid #7f7f7f;
+  background: #d2d2d2;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tilePoster.isZoomable {
+  cursor: zoom-in;
+}
+
+.tilePoster.isZoomable:hover {
+  border-color: #6d6d6d;
+}
+
+.tilePoster.isZoomable:focus-visible {
+  outline: 2px solid #bcbcbc;
+  outline-offset: 2px;
+}
+
+.tilePoster img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: grayscale(18%) contrast(1.04);
+}
+
+.tilePosterFallback {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #4a4a4a;
+  font-weight: 600;
+}
+
+.slLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(12, 12, 12, 0.82);
+  opacity: 1;
+  transition: opacity var(--fade-ms) linear;
+}
+
+.slLightbox.slHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slLightboxFrame {
+  position: relative;
+  border: 1px solid #6d6d6d;
+  background: #161616;
+  padding: 10px 10px 12px 10px;
+  max-width: 78vw;
+  max-height: 84vh;
+  box-shadow: 0 16px 52px rgba(0, 0, 0, 0.5);
+}
+
+.slLightboxImg {
+  display: block;
+  width: min(72vw, 1220px);
+  height: min(76vh, 1220px);
+  object-fit: contain;
+}
+
+.slLightboxCaption {
+  margin-top: 8px;
+  color: #d2d2d2;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.slLightboxClose {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #8f8f8f;
+  background: rgba(18, 18, 18, 0.78);
+  color: #f3f3f3;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.slLightboxClose:hover {
+  background: rgba(38, 38, 38, 0.9);
+}
+
+.starsRow {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+  user-select: none;
+}
+
+.starsRow.starsInline {
+  margin-bottom: 0;
+  flex: 0 0 auto;
+}
+
+body.discoverPage .starsDiscover {
+  flex: 0 0 auto;
+  margin-left: auto;
+  gap: 8px;
+}
+
+body.discoverPage .starsDiscover .starBtn,
+body.discoverPage .starsDiscover .starBtn svg {
+  width: 34px;
+  height: 34px;
+}
+
+.starBtn {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.starBtn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.starBtn[aria-disabled="true"] {
+  cursor: default;
+}
+
+.starOutline {
+  stroke: #8c8c8c;
+  stroke-width: 1.6;
+  fill: none;
+}
+
+.starFillInfer {
+  fill: var(--infer);
+}
+
+.starFillPreview {
+  fill: var(--preview);
+}
+
+.starFillGold {
+  fill: var(--gold);
+}
+
+.triad {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+body.discoverPage .triad {
+  left: 18px;
+  right: 18px;
+  bottom: 14px;
+}
+
+.icon {
+  position: relative;
+  color: #2c2c2c;
+  font-size: 17px;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+body.discoverPage .icon {
+  font-size: 20px;
+  padding: 3px 8px;
+}
+
+.iconGlyph {
+  display: inline-block;
+  font-weight: 650;
+}
+
+.icon-no .iconGlyph {
+  font-size: 20px;
+  font-weight: 700;
+  transform: translateY(-1px);
+}
+
+body.discoverPage .icon-no .iconGlyph {
+  font-size: 24px;
+}
+
+.icon[aria-disabled="true"] {
+  cursor: default;
+  opacity: 0.68;
+}
+
+.icon.isSelected {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.icon.isSelected::after {
+  content: "";
+  position: absolute;
+  left: 28%;
+  right: 28%;
+  bottom: -3px;
+  border-bottom: 1px solid #9c9c9c;
+}
+
+.iconLabel {
+  position: absolute;
+  left: 50%;
+  bottom: 120%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  font-size: 11px;
+  transition: opacity var(--fade-ms) linear;
+}
+
+.icon:hover .iconLabel,
+.icon:focus-visible .iconLabel {
+  opacity: 1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+body.screenPage .nav {
+  margin-top: 14px;
+}
+
+.nav > :last-child {
+  margin-left: auto;
+}
+
+.navlink {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.modeCard {
+  max-width: 720px;
+  border: 1px solid var(--line);
+  padding: 18px;
+  background: var(--tile-bg);
+}
+
+.modeTitle {
+  margin: 0 0 14px 0;
+  font-size: 19px;
+  font-weight: 610;
+}
+
+.modeBtn {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 15px;
+  text-align: left;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.modeBtn + .modeHint {
+  margin-top: 7px;
+}
+
+.modeHint {
+  margin: 0 0 14px 0;
+  color: var(--muted-2);
+  font-size: 12px;
+}
+
+.modeStatus {
+  margin: 2px 0 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.modeNav {
+  margin-top: 18px;
+}
+
+.tile.isClickable:hover {
+  opacity: 0.9;
+}
+
+.starBtn:focus-visible,
+.icon:focus-visible,
+.navlink:focus-visible,
+.modeBtn:focus-visible {
+  outline: 2px solid #b6b6b6;
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 20px;
+  }
+
+  .brand {
+    font-size: 27px;
+  }
+
+  :root {
+    --tile-min-h: 192px;
+    --gap: 14px;
+    --poster-w: 96px;
+    --poster-h: 138px;
+  }
+
+  body.discoverPage {
+    --poster-w: 138px;
+    --poster-h: calc(var(--poster-w) * 1.46);
+    --tile-pad: 18px;
+    --tile-min-h: 250px;
+  }
+
+  body.discoverPage .titleRowDiscover {
+    gap: 6px 8px;
+    margin-bottom: 8px;
+  }
+
+  body.discoverPage .titleRowDiscover .tileTitle {
+    font-size: 20px;
+  }
+
+  body.discoverPage .tileFactsDiscover .tileMetaLine {
+    font-size: 13px;
+  }
+
+  body.discoverPage .starsDiscover .starBtn,
+  body.discoverPage .starsDiscover .starBtn svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .titleRow {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  body.screenPage .main,
+  body.screenPage.indexPage .surfaceWrap,
+  body.screenPage.discoverPage .surfaceWrap {
+    min-height: 0;
+    height: auto;
+  }
+
+  body.screenPage .grid,
+  body.screenPage .conveyor {
+    height: auto;
+  }
+
+  body.screenPage.indexPage .grid,
+  body.screenPage.discoverPage .conveyor {
+    grid-template-rows: none;
+  }
+
+  body.screenPage .tile {
+    min-height: var(--tile-min-h);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 14px;
+  }
+
+  .surfaceWrap {
+    overflow-x: auto;
+  }
+
+  .grid,
+  .conveyor {
+    min-width: 720px;
+  }
+
+  .tile {
+    min-height: 178px;
+  }
+
+  :root {
+    --poster-w: 74px;
+    --poster-h: 108px;
+  }
+
+  body.discoverPage {
+    --poster-w: 112px;
+    --poster-h: calc(var(--poster-w) * 1.44);
+  }
+
+  body.discoverPage .titleRowDiscover .tileTitle {
+    font-size: 18px;
+  }
+
+  body.discoverPage .tileFactsDiscover .tileMetaLine {
+    font-size: 12px;
+  }
+
+  body.discoverPage .starsDiscover .starBtn,
+  body.discoverPage .starsDiscover .starBtn svg {
+    width: 24px;
+    height: 24px;
+  }
+}
