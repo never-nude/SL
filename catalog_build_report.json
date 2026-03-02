@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-03-02T15:40:00Z",
+  "baseCount": 312,
+  "generatedCount": 2000,
+  "totalCatalogCount": 2312,
+  "addedByType": {
+    "film": 800,
+    "tv": 600,
+    "book": 600
+  },
+  "overrideCount": 2000,
+  "targets": {
+    "film": 800,
+    "tv": 600,
+    "book": 600
+  }
+}
