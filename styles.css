@@ -55,20 +55,21 @@ body.discoverPage {
 }
 
 .brand {
-  font-size: 30px;
-  font-weight: 620;
+  font-size: clamp(38px, 2.35vw, 46px);
+  font-weight: 660;
   line-height: 1.08;
 }
 
 .brandSub {
-  font-weight: 420;
+  font-weight: 500;
   color: var(--muted);
 }
 
 .subtitle {
   margin-top: 6px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: clamp(16px, 1vw, 19px);
+  line-height: 1.22;
 }
 
 .main {
@@ -433,15 +434,27 @@ body.discoverPage .tileDiscover .tileHead {
 }
 
 body.discoverPage .starsDiscover {
-  flex: 0 0 auto;
-  margin-left: auto;
-  gap: 8px;
+  flex: 0 1 100%;
+  margin-left: 0;
+  width: min(100%, 220px);
+  max-width: 100%;
+  gap: clamp(4px, 0.45vw, 8px);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-body.discoverPage .starsDiscover .starBtn,
+body.discoverPage .starsDiscover .starBtn {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  max-width: 34px;
+  min-width: 16px;
+  justify-self: start;
+}
+
 body.discoverPage .starsDiscover .starBtn svg {
-  width: 34px;
-  height: 34px;
+  width: 100%;
+  height: 100%;
 }
 
 .starBtn {
@@ -577,18 +590,10 @@ body.screenPage .nav {
 }
 
 .navlink {
-  color: var(--muted);
+  color: #2f2f2f;
   text-decoration: none;
-  font-size: 15px;
-}
-
-body.indexPage .brand {
-  font-size: clamp(38px, 2.35vw, 46px);
-  font-weight: 660;
-}
-
-body.indexPage .subtitle {
-  font-size: clamp(16px, 1vw, 19px);
+  font-size: clamp(18px, 1.05vw, 22px);
+  letter-spacing: 0.01em;
 }
 
 .indexNav {
@@ -606,12 +611,6 @@ body.indexPage .subtitle {
 
 .indexNav .navlink:last-child {
   justify-self: end;
-}
-
-.indexNav .navlink {
-  font-size: clamp(19px, 1.15vw, 24px);
-  color: #2f2f2f;
-  letter-spacing: 0.01em;
 }
 
 .navRefresh {
@@ -734,10 +733,8 @@ body.indexPage .subtitle {
     font-size: 13px;
   }
 
-  body.discoverPage .starsDiscover .starBtn,
-  body.discoverPage .starsDiscover .starBtn svg {
-    width: 26px;
-    height: 26px;
+  body.discoverPage .starsDiscover {
+    width: min(100%, 188px);
   }
 
   .titleRow {
@@ -803,10 +800,8 @@ body.indexPage .subtitle {
     font-size: 12px;
   }
 
-  body.discoverPage .starsDiscover .starBtn,
-  body.discoverPage .starsDiscover .starBtn svg {
-    width: 24px;
-    height: 24px;
+  body.discoverPage .starsDiscover {
+    width: min(100%, 162px);
   }
 }
 
@@ -876,7 +871,7 @@ body.indexPage .subtitle {
     margin-bottom: 12px;
   }
 
-  .indexNav .navlink {
+  .navlink {
     font-size: 17px;
   }
 
@@ -921,10 +916,8 @@ body.indexPage .subtitle {
     line-height: 1.22;
   }
 
-  body.discoverPage .starsDiscover .starBtn,
-  body.discoverPage .starsDiscover .starBtn svg {
-    width: 22px;
-    height: 22px;
+  body.discoverPage .starsDiscover {
+    width: min(100%, 162px);
   }
 
   body.discoverPage .triad {
