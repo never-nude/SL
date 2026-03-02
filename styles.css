@@ -516,6 +516,7 @@ body.discoverPage .starsDiscover .starBtn svg {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  overflow: visible;
 }
 
 body.discoverPage .triad {
@@ -524,17 +525,24 @@ body.discoverPage .triad {
 
 .icon {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
   color: #2c2c2c;
   font-size: 17px;
   line-height: 1;
-  padding: 2px 6px;
+  padding: 0 6px;
   cursor: pointer;
   user-select: none;
 }
 
 body.discoverPage .icon {
+  min-width: 30px;
+  height: 30px;
   font-size: 20px;
-  padding: 3px 8px;
+  padding: 0 8px;
 }
 
 .iconGlyph {
@@ -574,14 +582,19 @@ body.discoverPage .icon-no .iconGlyph {
 .iconLabel {
   position: absolute;
   left: 50%;
-  bottom: 120%;
+  top: -15px;
   transform: translateX(-50%);
   color: var(--muted);
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
   font-size: 11px;
+  line-height: 1;
   transition: opacity var(--fade-ms) linear;
+}
+
+body.discoverPage .iconLabel {
+  top: -18px;
 }
 
 .icon:hover .iconLabel,
@@ -948,7 +961,7 @@ body.screenPage .nav {
 
   body.discoverPage .icon {
     font-size: 17px;
-    padding: 2px 6px;
+    padding: 0 6px;
   }
 
   body.discoverPage .icon-no .iconGlyph {
