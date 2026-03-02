@@ -6,11 +6,13 @@
   if (!store) return;
 
   var grid = document.getElementById("grid");
+  var refreshBtn = document.getElementById("indexRefresh");
   if (!grid) return;
 
   var slots = new Array(9);
   var slotNodes = new Array(9);
   var sessionSeen = {};
+  var isRefreshing = false;
 
   init();
 
@@ -20,6 +22,14 @@
       slots[i] = initial[i] || null;
     }
     renderInitial();
+
+    if (refreshBtn) {
+      refreshBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        refreshAllTiles();
+      });
+    }
   }
 
   function pickInitialNine() {
@@ -59,6 +69,45 @@
 
       slotNodes[slotIndex] = newNode;
     }, ui.fadeMs || 180);
+  }
+
+  function refreshAllTiles() {
+    if (isRefreshing) return;
+    isRefreshing = true;
+
+    for (var i = 0; i < slots.length; i++) {
+      if (slots[i] && slots[i].id) sessionSeen[slots[i].id] = true;
+    }
+
+    grid.classList.add("isFading");
+
+    window.setTimeout(function () {
+      var next = pickRefreshNine();
+      for (var j = 0; j < 9; j++) {
+        slots[j] = next[j] || null;
+      }
+      renderInitial();
+      grid.classList.remove("isFading");
+      isRefreshing = false;
+    }, ui.fadeMs || 180);
+  }
+
+  function pickRefreshNine() {
+    var eligible = store.eligibleTitles(catalog);
+    if (!eligible.length) return [];
+
+    var visible = {};
+    for (var i = 0; i < slots.length; i++) {
+      if (slots[i] && slots[i].id) visible[slots[i].id] = true;
+    }
+
+    var freshPool = [];
+    for (var j = 0; j < eligible.length; j++) {
+      if (!visible[eligible[j].id]) freshPool.push(eligible[j]);
+    }
+
+    var source = freshPool.length >= 9 ? freshPool : eligible;
+    return pickManyWeightedByYear(source, 9);
   }
 
   function pickNextForSlot() {

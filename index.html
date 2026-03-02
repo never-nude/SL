@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ScreenLit</title>
-  <link rel="stylesheet" href="styles.css?v=sl-fit-9" />
+  <link rel="stylesheet" href="styles.css?v=sl-fit-11" />
 </head>
 <body class="screenPage indexPage">
   <header class="header">
@@ -17,9 +17,10 @@
       <div id="grid" class="grid" aria-label="Index grid"></div>
     </section>
 
-    <nav class="nav">
+    <nav class="nav indexNav">
       <a class="navlink" href="discover.html">Discover</a>
-      <a class="navlink" id="slMode" href="entry.html?return=index">Mode</a>
+      <button class="navRefresh" id="indexRefresh" type="button" aria-label="Refresh all tiles" title="Refresh all tiles">⟳</button>
+      <a class="navlink" id="slMode" href="entry.html?return=index">Guest</a>
     </nav>
   </main>
 
@@ -31,6 +32,6 @@
   <script src="mode_sync.js"></script>
   <script src="artwork_overrides.js?v=sl-art-1"></script>
   <script src="artwork.js"></script>
-  <script src="index.js?v=sl-pick-3"></script>
+  <script src="index.js?v=sl-pick-4"></script>
 </body>
 </html>

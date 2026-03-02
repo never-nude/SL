@@ -1,5 +1,5 @@
 window.SL_Facts = (function () {
-  var CACHE_KEY = "screenlit-facts-v3";
+  var CACHE_KEY = "screenlit-facts-v4";
   var cache = Object.create(null);
   var pending = Object.create(null);
 
@@ -20,8 +20,21 @@ window.SL_Facts = (function () {
     } catch (e) {}
   }
 
+  function normalizeLookupTitle(raw) {
+    return String(raw || "")
+      .replace(/[’‘]/g, "'")
+      .replace(/[“”]/g, "\"")
+      .replace(/[–—]/g, "-")
+      .replace(/\u00a0/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
   function cleanTitle(title) {
-    return String(title || "").replace(/\s+\((film|book|tv)\)$/i, "").trim();
+    return normalizeLookupTitle(title)
+      .replace(/\s+\((film|book|tv)\)$/i, "")
+      .replace(/\s+\((?!\d{4}\b)[^)]+\)$/i, "")
+      .trim();
   }
 
   function normalizeType(t) {
@@ -56,7 +69,11 @@ window.SL_Facts = (function () {
     if (type === "TV") {
       return dedupe([
         t + " (" + y + " TV series)",
+        t + " (" + y + " television series)",
+        t + " (" + y + " American TV series)",
         t + " (TV series)",
+        t + " (television series)",
+        t + " (American TV series)",
         t
       ]);
     }
@@ -83,8 +100,40 @@ window.SL_Facts = (function () {
     var d = ((summary && summary.description) || "").toLowerCase();
 
     if (expectedType === "Film") return d.indexOf("film") !== -1;
-    if (expectedType === "TV") return d.indexOf("television") !== -1 || d.indexOf("tv") !== -1 || d.indexOf("series") !== -1;
+    if (expectedType === "TV") {
+      return d.indexOf("television") !== -1 || d.indexOf("tv") !== -1 || d.indexOf("series") !== -1 || d.indexOf("miniseries") !== -1;
+    }
     return d.indexOf("novel") !== -1 || d.indexOf("book") !== -1;
+  }
+
+  async function resolveViaSearch(item) {
+    var type = normalizeType(item.type);
+    var t = cleanTitle(item.title);
+    var y = item.year;
+    var typeHint = type === "Film" ? "film" : (type === "TV" ? "TV series" : "novel");
+    var query = t + " " + y + " " + typeHint;
+    var url =
+      "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=6&origin=*&srsearch=" +
+      encodeURIComponent(query);
+
+    var search = await fetchJson(url);
+    var hits = (search && search.query && search.query.search) ? search.query.search : [];
+    var loose = null;
+
+    for (var i = 0; i < hits.length; i++) {
+      var hit = hits[i];
+      if (!hit || !hit.title) continue;
+
+      var page = String(hit.title).replace(/ /g, "_");
+      var summaryUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + encodeURIComponent(page);
+      var summary = await fetchJson(summaryUrl);
+      if (!summary || !summary.title) continue;
+
+      if (hasTypeSignal(summary, type)) return summary;
+      if (!loose) loose = summary;
+    }
+
+    return loose;
   }
 
   async function resolveSummary(item) {
@@ -102,7 +151,8 @@ window.SL_Facts = (function () {
       if (!loose) loose = j;
     }
 
-    return loose;
+    var searched = await resolveViaSearch(item);
+    return searched || loose;
   }
 
   async function fetchWikitext(canonical) {
@@ -256,8 +306,8 @@ window.SL_Facts = (function () {
     if (!wikitext) return facts;
 
     if (item.type === "Film") {
-      var director = extractField(wikitext, ["director"]);
-      var runtime = extractField(wikitext, ["runtime", "running_time"]);
+      var director = extractField(wikitext, ["director", "directed_by"]);
+      var runtime = extractField(wikitext, ["runtime", "running_time", "running time"]);
 
       if (director) facts.creator = sanitizeFactValue(director, 72);
       if (runtime) facts.length = sanitizeFactValue(runtimeCompact(runtime), 24);
@@ -265,10 +315,10 @@ window.SL_Facts = (function () {
     }
 
     if (item.type === "TV") {
-      var creator = extractField(wikitext, ["creator", "showrunner", "developer"]);
-      var runtimeTv = extractField(wikitext, ["runtime", "running_time"]);
-      var seasons = seasonsCompact(extractField(wikitext, ["num_seasons", "number_of_seasons"]));
-      var episodes = episodesCompact(extractField(wikitext, ["num_episodes", "number_of_episodes"]));
+      var creator = extractField(wikitext, ["creator", "developed_by", "showrunner", "developer", "writer", "written_by"]);
+      var runtimeTv = extractField(wikitext, ["runtime", "running_time", "running time"]);
+      var seasons = seasonsCompact(extractField(wikitext, ["num_seasons", "number_of_seasons", "no_of_seasons"]));
+      var episodes = episodesCompact(extractField(wikitext, ["num_episodes", "number_of_episodes", "no_of_episodes"]));
 
       if (creator) facts.creator = sanitizeFactValue(creator, 72);
       if (runtimeTv) facts.length = sanitizeFactValue(runtimeCompact(runtimeTv), 24);
@@ -283,8 +333,8 @@ window.SL_Facts = (function () {
       return facts;
     }
 
-    var author = extractField(wikitext, ["author", "writer"]);
-    var pages = extractField(wikitext, ["pages", "page_count"]);
+    var author = extractField(wikitext, ["author", "authors", "writer"]);
+    var pages = extractField(wikitext, ["pages", "page_count", "number_of_pages"]);
     var series = extractField(wikitext, ["series"]);
 
     if (author) facts.creator = sanitizeFactValue(author, 72);
@@ -358,11 +408,15 @@ window.SL_Facts = (function () {
     node.innerHTML = "";
     addLine(node, item.type + " · " + item.year);
 
-    if (!facts) return;
+    var view = facts || makeBaseFacts(item);
+    addLine(node, view.creatorLabel + ": " + (view.creator || "—"));
+    addLine(node, view.lengthLabel + ": " + (view.length || "—"));
 
-    if (facts.creator) addLine(node, facts.creatorLabel + ": " + facts.creator);
-    if (facts.length) addLine(node, facts.lengthLabel + ": " + facts.length);
-    if (facts.scopeLabel && facts.scope) addLine(node, facts.scopeLabel + ": " + facts.scope);
+    if (item.type === "TV") {
+      addLine(node, (view.scopeLabel || "Series") + ": " + (view.scope || "—"));
+    } else if (view.scopeLabel && view.scope) {
+      addLine(node, view.scopeLabel + ": " + view.scope);
+    }
   }
 
   function mount(node, item) {

@@ -88,16 +88,16 @@ body.screenPage .main {
 }
 
 body.screenPage .surfaceWrap {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-height: 0;
 }
 
 body.screenPage.indexPage .surfaceWrap {
-  height: calc(100vh - 190px);
+  height: auto;
 }
 
 body.screenPage.discoverPage .surfaceWrap {
-  height: calc(100vh - 215px);
+  height: auto;
 }
 
 body.screenPage.discoverPage .main {
@@ -120,11 +120,12 @@ body.screenPage.discoverPage .surfaceWrap {
 
 body.screenPage .grid,
 body.screenPage .conveyor {
-  height: 100%;
+  height: auto;
 }
 
 body.screenPage.indexPage .grid {
-  grid-template-rows: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, auto);
+  align-items: start;
 }
 
 body.screenPage.discoverPage .conveyor {
@@ -145,6 +146,14 @@ body.screenPage.discoverPage .conveyor {
   opacity: 0;
 }
 
+.grid {
+  transition: opacity var(--fade-ms) linear;
+}
+
+.grid.isFading {
+  opacity: 0;
+}
+
 .slot {
   opacity: 1;
   transition: opacity var(--fade-ms) linear;
@@ -155,10 +164,7 @@ body.screenPage.discoverPage .conveyor {
   opacity: var(--fade-side);
 }
 
-.slot .tile {
-  height: 100%;
-}
-
+.slot .tile,
 body.screenPage.discoverPage .slot .tile {
   height: auto;
 }
@@ -169,13 +175,12 @@ body.screenPage.discoverPage .slot .tile {
   border: 1px solid var(--line);
   background: var(--tile-bg);
   padding: var(--tile-pad);
-  padding-bottom: 42px;
   transition: opacity var(--fade-ms) linear;
 }
 
 body.screenPage .tile {
   min-height: 0;
-  height: 100%;
+  height: auto;
 }
 
 body.screenPage.discoverPage .tile {
@@ -204,12 +209,11 @@ body.screenPage.discoverPage .tile {
 }
 
 body.discoverPage .tileDiscover {
-  padding-bottom: 56px;
-  min-height: calc(var(--poster-h) + 96px);
+  min-height: 0;
 }
 
 body.discoverPage .tileEmpty {
-  min-height: calc(var(--poster-h) + 96px);
+  min-height: 0;
 }
 
 .tileEmpty {
@@ -478,10 +482,8 @@ body.discoverPage .starsDiscover .starBtn svg {
 }
 
 .triad {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 10px;
+  position: static;
+  margin-top: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -489,9 +491,7 @@ body.discoverPage .starsDiscover .starBtn svg {
 }
 
 body.discoverPage .triad {
-  left: 18px;
-  right: 18px;
-  bottom: 14px;
+  margin-top: 14px;
 }
 
 .icon {
@@ -582,6 +582,60 @@ body.screenPage .nav {
   font-size: 15px;
 }
 
+body.indexPage .brand {
+  font-size: clamp(38px, 2.35vw, 46px);
+  font-weight: 660;
+}
+
+body.indexPage .subtitle {
+  font-size: clamp(16px, 1vw, 19px);
+}
+
+.indexNav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: clamp(18px, 3.2vh, 34px);
+}
+
+.indexNav .navlink:first-child {
+  justify-self: start;
+}
+
+.indexNav .navlink:last-child {
+  justify-self: end;
+}
+
+.indexNav .navlink {
+  font-size: clamp(19px, 1.15vw, 24px);
+  color: #2f2f2f;
+  letter-spacing: 0.01em;
+}
+
+.navRefresh {
+  justify-self: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #8d8d8d;
+  border-radius: 999px;
+  background: #ebebeb;
+  color: #3d3d3d;
+  font-size: 22px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navRefresh:hover {
+  border-color: #6f6f6f;
+  background: #e1e1e1;
+}
+
 .modeCard {
   max-width: 720px;
   border: 1px solid var(--line);
@@ -638,7 +692,8 @@ body.screenPage .nav {
 .starBtn:focus-visible,
 .icon:focus-visible,
 .navlink:focus-visible,
-.modeBtn:focus-visible {
+.modeBtn:focus-visible,
+.navRefresh:focus-visible {
   outline: 2px solid #b6b6b6;
   outline-offset: 2px;
 }
@@ -814,6 +869,23 @@ body.screenPage .nav {
     margin-left: 0;
   }
 
+  .indexNav {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .indexNav .navlink {
+    font-size: 17px;
+  }
+
+  .navRefresh {
+    width: 32px;
+    height: 32px;
+    font-size: 19px;
+  }
+
   body.screenPage.indexPage .grid {
     grid-template-columns: 1fr;
   }
@@ -826,8 +898,7 @@ body.screenPage .nav {
   }
 
   body.discoverPage .tileDiscover {
-    min-height: calc(var(--poster-h) + 84px);
-    padding-bottom: 44px;
+    min-height: 0;
   }
 
   body.discoverPage .tileDiscover .tileHead {
@@ -857,9 +928,7 @@ body.screenPage .nav {
   }
 
   body.discoverPage .triad {
-    left: 14px;
-    right: 14px;
-    bottom: 8px;
+    margin-top: 10px;
   }
 
   body.discoverPage .icon {
