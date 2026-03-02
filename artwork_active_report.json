@@ -1,10 +1,17 @@
 {
   "totalTargets": 1712,
-  "typed": 120,
-  "loose": 25,
-  "keptExisting": 1567,
-  "changed": 99,
-  "generatedAt": "2026-03-02T20:23:40Z",
-  "durationSec": 59.45,
+  "changed": 790,
+  "keptExisting": 922,
+  "sourceCounts": {
+    "existing-trusted": 563,
+    "wiki-direct": 333,
+    "wiki-search": 19,
+    "existing-suspect": 354,
+    "tvmaze": 443
+  },
+  "commonsFilmTvBefore": 1142,
+  "commonsFilmTvAfter": 353,
+  "generatedAt": "2026-03-02T20:46:07Z",
+  "durationSec": 800.76,
   "outputCount": 1712
 }
