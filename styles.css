@@ -556,8 +556,21 @@ body.discoverPage .icon {
   transform: translateY(-1px);
 }
 
+.icon-unknown .iconGlyph {
+  font-size: 20px;
+  font-weight: 700;
+  -webkit-text-stroke: 0.5px currentColor;
+  transform: translateY(-0.5px);
+}
+
 body.discoverPage .icon-no .iconGlyph {
   font-size: 24px;
+}
+
+body.discoverPage .icon-unknown .iconGlyph {
+  font-size: 24px;
+  -webkit-text-stroke: 0.65px currentColor;
+  transform: translateY(-0.5px);
 }
 
 .icon[aria-disabled="true"] {
@@ -649,13 +662,22 @@ body.screenPage .nav {
   border-radius: 999px;
   background: #ebebeb;
   color: #3d3d3d;
-  font-size: 22px;
+  font-size: 0;
   line-height: 1;
   padding: 0;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.navRefresh::before {
+  content: "⟳";
+  display: block;
+  font-size: 22px;
+  line-height: 1;
+  transform: translateY(-0.6px);
 }
 
 .navRefresh:hover {
@@ -913,7 +935,12 @@ body.screenPage .nav {
   .navRefresh {
     width: 32px;
     height: 32px;
+    font-size: 0;
+  }
+
+  .navRefresh::before {
     font-size: 19px;
+    transform: translateY(-0.45px);
   }
 
   body.screenPage.indexPage .grid {
@@ -966,6 +993,11 @@ body.screenPage .nav {
 
   body.discoverPage .icon-no .iconGlyph {
     font-size: 20px;
+  }
+
+  body.discoverPage .icon-unknown .iconGlyph {
+    font-size: 20px;
+    -webkit-text-stroke: 0.55px currentColor;
   }
 }
 

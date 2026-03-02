@@ -399,14 +399,22 @@
   function yearWeight(item) {
     var y = Number(item && item.year);
     if (!y) return 1;
-    if (y >= 2022) return 0.85;
-    if (y >= 2019) return 0.92;
-    if (y >= 2016) return 1;
-    if (y >= 2010) return 1.2;
-    if (y >= 2000) return 1.35;
-    if (y >= 1990) return 1.5;
-    if (y >= 1980) return 1.45;
-    return 1.3;
+    var w = 1;
+    if (y >= 2022) w = 0.85;
+    else if (y >= 2019) w = 0.92;
+    else if (y >= 2016) w = 1;
+    else if (y >= 2010) w = 1.2;
+    else if (y >= 2000) w = 1.35;
+    else if (y >= 1990) w = 1.5;
+    else if (y >= 1980) w = 1.45;
+    else w = 1.3;
+
+    if (item && item.type === "Film") {
+      if (y < 1960) w *= 0.35;
+      else w *= 1.18;
+    }
+
+    return w;
   }
 
   function isExpandedCatalogItem(item) {
@@ -437,12 +445,14 @@
     var source = items;
 
     if (grouped.base.length && expandedSafe.length) {
-      source = Math.random() < 0.84 ? grouped.base : expandedSafe;
+      source = Math.random() < 0.9 ? grouped.base : expandedSafe;
     } else if (grouped.base.length) {
       source = grouped.base;
     } else if (expandedSafe.length) {
       source = expandedSafe;
     }
+
+    source = favorAmericanFamiliarPool(source, 0.64);
 
     var mixPool = filterPoolForMix(source, mixStats, TARGET_MAINSTREAM, TARGET_RECENT);
     var chosen = pickOneWeightedByYear(mixPool.length ? mixPool : source);
@@ -471,10 +481,38 @@
     return false;
   }
 
+  function looksAsciiTitle(title) {
+    var t = String(title || "");
+    return /^[\x20-\x7E]+$/.test(t);
+  }
+
+  function isAmericanFamiliarItem(item) {
+    if (!item) return false;
+    if (!isExpandedCatalogItem(item)) return true;
+    if (item.american === true) return true;
+    if (/^tv_pop_tmz_/i.test(item.id)) return true;
+    if (/^film_pop_wd_/i.test(item.id)) return looksAsciiTitle(item.title) && Number(item.year) >= 1960;
+    if (/^tv_pop_wd_/i.test(item.id)) return looksAsciiTitle(item.title);
+    if (/^book_pop_ol_/i.test(item.id)) return looksAsciiTitle(item.title);
+    return false;
+  }
+
+  function favorAmericanFamiliarPool(source, probability) {
+    if (!source || !source.length) return source || [];
+    var familiar = [];
+    for (var i = 0; i < source.length; i++) {
+      if (isAmericanFamiliarItem(source[i])) familiar.push(source[i]);
+    }
+    if (familiar.length && Math.random() < probability) return familiar;
+    return source;
+  }
+
   function isAllowedExpansionItem(item) {
     if (!item) return false;
     if (!isExpandedCatalogItem(item)) return true;
-    return item.mainstream === true;
+    if (item.mainstream !== true) return false;
+    if (item.type === "Film" && Number(item.year) && Number(item.year) < 1960) return false;
+    return true;
   }
 
   function filterPoolForMix(source, stats, mainTarget, recentTarget) {
