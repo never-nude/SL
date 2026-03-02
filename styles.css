@@ -1135,3 +1135,200 @@ body.screenPage .nav {
     width: 100%;
   }
 }
+
+/* Viewport-fit layout pass: keep Index + Discover on a single screen. */
+body.screenPage {
+  height: 100dvh;
+  overflow: hidden;
+  padding: clamp(10px, 1.2vw, 18px);
+}
+
+body.screenPage .header {
+  margin-bottom: clamp(8px, 1.1vh, 12px);
+}
+
+body.screenPage .brand {
+  font-size: clamp(30px, 1.95vw, 40px);
+  line-height: 1.06;
+}
+
+body.screenPage .subtitle,
+body.screenPage.indexPage .subtitle,
+body.screenPage.discoverPage .subtitle {
+  margin-top: 4px;
+  font-size: clamp(14px, 0.9vw, 17px);
+}
+
+body.screenPage .searchBar {
+  margin-top: 8px;
+  width: min(520px, 100%);
+}
+
+body.screenPage .searchInput,
+body.screenPage .searchBtn {
+  height: 34px;
+  font-size: 13px;
+}
+
+body.screenPage .main {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vh, 12px);
+}
+
+body.screenPage .surfaceWrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden !important;
+  padding-bottom: 0;
+}
+
+body.screenPage .nav {
+  margin-top: 0;
+  flex: 0 0 auto;
+}
+
+body.screenPage .indexNav {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+body.screenPage .navlink {
+  font-size: clamp(16px, 0.95vw, 20px);
+}
+
+body.screenPage .grid,
+body.screenPage .conveyor {
+  min-width: 0 !important;
+}
+
+body.screenPage .tile {
+  min-height: 0;
+  height: 100%;
+  padding: clamp(8px, 0.95vh, 12px);
+}
+
+body.screenPage .tileText {
+  min-height: 0;
+}
+
+body.screenPage .tileHead {
+  gap: 10px;
+}
+
+body.screenPage.indexPage {
+  --gap: clamp(8px, 0.85vw, 12px);
+  --tile-pad: clamp(8px, 0.9vh, 12px);
+  --poster-h: clamp(86px, 12.4vh, 148px);
+  --poster-w: calc(var(--poster-h) * 0.68);
+}
+
+body.screenPage.indexPage .grid {
+  height: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+body.screenPage.indexPage .tileTitle {
+  font-size: clamp(14px, 1vw, 18px);
+}
+
+body.screenPage.indexPage .tileMetaLine {
+  font-size: clamp(11px, 0.78vw, 14px);
+  line-height: 1.2;
+}
+
+body.screenPage.indexPage .tileFacts {
+  gap: 2px;
+  max-height: calc(var(--poster-h) - 18px);
+  overflow: hidden;
+}
+
+body.screenPage.indexPage .starsRow {
+  margin-bottom: 8px;
+}
+
+body.screenPage.indexPage .starBtn,
+body.screenPage.indexPage .starBtn svg {
+  width: 19px;
+  height: 19px;
+}
+
+body.screenPage.indexPage .triad {
+  margin-top: 8px;
+}
+
+body.screenPage.discoverPage {
+  --gap: clamp(10px, 0.95vw, 14px);
+  --tile-pad: clamp(10px, 0.95vh, 14px);
+  --poster-w: clamp(150px, 13.8vw, 230px);
+  --poster-h: calc(var(--poster-w) * 1.44);
+}
+
+body.screenPage.discoverPage .conveyor {
+  height: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
+  align-items: stretch;
+}
+
+body.screenPage.discoverPage .slot {
+  min-width: 0;
+}
+
+body.screenPage.discoverPage .slot .tile {
+  min-height: 0;
+}
+
+body.screenPage.discoverPage .titleRowDiscover .tileTitle {
+  font-size: clamp(19px, 1.5vw, 29px);
+}
+
+body.screenPage.discoverPage .tileFactsDiscover .tileMetaLine {
+  font-size: clamp(13px, 0.92vw, 17px);
+}
+
+body.screenPage.discoverPage .tileFactsDiscover {
+  max-height: calc(var(--poster-h) - 88px);
+  overflow: hidden;
+}
+
+body.screenPage.discoverPage .starsDiscover {
+  width: min(100%, 198px);
+}
+
+body.screenPage.discoverPage .triad {
+  margin-top: 10px;
+}
+
+@media (max-height: 780px) {
+  body.screenPage.indexPage {
+    --poster-h: clamp(78px, 11.2vh, 124px);
+  }
+
+  body.screenPage.discoverPage {
+    --poster-w: clamp(126px, 12.6vw, 182px);
+  }
+
+  body.screenPage .brand {
+    font-size: clamp(27px, 1.8vw, 34px);
+  }
+
+  body.screenPage .searchInput,
+  body.screenPage .searchBtn {
+    height: 32px;
+  }
+}
+
+@media (max-width: 1180px) {
+  body.screenPage.indexPage .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.screenPage.discoverPage .conveyor {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
