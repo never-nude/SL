@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ScreenLit Mode</title>
-  <link rel="stylesheet" href="styles.css?v=sl-fit-15" />
+  <link rel="stylesheet" href="styles.css?v=sl-fit-17" />
 </head>
 <body class="entryPage">
   <header class="header">
@@ -22,6 +22,16 @@
       <button id="modeProfile" class="modeBtn" type="button">Use Profile</button>
       <p class="modeHint">Saved on this device and reused over time.</p>
 
+      <section class="registerBlock" aria-label="Registration">
+        <h2 class="registerTitle">Registration</h2>
+        <label class="registerLabel" for="profileName">Profile name</label>
+        <div class="registerRow">
+          <input id="profileName" class="registerInput" type="text" maxlength="32" placeholder="pantz" autocomplete="nickname" />
+          <button id="registerSave" class="registerBtn" type="button">Save</button>
+        </div>
+        <p id="registerStatus" class="modeStatus"></p>
+      </section>
+
       <p id="modeStatus" class="modeStatus"></p>
 
       <nav class="nav modeNav">
@@ -32,6 +42,7 @@
   </main>
 
   <script src="storage.js"></script>
+  <script src="account.js?v=sl-account-1"></script>
   <script src="entry.js"></script>
 </body>
 </html>

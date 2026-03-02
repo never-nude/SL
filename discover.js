@@ -59,7 +59,6 @@
     }
 
     if (!focusId || !byId[focusId]) return null;
-    if (!store.isEligible(focusId)) return null;
 
     return byId[focusId];
   }

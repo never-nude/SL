@@ -82,6 +82,43 @@ body.discoverPage .subtitle {
   line-height: 1.22;
 }
 
+.searchBar {
+  margin-top: 10px;
+  width: min(560px, 100%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.searchInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 36px;
+  border: 1px solid var(--line);
+  background: #f0f0f0;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.searchBtn {
+  flex: 0 0 auto;
+  height: 36px;
+  border: 1px solid var(--line);
+  background: #ebebeb;
+  color: #2f2f2f;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  border-color: #6f6f6f;
+  background: #e1e1e1;
+}
+
 .main {
   width: 100%;
   max-width: none;
@@ -723,6 +760,59 @@ body.screenPage .nav {
   font-size: 12px;
 }
 
+.registerBlock {
+  margin: 8px 0 14px 0;
+  padding-top: 12px;
+  border-top: 1px solid #b9b9b9;
+}
+
+.registerTitle {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.registerLabel {
+  display: block;
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  color: var(--muted-2);
+}
+
+.registerRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.registerInput {
+  width: 100%;
+  height: 36px;
+  border: 1px solid var(--line);
+  background: #f0f0f0;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.registerBtn {
+  height: 36px;
+  border: 1px solid var(--line);
+  background: #ebebeb;
+  color: #2f2f2f;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.registerBtn:hover {
+  border-color: #6f6f6f;
+  background: #e1e1e1;
+}
+
 .modeStatus {
   margin: 2px 0 0 0;
   color: var(--muted);
@@ -745,7 +835,11 @@ body.screenPage .nav {
 .icon:focus-visible,
 .navlink:focus-visible,
 .modeBtn:focus-visible,
-.navRefresh:focus-visible {
+.navRefresh:focus-visible,
+.searchInput:focus-visible,
+.searchBtn:focus-visible,
+.registerInput:focus-visible,
+.registerBtn:focus-visible {
   outline: 2px solid #b6b6b6;
   outline-offset: 2px;
 }
@@ -914,6 +1008,18 @@ body.screenPage .nav {
     line-height: 1.22;
   }
 
+  .searchBar {
+    width: 100%;
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .searchInput,
+  .searchBtn {
+    height: 34px;
+    font-size: 13px;
+  }
+
   .nav {
     flex-wrap: wrap;
     gap: 10px;
@@ -1019,5 +1125,13 @@ body.screenPage .nav {
     --poster-w: 86px;
     --poster-h: 126px;
     --tile-pad: 12px;
+  }
+
+  .registerRow {
+    grid-template-columns: 1fr;
+  }
+
+  .registerBtn {
+    width: 100%;
   }
 }

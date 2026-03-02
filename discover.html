@@ -4,12 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ScreenLit Discover</title>
-  <link rel="stylesheet" href="styles.css?v=sl-fit-16" />
+  <link rel="stylesheet" href="styles.css?v=sl-fit-17" />
 </head>
 <body class="screenPage discoverPage">
   <header class="header">
     <div class="brand">ScreenLit <span class="brandSub">Discover</span></div>
     <div class="subtitle">See what turns up.</div>
+    <form class="searchBar" data-sl-search>
+      <input id="slSearchInput" class="searchInput" type="search" list="slSearchTitles" placeholder="Search titles" aria-label="Search titles" autocomplete="off" />
+      <button class="searchBtn" type="submit">Find</button>
+      <datalist id="slSearchTitles"></datalist>
+    </form>
   </header>
 
   <main class="main">
@@ -28,7 +33,9 @@
   <script src="catalog_generated.js?v=sl-cat-gen-1"></script>
   <script src="catalog_mainstream_generated.js?v=sl-main-2"></script>
   <script src="pools.js?v=sl-pool-2"></script>
+  <script src="search.js?v=sl-search-1"></script>
   <script src="storage.js"></script>
+  <script src="account.js?v=sl-account-1"></script>
   <script src="facts.js"></script>
   <script src="mode_sync.js"></script>
   <script src="artwork_overrides.js?v=sl-art-2"></script>
