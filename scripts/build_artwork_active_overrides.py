@@ -18,6 +18,38 @@ REQUEST_TIMEOUT = 16
 
 KNOWN_IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp", ".gif", ".tif", ".tiff")
 LOGO_TOKENS = ("logo", "wordmark", "symbol")
+COMMONS_BAD_TOKENS = (
+    "premiere",
+    "festival",
+    "cast",
+    "crew",
+    "portrait",
+    "photograph",
+    "photo",
+    "advertisement",
+    "standing ovation",
+    "red carpet",
+    "interview",
+    "press",
+    "promo",
+    "event",
+    "conference",
+    "stamp",
+    "graffiti",
+    "screenshot",
+    "trailer",
+    "teaser",
+)
+COMMONS_POSTER_TOKENS = (
+    "poster",
+    "cover",
+    "book cover",
+    "jacket",
+    "title card",
+    "titlecard",
+    "key art",
+    "keyart",
+)
 
 
 def run_node_json(code):
@@ -225,6 +257,14 @@ def title_url_affinity(url, title):
     return title_similarity(stem, title)
 
 
+def title_url_affinity_raw(url, title):
+    stem = url_file_stem(url)
+    if not stem:
+        return 0.0
+    stem = re.sub(r"\s+", " ", stem).strip()
+    return title_similarity(stem, title)
+
+
 def is_existing_trusted(item, current_url, current_score):
     if current_score < 62.0:
         return False
@@ -233,7 +273,7 @@ def is_existing_trusted(item, current_url, current_score):
     media_type = normalize_type(item.get("type"))
 
     if "commons.wikimedia.org" in url:
-        return False
+        return not should_block_commons(item, current_url, "existing")
 
     if "upload.wikimedia.org" in url and "/wikipedia/en/" in url:
         return title_url_affinity(current_url, item.get("title")) >= 0.34
@@ -662,6 +702,38 @@ def resolve_item(item, current_url):
     return None
 
 
+def should_block_commons(item, url, source):
+    u = str(url or "").strip()
+    low = u.lower()
+    if "commons.wikimedia.org" not in low:
+        return False
+
+    fname = url_file_stem(u).lower()
+    if not fname:
+        return True
+
+    if any(tok in fname for tok in LOGO_TOKENS):
+        return True
+
+    if any(tok in fname for tok in COMMONS_BAD_TOKENS):
+        return True
+
+    has_poster_token = any(tok in fname for tok in COMMONS_POSTER_TOKENS)
+    raw_aff = title_url_affinity_raw(u, item.get("title"))
+    clean_aff = title_url_affinity(u, item.get("title"))
+
+    if has_poster_token and raw_aff >= 0.32:
+        return False
+
+    if source in ("wiki-infobox", "wiki-direct", "wiki-search") and raw_aff >= 0.52:
+        return False
+
+    if raw_aff >= 0.72 or clean_aff >= 0.72:
+        return False
+
+    return True
+
+
 def should_process(item, active_set):
     if item.get("id") not in active_set:
         return False
@@ -744,12 +816,16 @@ def main():
             if done % 80 == 0:
                 print("processed", done, "/", len(resolver_targets), flush=True)
 
-    # Explicitly suppress low-confidence commons images for Film/TV.
+    # Suppress low-confidence commons images for Film/TV; keep only poster-like matches.
     for item in targets:
         if normalize_type(item.get("type")) not in ("Film", "TV"):
             continue
-        url = str(repaired.get(item["id"]) or "").strip().lower()
-        if "commons.wikimedia.org" in url:
+        url = str(repaired.get(item["id"]) or "").strip()
+        source_guess = None
+        if url:
+            # Best effort: infer source from any matching source bucket.
+            source_guess = "existing"
+        if should_block_commons(item, url, source_guess):
             repaired[item["id"]] = ""
             stats["blockedCommonsFilmTv"] += 1
             source_counts["blocked-commons"] = source_counts.get("blocked-commons", 0) + 1
