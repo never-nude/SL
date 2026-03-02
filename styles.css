@@ -582,7 +582,7 @@ body.discoverPage .icon-no .iconGlyph {
 .iconLabel {
   position: absolute;
   left: 50%;
-  top: -15px;
+  top: -9px;
   transform: translateX(-50%);
   color: var(--muted);
   white-space: nowrap;
@@ -594,7 +594,7 @@ body.discoverPage .icon-no .iconGlyph {
 }
 
 body.discoverPage .iconLabel {
-  top: -18px;
+  top: -9px;
 }
 
 .icon:hover .iconLabel,
