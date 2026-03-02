@@ -749,3 +749,138 @@ body.screenPage .nav {
     height: 24px;
   }
 }
+
+@media (max-width: 1180px) {
+  body.screenPage.indexPage .surfaceWrap {
+    height: auto;
+  }
+
+  body.screenPage.indexPage .grid {
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+
+  body.screenPage.discoverPage .conveyor {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  body.screenPage.discoverPage .slot.center {
+    order: 1;
+    opacity: 1;
+  }
+
+  body.screenPage.discoverPage .slot.left {
+    order: 2;
+    opacity: 0.78;
+  }
+
+  body.screenPage.discoverPage .slot.right {
+    order: 3;
+    opacity: 0.78;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    padding: 12px;
+  }
+
+  .header {
+    margin-bottom: 12px;
+  }
+
+  .brand {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .nav > :last-child {
+    margin-left: 0;
+  }
+
+  body.screenPage.indexPage .grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.discoverPage {
+    --poster-w: 116px;
+    --poster-h: calc(var(--poster-w) * 1.44);
+    --tile-pad: 14px;
+    --tile-min-h: 186px;
+  }
+
+  body.discoverPage .tileDiscover {
+    min-height: calc(var(--poster-h) + 84px);
+    padding-bottom: 44px;
+  }
+
+  body.discoverPage .tileDiscover .tileHead {
+    gap: 10px;
+  }
+
+  body.discoverPage .titleRowDiscover {
+    gap: 4px 8px;
+    margin-bottom: 6px;
+  }
+
+  body.discoverPage .titleRowDiscover .tileTitle {
+    font-size: 18px;
+    line-height: 1.15;
+    text-wrap: pretty;
+  }
+
+  body.discoverPage .tileFactsDiscover .tileMetaLine {
+    font-size: 12px;
+    line-height: 1.22;
+  }
+
+  body.discoverPage .starsDiscover .starBtn,
+  body.discoverPage .starsDiscover .starBtn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  body.discoverPage .triad {
+    left: 14px;
+    right: 14px;
+    bottom: 8px;
+  }
+
+  body.discoverPage .icon {
+    font-size: 17px;
+    padding: 2px 6px;
+  }
+
+  body.discoverPage .icon-no .iconGlyph {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .surfaceWrap {
+    overflow-x: visible;
+  }
+
+  .grid,
+  .conveyor {
+    min-width: 0;
+  }
+
+  :root {
+    --gap: 10px;
+    --poster-w: 86px;
+    --poster-h: 126px;
+    --tile-pad: 12px;
+  }
+}
