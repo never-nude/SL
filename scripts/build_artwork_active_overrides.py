@@ -16,6 +16,9 @@ OUT_REPORT = ROOT / "artwork_active_report.json"
 MAX_WORKERS = 16
 REQUEST_TIMEOUT = 16
 
+KNOWN_IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp", ".gif", ".tif", ".tiff")
+LOGO_TOKENS = ("logo", "wordmark", "symbol")
+
 
 def run_node_json(code):
     out = subprocess.check_output(["node", "-e", code], cwd=str(ROOT), text=True)
@@ -64,6 +67,12 @@ def title_similarity(a, b):
         return 0.0
     if na == nb:
         return 1.0
+    na_flat = na.replace(" ", "")
+    nb_flat = nb.replace(" ", "")
+    if na_flat == nb_flat:
+        return 1.0
+    if na_flat and nb_flat and (na_flat in nb_flat or nb_flat in na_flat):
+        return 0.82
     if na in nb or nb in na:
         return 0.85
     aa = set(na.split())
@@ -190,6 +199,204 @@ def wiki_art_from_summary(summary):
     return ((summary.get("originalimage") or {}).get("source") or (summary.get("thumbnail") or {}).get("source") or "").strip()
 
 
+def url_file_stem(url):
+    u = str(url or "").strip()
+    if not u:
+        return ""
+    try:
+        path = urllib.parse.urlparse(u).path
+    except Exception:
+        return ""
+    base = path.rsplit("/", 1)[-1]
+    if not base:
+        return ""
+    base = urllib.parse.unquote(base)
+    base = base.rsplit(".", 1)[0]
+    base = re.sub(r"[_\-]+", " ", base)
+    return base.strip()
+
+
+def title_url_affinity(url, title):
+    stem = url_file_stem(url)
+    if not stem:
+        return 0.0
+    stem = re.sub(r"\b(poster|cover|book|film|movie|tv|series|novel|jacket)\b", " ", stem, flags=re.I)
+    stem = re.sub(r"\s+", " ", stem).strip()
+    return title_similarity(stem, title)
+
+
+def is_existing_trusted(item, current_url, current_score):
+    if current_score < 62.0:
+        return False
+
+    url = str(current_url or "").strip().lower()
+    media_type = normalize_type(item.get("type"))
+
+    if "commons.wikimedia.org" in url:
+        return False
+
+    if "upload.wikimedia.org" in url and "/wikipedia/en/" in url:
+        return title_url_affinity(current_url, item.get("title")) >= 0.34
+
+    if media_type == "TV" and "tvmaze.com" in url:
+        return True
+
+    if media_type == "Film" and ("mzstatic.com" in url or "itunes.apple.com" in url):
+        return True
+
+    if media_type == "Book" and "openlibrary.org" in url:
+        return True
+
+    return current_score >= 66.0
+
+
+def fetch_wikitext(page_title):
+    url = (
+        "https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=wikitext&origin=*&page="
+        + urllib.parse.quote(str(page_title or ""))
+    )
+    data = fetch_json(url) or {}
+    return (((data.get("parse") or {}).get("wikitext") or {}).get("*") or "")
+
+
+def normalize_file_name(name):
+    out = str(name or "").strip()
+    out = out.replace("&nbsp;", " ")
+    out = re.sub(r"\s+", " ", out).strip()
+    out = out.strip("[]{}|")
+    out = out.replace(" ", "_")
+    if out.lower().startswith("file:"):
+        out = out[5:]
+    if out.lower().startswith("image:"):
+        out = out[6:]
+    return out.strip("_")
+
+
+def extract_infobox_image_name(wikitext):
+    if not wikitext:
+        return None
+
+    block_match = re.search(r"\{\{Infobox[\s\S]*?\n\}\}", wikitext, flags=re.I)
+    block = block_match.group(0) if block_match else wikitext[:22000]
+
+    m = re.search(
+        r"\|\s*image\s*=([\s\S]*?)(?=\n\|\s*[a-z0-9_ ]+\s*=|\n\}\})",
+        block,
+        flags=re.I,
+    )
+    if not m:
+        return None
+
+    value = m.group(1)
+    value = re.sub(r"<!--[\s\S]*?-->", " ", value)
+    value = re.sub(r"<ref[^>]*>[\s\S]*?</ref>", " ", value, flags=re.I)
+    value = re.sub(r"<[^>]+>", " ", value)
+    value = value.replace("\n", " ")
+    value = re.sub(r"\s+", " ", value).strip()
+    if not value:
+        return None
+
+    m = re.search(r"(?i)\[\[(?:File|Image)\s*:\s*([^|\]]+)", value)
+    if m:
+        return normalize_file_name(m.group(1))
+
+    m = re.search(r"(?i)(?:File|Image)\s*:\s*([^|}\]\n]+)", value)
+    if m:
+        return normalize_file_name(m.group(1))
+
+    m = re.search(r"(?i)\b([^|}\[\]]+\.(?:jpe?g|png|webp|gif|tiff?))\b", value)
+    if m:
+        return normalize_file_name(m.group(1))
+
+    m = re.search(r"(?i)\bimage\s*=\s*([^|}\]\n]+)", value)
+    if m:
+        c = normalize_file_name(m.group(1))
+        if c.lower().endswith(KNOWN_IMAGE_EXTENSIONS):
+            return c
+
+    return None
+
+
+def is_logo_like_file(file_name):
+    n = str(file_name or "").lower()
+    if not n:
+        return False
+    if not n.endswith(KNOWN_IMAGE_EXTENSIONS):
+        return True
+    return any(tok in n for tok in LOGO_TOKENS)
+
+
+def fetch_wiki_file_url(file_name):
+    if not file_name:
+        return None
+
+    title = "File:" + normalize_file_name(file_name)
+
+    def from_api(base):
+        url = (
+            base
+            + "?action=query&format=json&prop=imageinfo&iiprop=url&titles="
+            + urllib.parse.quote(title)
+            + "&origin=*"
+        )
+        data = fetch_json(url) or {}
+        pages = ((data.get("query") or {}).get("pages") or {})
+        for page in pages.values():
+            ii = (page or {}).get("imageinfo") or []
+            if not ii:
+                continue
+            src = ii[0].get("url")
+            if src:
+                return src
+        return None
+
+    src = from_api("https://en.wikipedia.org/w/api.php")
+    if src:
+        return src
+    return from_api("https://commons.wikimedia.org/w/api.php")
+
+
+def resolve_from_wikipedia_infobox(item):
+    expected_type = normalize_type(item.get("type"))
+    best = None
+
+    for cand in wiki_candidates(item):
+        summary = fetch_summary(cand) or {}
+        page_title = summary.get("title") or cand
+
+        if summary and not has_type_signal(summary, expected_type):
+            continue
+
+        wikitext = fetch_wikitext(page_title)
+        image_name = extract_infobox_image_name(wikitext)
+        if not image_name:
+            continue
+        if is_logo_like_file(image_name):
+            continue
+
+        art = fetch_wiki_file_url(image_name)
+        if not art:
+            continue
+
+        score = candidate_score(
+            item,
+            page_title,
+            parse_year(summary.get("description")) or parse_year(summary.get("extract")),
+            "wiki-infobox",
+        )
+        if score is None:
+            continue
+
+        if re.search(r"(?i)(poster|cover|jacket|dustjacket|book)", image_name):
+            score += 3.5
+
+        row = {"url": art, "score": round(score, 3), "source": "wiki-infobox"}
+        if not best or row["score"] > best["score"]:
+            best = row
+
+    return best
+
+
 def candidate_score(item, cand_title, cand_year, source):
     sim = title_similarity(cand_title, item.get("title"))
     if sim < 0.5:
@@ -209,6 +416,7 @@ def candidate_score(item, cand_title, cand_year, source):
         "openlibrary": 17.0,
         "tvmaze": 16.0,
         "itunes": 15.0,
+        "wiki-infobox": 19.0,
         "wiki-direct": 14.0,
         "wiki-search": 11.0,
     }.get(source, 0.0)
@@ -401,12 +609,20 @@ def resolve_item(item, current_url):
     best_score = existing_score(best_url, media_type)
     best_source = "existing-suspect"
 
-    if best_score >= 62.0:
+    if is_existing_trusted(item, best_url, best_score):
         return {"url": best_url, "source": "existing-trusted", "score": best_score}
+
+    c = resolve_from_wikipedia_infobox(item)
+    if c:
+        best_url = c["url"]
+        best_score = c["score"]
+        best_source = c["source"]
+        if best_score >= 57.0:
+            return {"url": best_url, "source": best_source, "score": best_score}
 
     if media_type == "Book":
         c = resolve_from_openlibrary(item)
-        if c:
+        if c and c["score"] > best_score + 1.0:
             best_url = c["url"]
             best_score = c["score"]
             best_source = c["source"]
@@ -414,7 +630,7 @@ def resolve_item(item, current_url):
                 return {"url": best_url, "source": best_source, "score": best_score}
     if media_type == "TV":
         c = resolve_from_tvmaze(item)
-        if c:
+        if c and c["score"] > best_score + 1.0:
             best_url = c["url"]
             best_score = c["score"]
             best_source = c["source"]
@@ -422,7 +638,7 @@ def resolve_item(item, current_url):
                 return {"url": best_url, "source": best_source, "score": best_score}
     if media_type == "Film":
         c = resolve_from_itunes(item)
-        if c:
+        if c and c["score"] > best_score + 1.0:
             best_url = c["url"]
             best_score = c["score"]
             best_source = c["source"]
@@ -482,13 +698,14 @@ def main():
         "totalTargets": len(targets),
         "changed": 0,
         "keptExisting": 0,
+        "blockedCommonsFilmTv": 0,
     }
 
     resolver_targets = []
     for item in targets:
         current = str(base_overrides.get(item["id"]) or "").strip()
         score = existing_score(current, normalize_type(item.get("type")))
-        if current and score >= 62.0:
+        if current and is_existing_trusted(item, current, score):
             repaired[item["id"]] = current
             stats["keptExisting"] += 1
             source_counts["existing-trusted"] = source_counts.get("existing-trusted", 0) + 1
@@ -526,6 +743,16 @@ def main():
 
             if done % 80 == 0:
                 print("processed", done, "/", len(resolver_targets), flush=True)
+
+    # Explicitly suppress low-confidence commons images for Film/TV.
+    for item in targets:
+        if normalize_type(item.get("type")) not in ("Film", "TV"):
+            continue
+        url = str(repaired.get(item["id"]) or "").strip().lower()
+        if "commons.wikimedia.org" in url:
+            repaired[item["id"]] = ""
+            stats["blockedCommonsFilmTv"] += 1
+            source_counts["blocked-commons"] = source_counts.get("blocked-commons", 0) + 1
 
     commons_after = count_commons_film_tv(targets, repaired)
 

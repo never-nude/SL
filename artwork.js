@@ -45,7 +45,8 @@ window.SL_Artwork = (function () {
     if (!id) return null;
     if (!Object.prototype.hasOwnProperty.call(overrides, id)) return null;
     var v = overrides[id];
-    return typeof v === "string" && v ? v : null;
+    if (typeof v !== "string") return null;
+    return v;
   }
 
   function dedupe(arr) {
@@ -122,7 +123,6 @@ window.SL_Artwork = (function () {
   async function resolveFromWikipedia(item) {
     var cands = wikiCandidates(item);
     var expectedType = normalizeType(item.type);
-    var looseMatch = null;
 
     for (var i = 0; i < cands.length; i++) {
       var page = cands[i].replace(/ /g, "_");
@@ -132,10 +132,9 @@ window.SL_Artwork = (function () {
 
       var thumb = summary.thumbnail.source;
       if (hasTypeSignal(summary, expectedType)) return thumb;
-      if (!looseMatch) looseMatch = thumb;
     }
 
-    return looseMatch;
+    return null;
   }
 
   async function resolveBookFallback(item) {
@@ -187,10 +186,16 @@ window.SL_Artwork = (function () {
   function getUrl(item) {
     if (!item || !item.id) return Promise.resolve(null);
 
-    var forced = overrideGet(item.id);
-    if (forced) {
-      cacheSet(item.id, forced);
-      return Promise.resolve(forced);
+    if (Object.prototype.hasOwnProperty.call(overrides, item.id)) {
+      var explicit = overrideGet(item.id);
+      if (explicit) {
+        cacheSet(item.id, explicit);
+        return Promise.resolve(explicit);
+      }
+
+      // Empty-string override means "known bad/missing artwork": never auto-fetch.
+      cacheSet(item.id, "");
+      return Promise.resolve(null);
     }
 
     var cached = cacheGet(item.id);
