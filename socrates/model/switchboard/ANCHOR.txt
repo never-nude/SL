@@ -1,0 +1,19 @@
+SWITCHBOARD_ANCHOR
+TS: 20260226-060216
+
+Repo root: $HOME/dev/never-nude.github.io
+Serve (local): python3 -m http.server 1099 --bind 0.0.0.0
+Local URLs:
+  http://127.0.0.1:1099/model/?cb=...
+  http://127.0.0.1:1099/model/mobile/?cb=...
+
+Goal:
+- Scanner-like “lighting up” per stimulus (BOLD-like timecourse)
+- “Speaking” edges = coupling (not axons)
+- Truth tier labels: TEMPLATE vs EMPIRICAL vs SIMULATED
+
+Next steps:
+1) Produce TEMPLATE stimulus maps by parcellating NeuroQuery/Neurosynth maps into AAL weights.
+2) Produce BASELINE coupling matrix from a small resting-state dataset (starter), then upgrade later.
+3) Integrate Switchboard UI into the existing model without breaking the current build.
+

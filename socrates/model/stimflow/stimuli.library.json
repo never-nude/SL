@@ -1,0 +1,313 @@
+{
+  "schema_version": 2,
+  "library_name": "StimFlow Educational Stimulus Library",
+  "library_disclaimer": "Educational network-level templates only. Not diagnostic and not a pharmacologic model.",
+  "truth_tiers": [
+    "TEMPLATE_META_ANALYTIC",
+    "EMPIRICAL_TASK_FMRI",
+    "SIMULATED_PROPAGATION"
+  ],
+  "hrf": {
+    "model": "canonical_bold_like",
+    "rise_s": 4.2,
+    "peak_s": 6.2,
+    "fall_s": 12.0
+  },
+  "stimuli": [
+    {
+      "id": "music",
+      "label": "Hearing music",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "confidence": 0.78,
+      "evidence_type": "meta-analytic convergence",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General auditory task-fMRI literature"
+      ],
+      "explanation": "Auditory cortices are commonly involved in early processing of musical input. This simplified educational map emphasizes bilateral Heschl and superior temporal regions without claiming deterministic pathways.",
+      "seed_regions": [
+        { "aal_label": "Heschl_L", "w": 1.0 },
+        { "aal_label": "Heschl_R", "w": 1.0 },
+        { "aal_label": "Temporal_Sup_L", "w": 0.72 },
+        { "aal_label": "Temporal_Sup_R", "w": 0.72 }
+      ]
+    },
+    {
+      "id": "pain",
+      "label": "Pinprick / acute pain",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "confidence": 0.75,
+      "evidence_type": "task-fMRI consensus map",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General nociception and salience-network task literature"
+      ],
+      "explanation": "Primary somatosensory and salience-related regions are commonly involved in nociceptive paradigms. This remains a simplified educational summary and not a clinical pain metric.",
+      "seed_regions": [
+        { "aal_label": "Postcentral_L", "w": 0.82 },
+        { "aal_label": "Postcentral_R", "w": 0.82 },
+        { "aal_label": "Insula_L", "w": 0.78 },
+        { "aal_label": "Insula_R", "w": 0.78 },
+        { "aal_label": "Cingulum_Ant_L", "w": 0.64 },
+        { "aal_label": "Cingulum_Ant_R", "w": 0.64 },
+        { "aal_label": "Thalamus_L", "w": 0.44 },
+        { "aal_label": "Thalamus_R", "w": 0.44 }
+      ]
+    },
+    {
+      "id": "fear",
+      "label": "Fear / threat",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "confidence": 0.68,
+      "evidence_type": "meta-analytic convergence",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General threat-processing task-fMRI literature"
+      ],
+      "explanation": "Amygdala and salience-associated regions are often associated with threat processing tasks. This educational map highlights common associations rather than deterministic emotional circuitry.",
+      "seed_regions": [
+        { "aal_label": "Amygdala_L", "w": 1.0 },
+        { "aal_label": "Amygdala_R", "w": 1.0 },
+        { "aal_label": "Insula_L", "w": 0.66 },
+        { "aal_label": "Insula_R", "w": 0.66 },
+        { "aal_label": "Cingulum_Ant_L", "w": 0.58 },
+        { "aal_label": "Cingulum_Ant_R", "w": 0.58 }
+      ]
+    },
+    {
+      "id": "reward",
+      "label": "Reward / surprise",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "confidence": 0.63,
+      "evidence_type": "task-fMRI consensus map",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General reward-learning and valuation task literature"
+      ],
+      "explanation": "Ventral-striatal and orbitofrontal territories are commonly involved in reward-valuation paradigms. This template is a network-level educational approximation and not a direct measure of reinforcement chemistry.",
+      "seed_regions": [
+        { "aal_label": "Caudate_L", "w": 0.82 },
+        { "aal_label": "Caudate_R", "w": 0.82 },
+        { "aal_label": "Putamen_L", "w": 0.68 },
+        { "aal_label": "Putamen_R", "w": 0.68 },
+        { "aal_label": "Frontal_Med_Orb_L", "w": 0.70 },
+        { "aal_label": "Frontal_Med_Orb_R", "w": 0.70 }
+      ]
+    },
+    {
+      "id": "visual_flash",
+      "label": "Visual flash",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "confidence": 0.80,
+      "evidence_type": "task-fMRI consensus map",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General visual localizer task literature"
+      ],
+      "explanation": "Primary and extrastriate visual cortices are commonly involved during simple visual flash tasks. This educational summary focuses on occipital-dominant engagement patterns.",
+      "seed_regions": [
+        { "aal_label": "Calcarine_L", "w": 1.0 },
+        { "aal_label": "Calcarine_R", "w": 1.0 },
+        { "aal_label": "Lingual_L", "w": 0.66 },
+        { "aal_label": "Lingual_R", "w": 0.66 },
+        { "aal_label": "Occipital_Sup_L", "w": 0.52 },
+        { "aal_label": "Occipital_Sup_R", "w": 0.52 }
+      ]
+    },
+    {
+      "id": "motor_tapping",
+      "label": "Motor tapping",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "confidence": 0.79,
+      "evidence_type": "task-fMRI consensus map",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General finger-tapping and motor localizer literature"
+      ],
+      "explanation": "Precentral, supplementary motor, and somatosensory regions are commonly involved in tapping paradigms. This map reflects a bilateral educational template rather than individualized lateralization.",
+      "seed_regions": [
+        { "aal_label": "Precentral_L", "w": 0.92 },
+        { "aal_label": "Precentral_R", "w": 0.92 },
+        { "aal_label": "Supp_Motor_Area_L", "w": 0.74 },
+        { "aal_label": "Supp_Motor_Area_R", "w": 0.74 },
+        { "aal_label": "Postcentral_L", "w": 0.56 },
+        { "aal_label": "Postcentral_R", "w": 0.56 }
+      ]
+    },
+    {
+      "id": "language_comprehension",
+      "label": "Language comprehension",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "confidence": 0.72,
+      "evidence_type": "meta-analytic convergence",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General sentence comprehension and semantic task literature"
+      ],
+      "explanation": "Superior temporal and inferior frontal territories are commonly involved in language comprehension tasks. This simplified map highlights broad network association and not a full language model.",
+      "seed_regions": [
+        { "aal_label": "Temporal_Sup_L", "w": 0.90 },
+        { "aal_label": "Temporal_Sup_R", "w": 0.60 },
+        { "aal_label": "Frontal_Inf_Oper_L", "w": 0.78 },
+        { "aal_label": "Frontal_Inf_Tri_L", "w": 0.74 },
+        { "aal_label": "Frontal_Mid_L", "w": 0.48 }
+      ]
+    },
+    {
+      "id": "caffeine_alerting",
+      "label": "Caffeine (alerting state)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.46,
+      "evidence_type": "small-study task-fMRI synthesis",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General caffeine challenge and vigilance-task fMRI literature"
+      ],
+      "explanation": "Thalamic and fronto-cingulate regions are often associated with alertness-related task effects after caffeine. This is a conservative educational approximation and not a personalized pharmacologic prediction.",
+      "seed_regions": [
+        { "aal_label": "Thalamus_L", "w": 0.84 },
+        { "aal_label": "Thalamus_R", "w": 0.84 },
+        { "aal_label": "Frontal_Mid_L", "w": 0.56 },
+        { "aal_label": "Frontal_Mid_R", "w": 0.56 },
+        { "aal_label": "Cingulum_Ant_L", "w": 0.52 },
+        { "aal_label": "Cingulum_Ant_R", "w": 0.52 }
+      ]
+    },
+    {
+      "id": "nicotine_cue",
+      "label": "Nicotine cue reactivity",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.58,
+      "evidence_type": "cue-reactivity task-fMRI synthesis",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General nicotine cue-reactivity fMRI literature"
+      ],
+      "explanation": "Insula, anterior cingulate, and orbitofrontal regions are commonly involved during nicotine-related cue tasks. This template reflects cue reactivity and should not be interpreted as a diagnostic dependence map.",
+      "seed_regions": [
+        { "aal_label": "Insula_L", "w": 0.86 },
+        { "aal_label": "Insula_R", "w": 0.86 },
+        { "aal_label": "Cingulum_Ant_L", "w": 0.76 },
+        { "aal_label": "Cingulum_Ant_R", "w": 0.76 },
+        { "aal_label": "Frontal_Med_Orb_L", "w": 0.60 },
+        { "aal_label": "Frontal_Med_Orb_R", "w": 0.60 },
+        { "aal_label": "Amygdala_L", "w": 0.44 },
+        { "aal_label": "Amygdala_R", "w": 0.44 }
+      ]
+    },
+    {
+      "id": "alcohol_cue",
+      "label": "Alcohol cue reactivity",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.56,
+      "evidence_type": "cue-reactivity task-fMRI synthesis",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General alcohol cue-reactivity fMRI literature"
+      ],
+      "explanation": "Orbitofrontal, striatal, and insular regions are often associated with alcohol-cue tasks. This is a simplified educational visualization and not a test for alcohol use disorder.",
+      "seed_regions": [
+        { "aal_label": "Frontal_Med_Orb_L", "w": 0.82 },
+        { "aal_label": "Frontal_Med_Orb_R", "w": 0.82 },
+        { "aal_label": "Caudate_L", "w": 0.66 },
+        { "aal_label": "Caudate_R", "w": 0.66 },
+        { "aal_label": "Insula_L", "w": 0.60 },
+        { "aal_label": "Insula_R", "w": 0.60 },
+        { "aal_label": "Cingulum_Ant_L", "w": 0.48 },
+        { "aal_label": "Cingulum_Ant_R", "w": 0.48 }
+      ]
+    },
+    {
+      "id": "cannabis_cue",
+      "label": "Cannabis cue reactivity",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.44,
+      "evidence_type": "cue-reactivity task-fMRI synthesis",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General cannabis cue-reactivity fMRI literature"
+      ],
+      "explanation": "Insular, limbic, and orbitofrontal regions are commonly involved in cannabis-related cue studies. Evidence heterogeneity is high, so this map should be treated as a low-confidence educational template.",
+      "seed_regions": [
+        { "aal_label": "Insula_L", "w": 0.74 },
+        { "aal_label": "Insula_R", "w": 0.74 },
+        { "aal_label": "Amygdala_L", "w": 0.58 },
+        { "aal_label": "Amygdala_R", "w": 0.58 },
+        { "aal_label": "Hippocampus_L", "w": 0.52 },
+        { "aal_label": "Hippocampus_R", "w": 0.52 },
+        { "aal_label": "Frontal_Med_Orb_L", "w": 0.46 },
+        { "aal_label": "Frontal_Med_Orb_R", "w": 0.46 }
+      ]
+    },
+    {
+      "id": "opioid_cue",
+      "label": "Opioid cue reactivity",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.42,
+      "evidence_type": "cue-reactivity task-fMRI synthesis",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General opioid cue-reactivity fMRI literature"
+      ],
+      "explanation": "Insula, cingulate, and limbic regions are often associated with opioid-cue responses in task paradigms. This educational template does not model analgesia, dosing, or withdrawal physiology.",
+      "seed_regions": [
+        { "aal_label": "Insula_L", "w": 0.80 },
+        { "aal_label": "Insula_R", "w": 0.80 },
+        { "aal_label": "Cingulum_Ant_L", "w": 0.70 },
+        { "aal_label": "Cingulum_Ant_R", "w": 0.70 },
+        { "aal_label": "Amygdala_L", "w": 0.56 },
+        { "aal_label": "Amygdala_R", "w": 0.56 },
+        { "aal_label": "Thalamus_L", "w": 0.40 },
+        { "aal_label": "Thalamus_R", "w": 0.40 }
+      ]
+    },
+    {
+      "id": "stimulant_cue",
+      "label": "Stimulant cue reactivity (cocaine/meth)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.47,
+      "evidence_type": "cue-reactivity task-fMRI synthesis",
+      "datasets": [
+        "Template only (no runtime dataset loaded)"
+      ],
+      "citations": [
+        "General stimulant cue-reactivity fMRI literature"
+      ],
+      "explanation": "Striatal, thalamic, and frontal control regions are commonly involved in stimulant-related cue paradigms. This visualization is an educational, non-diagnostic approximation and not a model of acute intoxication.",
+      "seed_regions": [
+        { "aal_label": "Caudate_L", "w": 0.86 },
+        { "aal_label": "Caudate_R", "w": 0.86 },
+        { "aal_label": "Putamen_L", "w": 0.74 },
+        { "aal_label": "Putamen_R", "w": 0.74 },
+        { "aal_label": "Thalamus_L", "w": 0.56 },
+        { "aal_label": "Thalamus_R", "w": 0.56 },
+        { "aal_label": "Frontal_Mid_L", "w": 0.52 },
+        { "aal_label": "Frontal_Mid_R", "w": 0.52 }
+      ]
+    }
+  ]
+}

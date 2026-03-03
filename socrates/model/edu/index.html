@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <base href="../">
+<title>model • AAL Brain Graph • EDU</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
+      #build, #hud {
+        position: fixed; left: 12px;
+        color: #fff; font: 13px/1.2 system-ui, -apple-system, sans-serif;
+        background: rgba(0,0,0,0.55);
+        padding: 8px 10px; border-radius: 10px;
+        pointer-events: none;
+        max-width: 70vw;
+        white-space: pre-wrap;
+      }
+      #build { top: 12px; }
+      #hud   { top: 54px; }
+      #hud.error { color: #ff9b9b; }
+
+      /* Controls panel (interactive) */
+      #panel {
+        position: fixed;
+        right: 12px;
+        top: 12px;
+        color: #fff;
+        font: 13px/1.2 system-ui, -apple-system, sans-serif;
+        background: rgba(0,0,0,0.55);
+        padding: 10px 12px;
+        border-radius: 12px;
+        pointer-events: auto;
+        width: 260px;
+        user-select: none;
+      }
+      #panel .title { font-weight: 700; margin-bottom: 8px; }
+      #panel .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 8px 0; }
+      #panel label { display: flex; align-items: center; gap: 8px; }
+      #panel input[type="range"] { width: 100%; }
+      #panel button {
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 10px;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+      #panel button:active { transform: translateY(1px); }
+      #panel .small { opacity: 0.85; font-size: 12px; margin-top: 6px; }
+      #panel .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    </style>
+
+    <!-- Import map required because addons import from "three" -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../vendor/three/build/three.module.js",
+          "three/addons/": "../vendor/three/examples/jsm/"
+        }
+      }
+    </script>
+    <style id="iphone-css">
+  :root{
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    -webkit-text-size-adjust: 100%;
+    background: #000;
+  }
+
+  canvas { display: block; touch-action: none; }
+
+  /* Safe-area aware overlay positioning (no-op if ids don't exist) */
+  #build, #hud {
+    left: calc(var(--safe-left) + 12px);
+    top:  calc(var(--safe-top) + 12px);
+    max-width: calc(100vw - var(--safe-left) - var(--safe-right) - 24px);
+  }
+
+  #panel {
+    right: calc(var(--safe-right) + 12px);
+    top:   calc(var(--safe-top) + 12px);
+    max-width: calc(100vw - var(--safe-left) - var(--safe-right) - 24px);
+  }
+
+  /* iPhone-ish: panel becomes bottom sheet, bigger touch targets */
+  @media (max-width: 520px), (pointer: coarse) {
+    #build, #hud { font-size: 12px; line-height: 1.25; }
+    #panel {
+      left: calc(var(--safe-left) + 12px);
+      right: calc(var(--safe-right) + 12px);
+      top: auto;
+      bottom: calc(var(--safe-bottom) + 12px);
+      width: auto;
+      max-width: none;
+    }
+    #panel label, #panel button { font-size: 14px; }
+    #panel input[type="checkbox"] { transform: scale(1.25); transform-origin: left center; }
+    #panel input[type="range"] { width: 100%; }
+  }
+</style>
+
+</head>
+  <body>
+    <div id="build">model • AAL viewer • BUILD 1771549511</div>
+    <div id="hud">Loading…</div>
+
+    <div id="panel">
+      <div class="title">Controls</div>
+
+      <div class="row">
+        <label><input id="toggleEdges" type="checkbox" checked />Edges</label>
+        <label><input id="toggleHull"  type="checkbox" checked />Hull</label>
+      </div>
+
+      <div class="row">
+        <label><input id="toggleAuto" type="checkbox" />Auto-rotate</label>
+        <button id="btnReset" type="button">Reset view</button>
+      </div>
+
+      <div class="row">
+        <div>Edge threshold</div>
+        <div id="edgeVal" class="mono">0.08</div>
+      </div>
+      <input id="edgeThresh" type="range" min="0" max="1" step="0.01" value="0.08" />
+      <div class="small">Higher threshold → fewer edges.</div>
+    </div>
+
+    <script type="module" src="./main.1771549511.js"></script>
+  <script src="./edu/edu.js"></script>
+<!-- EDU_TS: 20260226-152230 -->
+</body>
+</html>

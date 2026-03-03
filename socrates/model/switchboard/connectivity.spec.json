@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "matrix_type": "aal_roi_to_roi",
+  "weights": "pending",
+  "recommended": "Fisher-z mean correlation from resting-state fMRI (starter), then upgrade to larger normative sample",
+  "note": "Store as a symmetric NxN matrix aligned to the AAL label order used in the app."
+}

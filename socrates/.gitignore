@@ -1,0 +1,32 @@
+
+# Neural backups
+neural/*.bak*
+
+# Neural backups
+neural/*.bak*
+backups/
+tools/
+*.tgz
+*.zip
+.DS_Store
+neural/*.bak_*
+
+# Ball Pit local backups
+backup_subway/
+
+# Ball Pit local backups
+backup_subway/
+
+# Ball Pit private inputs + local backups
+subway/private/
+backup_ballpit/
+
+# local safety backups
+_local_backups/
+
+ballpit/*.bak.*
+ballpit/*.bak_truthbadge_*
+*.bak_*
+
+# local backups
+**/*.bak.*

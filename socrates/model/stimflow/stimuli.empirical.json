@@ -1,0 +1,2734 @@
+{
+  "schema_version": 1,
+  "notes": "Educational ROI anchors approximating common task-fMRI and pharmacological-challenge findings. Simplified, non-diagnostic.",
+  "disclaimer": "These are public-literature-inspired group-level anchors, not patient-level measurements, treatment guidance, or dose-response models.",
+  "truth_tiers": [
+    "TEMPLATE_META_ANALYTIC",
+    "EMPIRICAL_TASK_FMRI",
+    "SIMULATED_PROPAGATION"
+  ],
+  "hrf": {
+    "model": "canonical_bold_like",
+    "rise_s": 4.2,
+    "peak_s": 6.0,
+    "fall_s": 12.0
+  },
+  "stimuli": [
+    {
+      "id": "motor_tapping",
+      "label": "Motor tapping (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.84,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "HCP S1200 MOTOR"
+      ],
+      "citations": [
+        "Finger tapping task-fMRI family"
+      ],
+      "explanation": "Primary motor, supplementary motor, and somatosensory regions are commonly involved in repetitive motor tasks. This anchor approximates robust motor-task cortical recruitment patterns.",
+      "seed_regions": [
+        {
+          "aal_label": "Precentral_L",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Precentral_R",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Supp_Motor_Area_L",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Supp_Motor_Area_R",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Postcentral_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Postcentral_R",
+          "w": 0.58
+        }
+      ]
+    },
+    {
+      "id": "language_comprehension",
+      "label": "Language comprehension (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.78,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "HCP S1200 LANGUAGE"
+      ],
+      "citations": [
+        "Sentence comprehension and semantic task family"
+      ],
+      "explanation": "Temporal and inferior frontal regions are commonly involved in sentence-level language processing. This anchor keeps hemispheric asymmetry conservative while emphasizing left-lateralized language networks.",
+      "seed_regions": [
+        {
+          "aal_label": "Temporal_Sup_L",
+          "w": 0.94
+        },
+        {
+          "aal_label": "Temporal_Sup_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Frontal_Inf_Oper_L",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Frontal_Inf_Tri_L",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.42
+        }
+      ]
+    },
+    {
+      "id": "fear",
+      "label": "Threat faces (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.7,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "HCP S1200 EMOTION"
+      ],
+      "citations": [
+        "Faces vs shape emotion-task family"
+      ],
+      "explanation": "Amygdala, insula, and anterior cingulate are often associated with threat-related emotional salience tasks. This remains a simplified educational mapping of group-level effects.",
+      "seed_regions": [
+        {
+          "aal_label": "Amygdala_L",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.56
+        }
+      ]
+    },
+    {
+      "id": "reward",
+      "label": "Reward feedback (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.69,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "HCP S1200 GAMBLING"
+      ],
+      "citations": [
+        "Reward outcome task family"
+      ],
+      "explanation": "Striatal and medial orbitofrontal territories are commonly involved during reward-outcome and valuation tasks. This anchor emphasizes distributed valuation circuitry rather than a single reward center.",
+      "seed_regions": [
+        {
+          "aal_label": "Caudate_L",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Caudate_R",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Putamen_L",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Putamen_R",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.72
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.72
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "label": "Auditory listening (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.73,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Auditory localizer task-family aggregates"
+      ],
+      "citations": [
+        "Auditory cortex task-fMRI family"
+      ],
+      "explanation": "Primary and association auditory cortices are commonly involved in passive and active listening tasks. This anchor emphasizes bilateral Heschl and superior temporal recruitment.",
+      "seed_regions": [
+        {
+          "aal_label": "Heschl_L",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Heschl_R",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Temporal_Sup_L",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Temporal_Sup_R",
+          "w": 0.74
+        }
+      ]
+    },
+    {
+      "id": "pain",
+      "label": "Acute nociception (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.66,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Pain task-fMRI meta-analytic families"
+      ],
+      "citations": [
+        "Nociception and salience task family"
+      ],
+      "explanation": "Somatosensory cortex, insula, and anterior cingulate are commonly involved in acute nociceptive task contrasts. This is not a direct measure of subjective pain intensity.",
+      "seed_regions": [
+        {
+          "aal_label": "Postcentral_L",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Postcentral_R",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.46
+        }
+      ]
+    },
+    {
+      "id": "nicotine_cue",
+      "label": "Nicotine cue reactivity (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.59,
+      "evidence_type": "cue-reactivity ROI anchor",
+      "datasets": [
+        "Substance cue-reactivity task-family aggregates"
+      ],
+      "citations": [
+        "Nicotine cue-reactivity fMRI family"
+      ],
+      "explanation": "Insula, anterior cingulate, and orbitofrontal territories are commonly involved during nicotine-related cue tasks. This reflects group-level cue-reactivity tendencies, not individualized dependence diagnosis.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.42
+        }
+      ]
+    },
+    {
+      "id": "alcohol_cue",
+      "label": "Alcohol cue reactivity (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.57,
+      "evidence_type": "cue-reactivity ROI anchor",
+      "datasets": [
+        "Substance cue-reactivity task-family aggregates"
+      ],
+      "citations": [
+        "Alcohol cue-reactivity fMRI family"
+      ],
+      "explanation": "Orbitofrontal, striatal, and insular regions are often associated with alcohol-cue paradigms. This anchor is educational and does not model intoxication pharmacokinetics.",
+      "seed_regions": [
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Caudate_L",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Caudate_R",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.48
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.48
+        }
+      ]
+    },
+    {
+      "id": "stimulant_cue",
+      "label": "Stimulant cue reactivity (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.5,
+      "evidence_type": "cue-reactivity ROI anchor",
+      "datasets": [
+        "Substance cue-reactivity task-family aggregates"
+      ],
+      "citations": [
+        "Cocaine and methamphetamine cue-reactivity fMRI family"
+      ],
+      "explanation": "Striatal, thalamic, and frontal control regions are commonly involved in stimulant-related cue paradigms. This educational anchor does not represent acute drug dose effects.",
+      "seed_regions": [
+        {
+          "aal_label": "Caudate_L",
+          "w": 0.88
+        },
+        {
+          "aal_label": "Caudate_R",
+          "w": 0.88
+        },
+        {
+          "aal_label": "Putamen_L",
+          "w": 0.76
+        },
+        {
+          "aal_label": "Putamen_R",
+          "w": 0.76
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.5
+        }
+      ]
+    },
+    {
+      "id": "visual_flash",
+      "label": "Visual flash (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.8,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Visual checkerboard task-family aggregates"
+      ],
+      "citations": [
+        "Visual localizer task-fMRI family"
+      ],
+      "explanation": "Primary visual cortices are commonly involved in high-contrast visual flash and checkerboard tasks. This anchor emphasizes early visual stream recruitment while remaining an educational simplification.",
+      "seed_regions": [
+        {
+          "aal_label": "Calcarine_L",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Calcarine_R",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Cuneus_L",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Cuneus_R",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Lingual_L",
+          "w": 0.7
+        },
+        {
+          "aal_label": "Lingual_R",
+          "w": 0.7
+        },
+        {
+          "aal_label": "Occipital_Inf_L",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Occipital_Inf_R",
+          "w": 0.54
+        }
+      ]
+    },
+    {
+      "id": "working_memory",
+      "label": "Working memory load (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.76,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "HCP S1200 WM"
+      ],
+      "citations": [
+        "n-back working-memory task family"
+      ],
+      "explanation": "Dorsolateral frontal and superior parietal regions are commonly involved in working-memory load contrasts. This anchor captures distributed frontoparietal engagement rather than a single memory center.",
+      "seed_regions": [
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.9
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.9
+        },
+        {
+          "aal_label": "Parietal_Sup_L",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Parietal_Sup_R",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.46
+        }
+      ]
+    },
+    {
+      "id": "response_inhibition",
+      "label": "Response inhibition (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.71,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Go/No-Go and stop-signal task-family aggregates"
+      ],
+      "citations": [
+        "Inhibitory-control task-fMRI family"
+      ],
+      "explanation": "Right inferior frontal and medial frontal control regions are commonly involved in response-inhibition paradigms. This anchor emphasizes inhibitory control circuitry at the network level.",
+      "seed_regions": [
+        {
+          "aal_label": "Frontal_Inf_Oper_R",
+          "w": 0.96
+        },
+        {
+          "aal_label": "Frontal_Inf_Oper_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Supp_Motor_Area_R",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.46
+        }
+      ]
+    },
+    {
+      "id": "face_processing",
+      "label": "Face perception (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.72,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Face localizer task-family aggregates"
+      ],
+      "citations": [
+        "Face perception task-fMRI family"
+      ],
+      "explanation": "Fusiform and inferior occipital regions are commonly involved in face-perception tasks, with additional salience contributions from amygdala in many paradigms. This anchor remains an educational summary of group-level effects.",
+      "seed_regions": [
+        {
+          "aal_label": "Fusiform_L",
+          "w": 0.94
+        },
+        {
+          "aal_label": "Fusiform_R",
+          "w": 0.94
+        },
+        {
+          "aal_label": "Occipital_Inf_L",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Occipital_Inf_R",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Temporal_Sup_L",
+          "w": 0.38
+        },
+        {
+          "aal_label": "Temporal_Sup_R",
+          "w": 0.38
+        }
+      ]
+    },
+    {
+      "id": "episodic_memory_encoding",
+      "label": "Episodic encoding (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.68,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Memory encoding task-family aggregates"
+      ],
+      "citations": [
+        "Associative and scene encoding task-fMRI family"
+      ],
+      "explanation": "Hippocampal and parahippocampal regions are commonly involved in episodic encoding tasks, often with midline parietal support. This anchor illustrates distributed memory-network recruitment rather than memory storage claims.",
+      "seed_regions": [
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.96
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.96
+        },
+        {
+          "aal_label": "ParaHippocampal_L",
+          "w": 0.84
+        },
+        {
+          "aal_label": "ParaHippocampal_R",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.42
+        }
+      ]
+    },
+    {
+      "id": "semantic_retrieval",
+      "label": "Semantic retrieval (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.66,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Semantic decision task-family aggregates"
+      ],
+      "citations": [
+        "Semantic retrieval task-fMRI family"
+      ],
+      "explanation": "Left angular, inferior frontal, and temporal association regions are commonly involved in semantic retrieval tasks. This anchor highlights language-related conceptual retrieval as a distributed process.",
+      "seed_regions": [
+        {
+          "aal_label": "Angular_L",
+          "w": 0.9
+        },
+        {
+          "aal_label": "Angular_R",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Frontal_Inf_Tri_L",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Temporal_Sup_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.46
+        }
+      ]
+    },
+    {
+      "id": "caffeine_challenge",
+      "label": "Caffeine challenge (pharmacological template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.55,
+      "evidence_type": "pharmacological challenge ROI template",
+      "datasets": [
+        "Caffeine challenge task-family aggregates"
+      ],
+      "citations": [
+        "Acute caffeine pharmacological fMRI family"
+      ],
+      "explanation": "Thalamic and frontal alertness-related regions are commonly involved in acute caffeine challenge studies. This is a simplified educational summary and does not represent individualized dose-response effects.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Putamen_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Putamen_R",
+          "w": 0.4
+        }
+      ]
+    },
+    {
+      "id": "nicotine_administration",
+      "label": "Nicotine administration (pharmacological template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.52,
+      "evidence_type": "pharmacological challenge ROI template",
+      "datasets": [
+        "Acute nicotine administration task-family aggregates"
+      ],
+      "citations": [
+        "Acute nicotine pharmacological fMRI family"
+      ],
+      "explanation": "Insula, anterior cingulate, and striatal-frontal territories are commonly involved in acute nicotine administration paradigms. This is an educational approximation and does not imply deterministic receptor-level modeling.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.88
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.88
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.72
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.72
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Caudate_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Caudate_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.48
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.48
+        }
+      ]
+    },
+    {
+      "id": "alcohol_intoxication",
+      "label": "Alcohol intoxication (pharmacological template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.46,
+      "evidence_type": "pharmacological challenge ROI template",
+      "datasets": [
+        "Acute alcohol challenge task-family aggregates"
+      ],
+      "citations": [
+        "Acute alcohol pharmacological fMRI family"
+      ],
+      "explanation": "Frontal, thalamic, and cingulate regions are often associated with acute alcohol administration studies. This template is educational and does not represent intoxication severity or impairment assessment.",
+      "seed_regions": [
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.4
+        }
+      ]
+    },
+    {
+      "id": "thc_challenge",
+      "label": "THC challenge (pharmacological template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.42,
+      "evidence_type": "pharmacological challenge ROI template",
+      "datasets": [
+        "Acute THC administration task-family aggregates"
+      ],
+      "citations": [
+        "Acute cannabinoid pharmacological fMRI family"
+      ],
+      "explanation": "Hippocampal, amygdalar, and medial frontal regions are commonly involved in acute cannabinoid challenge studies. This is a simplified educational map and does not encode product potency, route, or individual tolerance.",
+      "seed_regions": [
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.48
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.48
+        }
+      ]
+    },
+    {
+      "id": "opioid_analgesia",
+      "label": "Opioid analgesia (pharmacological template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.44,
+      "evidence_type": "pharmacological challenge ROI template",
+      "datasets": [
+        "Opioid analgesia challenge task-family aggregates"
+      ],
+      "citations": [
+        "Opioid pharmacological fMRI family"
+      ],
+      "explanation": "Thalamic, insular, and cingulate regions are commonly involved in opioid analgesia paradigms, often with frontal valuation contributions. This educational template does not model analgesic efficacy, dose response, or safety outcomes.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.42
+        }
+      ]
+    },
+    {
+      "id": "acetaminophen",
+      "label": "Acetaminophen (medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.36,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Acetaminophen analgesia challenge task-family aggregates"
+      ],
+      "citations": [
+        "Acetaminophen analgesia fMRI family"
+      ],
+      "explanation": "Thalamic, insular, and cingulate regions are commonly involved in pain-modulation studies where acetaminophen is examined. This is a simplified educational template and does not represent clinical efficacy or personalized dosing outcomes.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Postcentral_L",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Postcentral_R",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.4
+        }
+      ]
+    },
+    {
+      "id": "clonazepam_klonopin",
+      "label": "Clonazepam (Klonopin) (medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.31,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Benzodiazepine challenge task-family aggregates"
+      ],
+      "citations": [
+        "Benzodiazepine anxiolytic/sedative fMRI family"
+      ],
+      "explanation": "Amygdala, insula, cingulate, and medial frontal regions are often associated with benzodiazepine challenge paradigms in emotional and vigilance tasks. This educational map is non-diagnostic and does not model sedation depth or safety risk.",
+      "seed_regions": [
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.42
+        }
+      ]
+    },
+    {
+      "id": "losartan",
+      "label": "Losartan (medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.24,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Angiotensin-system challenge task-family aggregates"
+      ],
+      "citations": [
+        "Central angiotensin modulation fMRI family"
+      ],
+      "explanation": "Insular, cingulate, thalamic, and frontal midline regions are often associated with autonomic and interoceptive regulation tasks in angiotensin-system studies. This template has limited evidence strength and is provided as a conservative educational approximation.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.32
+        }
+      ]
+    },
+    {
+      "id": "associative_learning",
+      "label": "Associative learning (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.6,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Associative learning task-family aggregates"
+      ],
+      "citations": [
+        "Reinforcement and associative learning fMRI family"
+      ],
+      "explanation": "Hippocampal, parahippocampal, and frontal control regions are commonly involved in associative learning paradigms. This is a simplified educational summary of group-level task effects.",
+      "seed_regions": [
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.92
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.92
+        },
+        {
+          "aal_label": "ParaHippocampal_L",
+          "w": 0.82
+        },
+        {
+          "aal_label": "ParaHippocampal_R",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.42
+        }
+      ]
+    },
+    {
+      "id": "sleep_transition",
+      "label": "Sleep transition (educational anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.34,
+      "evidence_type": "state-transition ROI template",
+      "datasets": [
+        "Sleep-state transition task-family aggregates"
+      ],
+      "citations": [
+        "Wake-to-sleep transition fMRI family"
+      ],
+      "explanation": "Thalamic, insular, and cingulate midline regions are commonly involved during sleep-state transition studies. This educational template is conservative and does not represent sleep staging, diagnosis, or individual sleep quality.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.34
+        }
+      ]
+    },
+    {
+      "id": "memory_retrieval",
+      "label": "Memory retrieval (empirical anchor)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.62,
+      "evidence_type": "task-family ROI anchor",
+      "datasets": [
+        "Episodic retrieval task-family aggregates"
+      ],
+      "citations": [
+        "Recognition and recall task-fMRI family"
+      ],
+      "explanation": "Hippocampal, precuneus, angular, and frontal regions are commonly involved in episodic memory retrieval tasks. This anchor is a simplified educational map of distributed retrieval networks.",
+      "seed_regions": [
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.88
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.88
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Angular_L",
+          "w": 0.72
+        },
+        {
+          "aal_label": "Angular_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "ParaHippocampal_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "ParaHippocampal_R",
+          "w": 0.52
+        }
+      ]
+    },
+    {
+      "id": "psilocybin_challenge",
+      "label": "Psilocybin challenge (pharmacological template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.33,
+      "evidence_type": "pharmacological challenge ROI template",
+      "datasets": [
+        "Psychedelic challenge resting-state/task-free aggregates"
+      ],
+      "citations": [
+        "Psilocybin fMRI family (group-level)"
+      ],
+      "explanation": "Altered self-referential and salience-network coupling patterns are commonly discussed in psilocybin challenge studies. This educational template is a conservative group-level approximation, not a dose model, treatment recommendation, or diagnostic marker.",
+      "seed_regions": [
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.76
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.76
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.52
+        }
+      ]
+    },
+    {
+      "id": "lsd_challenge",
+      "label": "LSD challenge (pharmacological template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.31,
+      "evidence_type": "pharmacological challenge ROI template",
+      "datasets": [
+        "Psychedelic challenge resting-state/task-free aggregates"
+      ],
+      "citations": [
+        "LSD fMRI family (group-level)"
+      ],
+      "explanation": "Visual-association and transmodal network changes are commonly described in LSD challenge literature. This is a simplified educational summary of group-level patterns and should not be interpreted as individual prediction, safety guidance, or causal proof.",
+      "seed_regions": [
+        {
+          "aal_label": "Calcarine_L",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Calcarine_R",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Cuneus_L",
+          "w": 0.76
+        },
+        {
+          "aal_label": "Cuneus_R",
+          "w": 0.76
+        },
+        {
+          "aal_label": "Lingual_L",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Lingual_R",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.54
+        }
+      ]
+    },
+    {
+      "id": "ketamine_challenge",
+      "label": "Ketamine challenge (pharmacological template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.35,
+      "evidence_type": "pharmacological challenge ROI template",
+      "datasets": [
+        "NMDAR-antagonist challenge fMRI aggregates"
+      ],
+      "citations": [
+        "Ketamine challenge fMRI family (group-level)"
+      ],
+      "explanation": "Thalamic, insular, and cingulate interactions are commonly reported in ketamine challenge studies, alongside broader frontal network changes. This remains a non-clinical educational template and does not model treatment effects, dose-response, or individual risk.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.7
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.7
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.54
+        }
+      ]
+    },
+    {
+      "id": "morphine",
+      "label": "Morphine (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.4,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + analgesia challenge aggregates"
+      ],
+      "citations": [
+        "Opioid analgesia fMRI family (group-level)"
+      ],
+      "explanation": "Thalamic, insular, cingulate, and valuation-associated regions are commonly involved in opioid analgesia challenge studies. This is a conservative educational group-level template and is not a dosing, prescribing, or safety model.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.84
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.78
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.7
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.7
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Putamen_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Putamen_R",
+          "w": 0.42
+        }
+      ]
+    },
+    {
+      "id": "fentanyl",
+      "label": "Fentanyl (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.39,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + analgesia challenge aggregates"
+      ],
+      "citations": [
+        "Opioid analgesia fMRI family (group-level)"
+      ],
+      "explanation": "Distributed nociceptive and salience-network regions are commonly involved in opioid challenge paradigms. This educational template approximates group-level coupling patterns and does not represent individual response prediction.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.72
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.72
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Putamen_L",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Putamen_R",
+          "w": 0.44
+        }
+      ]
+    },
+    {
+      "id": "hydromorphone",
+      "label": "Hydromorphone (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.38,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + analgesia challenge aggregates"
+      ],
+      "citations": [
+        "Opioid analgesia fMRI family (group-level)"
+      ],
+      "explanation": "Insular-cingulate and thalamic circuits are commonly involved in opioid analgesia imaging families. This simplified template is educational only and should not be interpreted as treatment guidance.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.82
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.76
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.76
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Putamen_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Putamen_R",
+          "w": 0.4
+        }
+      ]
+    },
+    {
+      "id": "oxycodone",
+      "label": "Oxycodone (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.35,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + analgesia challenge aggregates"
+      ],
+      "citations": [
+        "Opioid analgesia fMRI family (group-level)"
+      ],
+      "explanation": "Group-level opioid imaging studies commonly involve thalamic, insular, and cingulate participation. This template is a simplified educational approximation and is not patient-specific.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.72
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.72
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Putamen_L",
+          "w": 0.38
+        },
+        {
+          "aal_label": "Putamen_R",
+          "w": 0.38
+        }
+      ]
+    },
+    {
+      "id": "ketorolac",
+      "label": "Ketorolac (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.29,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + analgesia challenge aggregates"
+      ],
+      "citations": [
+        "Non-opioid analgesia task-family aggregates"
+      ],
+      "explanation": "Somatosensory, insular, and anterior cingulate regions are commonly discussed in non-opioid analgesia imaging families. This educational template is simplified and non-diagnostic.",
+      "seed_regions": [
+        {
+          "aal_label": "Postcentral_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Postcentral_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.42
+        }
+      ]
+    },
+    {
+      "id": "ondansetron",
+      "label": "Ondansetron (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.26,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + antiemetic challenge aggregates"
+      ],
+      "citations": [
+        "Nausea/interoception modulation imaging family"
+      ],
+      "explanation": "Insular and cingulate areas are commonly involved in nausea/interoceptive task families. This conservative template is educational and does not model antiemetic efficacy for individual patients.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.66
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.32
+        }
+      ]
+    },
+    {
+      "id": "metoclopramide",
+      "label": "Metoclopramide (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.24,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + antiemetic challenge aggregates"
+      ],
+      "citations": [
+        "Nausea/interoception modulation imaging family"
+      ],
+      "explanation": "Interoceptive and salience-associated regions are commonly involved in antiemetic-related imaging families. This group-level template is a simplified educational map, not a treatment outcome predictor.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.3
+        }
+      ]
+    },
+    {
+      "id": "pantoprazole",
+      "label": "Pantoprazole (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.16,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + limited CNS imaging anchors"
+      ],
+      "citations": [
+        "Interoceptive network template (low-confidence)"
+      ],
+      "explanation": "Direct canonical cortical BOLD signatures for this medication are limited in public literature. This low-confidence educational template uses conservative interoceptive anchors and should not be interpreted as a direct CNS effect claim.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.38
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.38
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.26
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.26
+        }
+      ]
+    },
+    {
+      "id": "enoxaparin",
+      "label": "Enoxaparin (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.14,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + limited CNS imaging anchors"
+      ],
+      "citations": [
+        "Interoceptive/autonomic template (low-confidence)"
+      ],
+      "explanation": "Direct CNS BOLD signatures are limited for this medication class. This low-confidence educational template is included for stimulus-library completeness and should not be interpreted as individualized biological inference.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.28
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.28
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.22
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.22
+        }
+      ]
+    },
+    {
+      "id": "heparin",
+      "label": "Heparin (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.13,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + limited CNS imaging anchors"
+      ],
+      "citations": [
+        "Interoceptive/autonomic template (low-confidence)"
+      ],
+      "explanation": "Direct canonical cortical effects are not strongly established for this medication class in fMRI literature. This is a conservative educational placeholder for broad inpatient medication comparisons.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.26
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.26
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.2
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.2
+        }
+      ]
+    },
+    {
+      "id": "insulin_lispro",
+      "label": "Insulin lispro (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.23,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + glycemic challenge imaging aggregates"
+      ],
+      "citations": [
+        "Glucose/insulin interoception imaging family"
+      ],
+      "explanation": "Thalamic-insular and cingulate systems are commonly involved in glycemic/interoceptive imaging families. This educational map is group-level and not a model of glucose management or insulin dosing.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.54
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.36
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.36
+        },
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.3
+        }
+      ]
+    },
+    {
+      "id": "insulin_glargine",
+      "label": "Insulin glargine (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.21,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + glycemic challenge imaging aggregates"
+      ],
+      "citations": [
+        "Glucose/insulin interoception imaging family"
+      ],
+      "explanation": "Interoceptive and control-network regions are commonly involved in glycemic-state imaging families. This educational template is simplified and should not be used for clinical insulin decision-making.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.28
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.28
+        }
+      ]
+    },
+    {
+      "id": "metoprolol",
+      "label": "Metoprolol (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.2,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + autonomic challenge imaging aggregates"
+      ],
+      "citations": [
+        "Autonomic/interoceptive modulation imaging family"
+      ],
+      "explanation": "Insular and cingulate nodes are commonly involved in autonomic/interoceptive imaging families. This low-confidence educational template is not a blood-pressure or heart-rate treatment model.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.48
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.48
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.38
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.38
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.24
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.24
+        }
+      ]
+    },
+    {
+      "id": "labetalol",
+      "label": "Labetalol (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.22,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + autonomic challenge imaging aggregates"
+      ],
+      "citations": [
+        "Autonomic/interoceptive modulation imaging family"
+      ],
+      "explanation": "Autonomic and salience-network regions are commonly involved in cardiovascular-interoceptive imaging families. This group-level educational template should not be used for acute care titration or prescribing decisions.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.24
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.24
+        }
+      ]
+    },
+    {
+      "id": "furosemide",
+      "label": "Furosemide (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.18,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + autonomic challenge imaging aggregates"
+      ],
+      "citations": [
+        "Interoceptive/autonomic template (low-confidence)"
+      ],
+      "explanation": "Direct CNS imaging signatures for this medication are limited, but interoceptive/autonomic networks are often used for conservative educational mapping. This is a simplified non-clinical template.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.28
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.28
+        }
+      ]
+    },
+    {
+      "id": "ceftriaxone",
+      "label": "Ceftriaxone (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.12,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + limited CNS imaging anchors"
+      ],
+      "citations": [
+        "Interoceptive/autonomic template (very low-confidence)"
+      ],
+      "explanation": "Public fMRI literature does not establish a robust canonical direct cortical pattern for this antibiotic class. This very low-confidence educational template is included for comparative library coverage only.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.28
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.28
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.24
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.24
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.2
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.2
+        }
+      ]
+    },
+    {
+      "id": "vancomycin",
+      "label": "Vancomycin (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.11,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + limited CNS imaging anchors"
+      ],
+      "citations": [
+        "Interoceptive/autonomic template (very low-confidence)"
+      ],
+      "explanation": "Direct group-level cortical BOLD signatures are limited for this medication class. This very low-confidence educational template is a conservative placeholder and not a pharmacodynamic model.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.28
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.28
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.26
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.26
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.22
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.22
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.18
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.18
+        }
+      ]
+    },
+    {
+      "id": "piperacillin_tazobactam",
+      "label": "Piperacillin/tazobactam (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.1,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + limited CNS imaging anchors"
+      ],
+      "citations": [
+        "Interoceptive/autonomic template (very low-confidence)"
+      ],
+      "explanation": "Direct CNS imaging evidence is limited for this antibiotic combination in standard fMRI paradigms. This educational placeholder is included for comparative completeness and should not be interpreted as a direct cortical effect claim.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.26
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.26
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.24
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.24
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.2
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.2
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.16
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.16
+        }
+      ]
+    },
+    {
+      "id": "albuterol",
+      "label": "Albuterol (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.23,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + respiratory challenge imaging aggregates"
+      ],
+      "citations": [
+        "Respiratory-interoception imaging family"
+      ],
+      "explanation": "Respiratory interoception and salience-network regions are commonly involved in breathlessness and airway-related imaging paradigms. This educational template is group-level and does not model pulmonary treatment response.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.62
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Precentral_L",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Precentral_R",
+          "w": 0.34
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.32
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.32
+        }
+      ]
+    },
+    {
+      "id": "ipratropium",
+      "label": "Ipratropium (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.21,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + respiratory challenge imaging aggregates"
+      ],
+      "citations": [
+        "Respiratory-interoception imaging family"
+      ],
+      "explanation": "Interoceptive and control-network regions are commonly involved in respiratory sensation paradigms. This is a conservative educational group-level approximation, not a model of bronchodilator efficacy.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.42
+        },
+        {
+          "aal_label": "Precentral_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Precentral_R",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.3
+        }
+      ]
+    },
+    {
+      "id": "dexamethasone",
+      "label": "Dexamethasone (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.2,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + glucocorticoid imaging aggregates"
+      ],
+      "citations": [
+        "Glucocorticoid challenge imaging family"
+      ],
+      "explanation": "Frontal, limbic, and salience-associated regions are commonly discussed in glucocorticoid challenge imaging families. This educational template is simplified and not intended for risk, mood, or treatment prediction.",
+      "seed_regions": [
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Hippocampus_L",
+          "w": 0.36
+        },
+        {
+          "aal_label": "Hippocampus_R",
+          "w": 0.36
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.3
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.3
+        }
+      ]
+    },
+    {
+      "id": "lorazepam",
+      "label": "Lorazepam (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.34,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "Inpatient medication prevalence + anxiolytic challenge imaging aggregates"
+      ],
+      "citations": [
+        "Benzodiazepine challenge imaging family"
+      ],
+      "explanation": "Frontal, cingulate, insular, and amygdala regions are commonly involved in benzodiazepine challenge imaging families. This is a conservative educational template and not a sedation, safety, or prescribing model.",
+      "seed_regions": [
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.5
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.46
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.46
+        }
+      ]
+    },
+    {
+      "id": "propofol",
+      "label": "Propofol (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.44,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "ICU/anesthesia sedative challenge imaging aggregates"
+      ],
+      "citations": [
+        "Propofol challenge fMRI family (group-level)"
+      ],
+      "explanation": "Thalamic and frontal-midline network changes are commonly reported in sedative challenge imaging studies. This template is educational and does not model anesthetic depth, airway risk, or clinical management.",
+      "seed_regions": [
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.86
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_L",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Frontal_Med_Orb_R",
+          "w": 0.74
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.68
+        },
+        {
+          "aal_label": "Precuneus_L",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Precuneus_R",
+          "w": 0.64
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.58
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.58
+        }
+      ]
+    },
+    {
+      "id": "norepinephrine",
+      "label": "Norepinephrine (inpatient medication template)",
+      "tier": "EMPIRICAL_TASK_FMRI",
+      "confidence": 0.3,
+      "evidence_type": "pharmacological mechanism ROI template",
+      "datasets": [
+        "ICU vasoactive challenge imaging aggregates"
+      ],
+      "citations": [
+        "Noradrenergic challenge imaging family"
+      ],
+      "explanation": "Insular, cingulate, thalamic, and limbic regions are commonly involved in arousal/autonomic challenge imaging families. This educational map is simplified and should not be used to infer individualized hemodynamic treatment response.",
+      "seed_regions": [
+        {
+          "aal_label": "Insula_L",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.56
+        },
+        {
+          "aal_label": "Thalamus_L",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Thalamus_R",
+          "w": 0.52
+        },
+        {
+          "aal_label": "Frontal_Mid_L",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Frontal_Mid_R",
+          "w": 0.44
+        },
+        {
+          "aal_label": "Amygdala_L",
+          "w": 0.4
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 0.4
+        }
+      ]
+    }
+  ]
+}

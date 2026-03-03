@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "notes": "Educational summaries. Simplified; phrased as 'commonly involved in'.",
+  "disclaimer": "Educational summary (simplified). Not medical advice; not clinical diagnosis.",
+  "cards": {
+    "Heschl_L": {
+      "title": "Heschl's gyrus (Left)",
+      "summary": "Contains primary auditory cortex. It supports early cortical processing of sound features like frequency and timing, before higher-order areas interpret meaning. Often engaged by tones, speech, and music.",
+      "networks": [
+        "auditory"
+      ],
+      "aliases": [
+        "Heschl_L",
+        "Heschl (Left)",
+        "Heschl gyrus (Left)",
+        "Heschl's gyrus (Left)"
+      ]
+    },
+    "Heschl_R": {
+      "title": "Heschl's gyrus (Right)",
+      "summary": "Contains primary auditory cortex. It supports early cortical processing of sound features like frequency and timing, before higher-order areas interpret meaning. Often engaged by tones, speech, and music.",
+      "networks": [
+        "auditory"
+      ],
+      "aliases": [
+        "Heschl_R",
+        "Heschl (Right)",
+        "Heschl gyrus (Right)",
+        "Heschl's gyrus (Right)"
+      ]
+    },
+    "Temporal_Sup_L": {
+      "title": "Superior temporal gyrus (Left)",
+      "summary": "Auditory association cortex that helps analyze complex sounds, including speech. In many people, the left superior temporal region is strongly involved in language comprehension. It often works with frontal language areas during listening.",
+      "networks": [
+        "auditory",
+        "language"
+      ],
+      "aliases": [
+        "Temporal_Sup_L",
+        "Superior temporal (Left)",
+        "Superior temporal gyrus (Left)"
+      ]
+    },
+    "Temporal_Sup_R": {
+      "title": "Superior temporal gyrus (Right)",
+      "summary": "Auditory association cortex that helps analyze complex sounds. The right superior temporal region is often associated with prosody and aspects of music perception, though roles vary by task and person. It collaborates with broader attention and memory systems during listening.",
+      "networks": [
+        "auditory"
+      ],
+      "aliases": [
+        "Temporal_Sup_R",
+        "Superior temporal (Right)",
+        "Superior temporal gyrus (Right)"
+      ]
+    },
+    "Postcentral_L": {
+      "title": "Postcentral gyrus (Left) \u2014 primary somatosensory cortex",
+      "summary": "Primary somatosensory cortex for the body (touch, vibration, proprioception). It maps the opposite (right) side of the body in an orderly 'homunculus-like' organization. Often engaged by tactile stimulation and pain-related input.",
+      "networks": [
+        "somatosensory"
+      ],
+      "aliases": [
+        "Postcentral_L",
+        "Postcentral (Left)",
+        "Primary somatosensory (Left)"
+      ]
+    },
+    "Postcentral_R": {
+      "title": "Postcentral gyrus (Right) \u2014 primary somatosensory cortex",
+      "summary": "Primary somatosensory cortex for the body (touch, vibration, proprioception). It maps the opposite (left) side of the body in an orderly 'homunculus-like' organization. Often engaged by tactile stimulation and pain-related input.",
+      "networks": [
+        "somatosensory"
+      ],
+      "aliases": [
+        "Postcentral_R",
+        "Postcentral (Right)",
+        "Primary somatosensory (Right)"
+      ]
+    },
+    "Precentral_L": {
+      "title": "Precentral gyrus (Left) \u2014 primary motor cortex",
+      "summary": "Primary motor cortex involved in initiating voluntary movement. It contains a body map and primarily influences the opposite (right) side of the body. Often engaged during finger tapping, speech motor planning, and other motor tasks.",
+      "networks": [
+        "motor"
+      ],
+      "aliases": [
+        "Precentral_L",
+        "Precentral (Left)",
+        "Primary motor (Left)"
+      ]
+    },
+    "Precentral_R": {
+      "title": "Precentral gyrus (Right) \u2014 primary motor cortex",
+      "summary": "Primary motor cortex involved in initiating voluntary movement. It contains a body map and primarily influences the opposite (left) side of the body. Often engaged during finger tapping and other motor tasks.",
+      "networks": [
+        "motor"
+      ],
+      "aliases": [
+        "Precentral_R",
+        "Precentral (Right)",
+        "Primary motor (Right)"
+      ]
+    },
+    "Insula_L": {
+      "title": "Insula (Left)",
+      "summary": "Integrates internal body-state signals ('interoception') with emotional and cognitive context. Commonly involved in pain, nausea/disgust, and awareness of bodily arousal. Often treated as part of a broader salience system that helps prioritize attention.",
+      "networks": [
+        "salience"
+      ],
+      "aliases": [
+        "Insula_L",
+        "Insula (Left)"
+      ]
+    },
+    "Insula_R": {
+      "title": "Insula (Right)",
+      "summary": "Integrates internal body-state signals ('interoception') with emotional and cognitive context. Commonly involved in pain, nausea/disgust, and awareness of bodily arousal. Often treated as part of a broader salience system that helps prioritize attention.",
+      "networks": [
+        "salience"
+      ],
+      "aliases": [
+        "Insula_R",
+        "Insula (Right)"
+      ]
+    },
+    "Cingulum_Ant_L": {
+      "title": "Anterior cingulate cortex (Left)",
+      "summary": "Often involved in attention, conflict monitoring, and error detection. Frequently linked to the affective/motivational component of pain and effortful control. Works with frontal and insular regions during demanding or emotionally salient situations.",
+      "networks": [
+        "salience",
+        "control"
+      ],
+      "aliases": [
+        "Cingulum_Ant_L",
+        "Anterior cingulate (Left)",
+        "ACC (Left)"
+      ]
+    },
+    "Cingulum_Ant_R": {
+      "title": "Anterior cingulate cortex (Right)",
+      "summary": "Often involved in attention, conflict monitoring, and error detection. Frequently linked to the affective/motivational component of pain and effortful control. Works with frontal and insular regions during demanding or emotionally salient situations.",
+      "networks": [
+        "salience",
+        "control"
+      ],
+      "aliases": [
+        "Cingulum_Ant_R",
+        "Anterior cingulate (Right)",
+        "ACC (Right)"
+      ]
+    },
+    "Amygdala_L": {
+      "title": "Amygdala (Left)",
+      "summary": "Helps detect biologically relevant salience, especially threat and uncertainty. Supports fear learning and can modulate memory systems so emotionally important events are remembered more strongly. Often engaged during threat-related stimuli and emotional faces tasks.",
+      "networks": [
+        "limbic"
+      ],
+      "aliases": [
+        "Amygdala_L",
+        "Amygdala (Left)"
+      ]
+    },
+    "Amygdala_R": {
+      "title": "Amygdala (Right)",
+      "summary": "Helps detect biologically relevant salience, especially threat and uncertainty. Supports fear learning and can modulate memory systems so emotionally important events are remembered more strongly. Often engaged during threat-related stimuli and emotional faces tasks.",
+      "networks": [
+        "limbic"
+      ],
+      "aliases": [
+        "Amygdala_R",
+        "Amygdala (Right)"
+      ]
+    },
+    "Hippocampus_L": {
+      "title": "Hippocampus (Left)",
+      "summary": "Supports formation of episodic memories and the binding of context (what happened, where, and when). Important for learning new facts and experiences. Dysfunction is commonly associated with memory impairment.",
+      "networks": [
+        "memory"
+      ],
+      "aliases": [
+        "Hippocampus_L",
+        "Hippocampus (Left)"
+      ]
+    },
+    "Hippocampus_R": {
+      "title": "Hippocampus (Right)",
+      "summary": "Supports formation of episodic memories and the binding of context (what happened, where, and when). Often associated with spatial/contextual aspects of memory, though roles vary. Dysfunction is commonly associated with memory impairment.",
+      "networks": [
+        "memory"
+      ],
+      "aliases": [
+        "Hippocampus_R",
+        "Hippocampus (Right)"
+      ]
+    },
+    "Thalamus_L": {
+      "title": "Thalamus (Left)",
+      "summary": "A major relay and gating hub for sensory and motor information on the way to cortex. Helps regulate arousal, attention, and the 'broadcasting' of signals to cortical networks. Often involved broadly across many tasks rather than one narrow function.",
+      "networks": [
+        "relay",
+        "attention"
+      ],
+      "aliases": [
+        "Thalamus_L",
+        "Thalamus (Left)"
+      ]
+    },
+    "Thalamus_R": {
+      "title": "Thalamus (Right)",
+      "summary": "A major relay and gating hub for sensory and motor information on the way to cortex. Helps regulate arousal, attention, and the 'broadcasting' of signals to cortical networks. Often involved broadly across many tasks rather than one narrow function.",
+      "networks": [
+        "relay",
+        "attention"
+      ],
+      "aliases": [
+        "Thalamus_R",
+        "Thalamus (Right)"
+      ]
+    },
+    "Frontal_Orb_Med_L": {
+      "title": "Medial orbitofrontal / ventromedial prefrontal (Left)",
+      "summary": "Commonly involved in valuation: assessing how rewarding or meaningful something is. Helps integrate emotion, memory, and goals to guide decisions. Often active in reward, preference, and social decision tasks.",
+      "networks": [
+        "valuation",
+        "reward"
+      ],
+      "aliases": [
+        "Frontal_Orb_Med_L",
+        "vmPFC (Left)",
+        "mOFC (Left)"
+      ]
+    },
+    "Frontal_Orb_Med_R": {
+      "title": "Medial orbitofrontal / ventromedial prefrontal (Right)",
+      "summary": "Commonly involved in valuation: assessing how rewarding or meaningful something is. Helps integrate emotion, memory, and goals to guide decisions. Often active in reward, preference, and social decision tasks.",
+      "networks": [
+        "valuation",
+        "reward"
+      ],
+      "aliases": [
+        "Frontal_Orb_Med_R",
+        "vmPFC (Right)",
+        "mOFC (Right)"
+      ]
+    },
+    "Calcarine_L": {
+      "title": "Calcarine cortex (Left) \u2014 primary visual cortex (V1)",
+      "summary": "Primary visual cortex involved in early processing of visual input. It contains a retinotopic map (neighboring neurons represent neighboring points in visual space). Often strongly activated by simple visual stimuli like flashing checkerboards.",
+      "networks": [
+        "visual"
+      ],
+      "aliases": [
+        "Calcarine_L",
+        "V1 (Left)",
+        "Primary visual (Left)"
+      ]
+    },
+    "Calcarine_R": {
+      "title": "Calcarine cortex (Right) \u2014 primary visual cortex (V1)",
+      "summary": "Primary visual cortex involved in early processing of visual input. It contains a retinotopic map (neighboring neurons represent neighboring points in visual space). Often strongly activated by simple visual stimuli like flashing checkerboards.",
+      "networks": [
+        "visual"
+      ],
+      "aliases": [
+        "Calcarine_R",
+        "V1 (Right)",
+        "Primary visual (Right)"
+      ]
+    },
+    "Precuneus_L": {
+      "title": "Precuneus (Left)",
+      "summary": "A medial parietal region often associated with visuospatial imagery and self-referential processing. Frequently discussed as part of the default mode network. Engagement depends strongly on task and mental state.",
+      "networks": [
+        "default_mode"
+      ],
+      "aliases": [
+        "Precuneus_L",
+        "Precuneus (Left)"
+      ]
+    },
+    "Precuneus_R": {
+      "title": "Precuneus (Right)",
+      "summary": "A medial parietal region often associated with visuospatial imagery and self-referential processing. Frequently discussed as part of the default mode network. Engagement depends strongly on task and mental state.",
+      "networks": [
+        "default_mode"
+      ],
+      "aliases": [
+        "Precuneus_R",
+        "Precuneus (Right)"
+      ]
+    }
+  }
+}

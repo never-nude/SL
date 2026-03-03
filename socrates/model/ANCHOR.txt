@@ -1,0 +1,6 @@
+model AAL viewer
+BUILD_ID: 1772481939
+JS path: main.1772481939.js
+Local dev URL: http://localhost:1099/model/?v=1772481939
+Live URL (www): https://www.digitalbrain.live/model/?v=1772481939
+Live URL (gh):  https://never-nude.github.io/model/?v=1772481939

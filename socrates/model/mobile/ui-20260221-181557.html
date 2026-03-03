@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+      <base href="../">
+<title>model • AAL Brain Graph • mobile</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
+      #build, #hud {
+        position: fixed; left: 12px;
+        color: #fff; font: 13px/1.2 system-ui, -apple-system, sans-serif;
+        background: rgba(0,0,0,0.55);
+        padding: 8px 10px; border-radius: 10px;
+        pointer-events: none;
+        max-width: 70vw;
+        white-space: pre-wrap;
+      }
+      #build { top: 12px; }
+      #hud   { top: 54px; }
+      #hud.error { color: #ff9b9b; }
+
+      /* Controls panel (interactive) */
+      #panel {
+        position: fixed;
+        right: 12px;
+        top: 12px;
+        color: #fff;
+        font: 13px/1.2 system-ui, -apple-system, sans-serif;
+        background: rgba(0,0,0,0.55);
+        padding: 10px 12px;
+        border-radius: 12px;
+        pointer-events: auto;
+        width: 260px;
+        user-select: none;
+      }
+      #panel .title { font-weight: 700; margin-bottom: 8px; }
+      #panel .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 8px 0; }
+      #panel label { display: flex; align-items: center; gap: 8px; }
+      #panel input[type="range"] { width: 100%; }
+      #panel button {
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 10px;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+      #panel button:active { transform: translateY(1px); }
+      #panel .small { opacity: 0.85; font-size: 12px; margin-top: 6px; }
+      #panel .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    </style>
+
+    <!-- Import map required because addons import from "three" -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../vendor/three/build/three.module.js",
+          "three/addons/": "../vendor/three/examples/jsm/"
+        }
+      }
+    </script>
+            <style id="iphone-css">
+/* iPhone UI (layout v3): 20260221-181557 */
+/* Goals: (1) NO overlap, (2) NO duplicate BUILD, (3) big touch targets, (4) visible truth probe */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+canvas {
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --padL: calc(env(safe-area-inset-left) + 10px);
+  --padR: calc(env(safe-area-inset-right) + 10px);
+  --padT: calc(env(safe-area-inset-top) + 10px);
+  --gap: 12px;
+
+  /* Honest max width for each panel so left+right can never collide */
+  --panelMax: calc((100vw - var(--padL) - var(--padR) - var(--gap)) / 2);
+
+  --glass-bg: rgba(0,0,0,0.55);
+  --glass-border: rgba(255,255,255,0.12);
+}
+
+#build {
+  display: none !important; /* removes the duplicate BUILD panel on mobile */
+}
+
+/* Truth probe (CSS-only): unmistakably shows which mobile UI build is loaded */
+#hud::before {
+  content: "model • AAL viewer • mobile • UI 20260221-181557";
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  opacity: 0.92;
+}
+
+#hud, #overlay, #info {
+  position: fixed !important;
+  top: var(--padT) !important;
+  left: var(--padL) !important;
+  right: auto !important;
+  z-index: 60 !important;
+
+  width: var(--panelMax);
+  max-width: var(--panelMax);
+  box-sizing: border-box;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 10px;
+  backdrop-filter: blur(8px);
+
+  font-size: 15px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-wrap: anywhere;
+}
+
+#controls, #panel, #controlsPanel, #ui, .controls, .panel {
+  position: fixed !important;
+  top: var(--padT) !important;
+  right: var(--padR) !important;
+  left: auto !important;
+  z-index: 70 !important;
+
+  width: var(--panelMax);
+  max-width: var(--panelMax);
+  box-sizing: border-box;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 10px;
+  backdrop-filter: blur(8px);
+
+  font-size: 15px;
+  line-height: 1.35;
+
+  max-height: calc(70vh - var(--padT));
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#controls h3, #panel h3, #controlsPanel h3, #ui h3, .controls h3, .panel h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+#controls label, #panel label, #controlsPanel label, #ui label, .controls label, .panel label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button, input, select {
+  font-size: 16px; /* prevents iOS input zoom */
+}
+
+button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.20);
+}
+
+input[type="range"] {
+  width: 100%;
+  max-width: 240px;
+  height: 32px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 28px;
+  height: 28px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+}
+  </style>
+<meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+  <body>
+    <div id="build">model • AAL viewer • mobile • UI 20260221-181557 • BUILD 1771549511</div>
+    <div id="hud">Loading…</div>
+
+    <div id="panel">
+      <div class="title">Controls</div>
+
+      <div class="row">
+        <label><input id="toggleEdges" type="checkbox" checked />Edges</label>
+        <label><input id="toggleHull"  type="checkbox" checked />Hull</label>
+      </div>
+
+      <div class="row">
+        <label><input id="toggleAuto" type="checkbox" />Auto-rotate</label>
+        <button id="btnReset" type="button">Reset view</button>
+      </div>
+
+      <div class="row">
+        <div>Edge threshold</div>
+        <div id="edgeVal" class="mono">0.08</div>
+      </div>
+      <input id="edgeThresh" type="range" min="0" max="1" step="0.01" value="0.08" />
+      <div class="small">Higher threshold → fewer edges.</div>
+    </div>
+
+    <script type="module" src="./main.1771549511.js"></script>
+  </body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>model - SWITCHBOARD - AAL Brain Graph</title>
+    <style>
+      :root {
+        --safe-top: env(safe-area-inset-top, 0px);
+        --safe-right: env(safe-area-inset-right, 0px);
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
+        --safe-left: env(safe-area-inset-left, 0px);
+      }
+
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        -webkit-text-size-adjust: 100%;
+        background: #000;
+      }
+
+      canvas { display: block; touch-action: none; }
+
+      #build, #hud {
+        position: fixed;
+        left: calc(var(--safe-left) + 12px);
+        color: #fff;
+        font: 13px/1.2 system-ui, -apple-system, sans-serif;
+        background: rgba(0, 0, 0, 0.58);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        padding: 8px 10px;
+        border-radius: 10px;
+        pointer-events: none;
+        max-width: calc(100vw - var(--safe-left) - var(--safe-right) - 24px);
+        white-space: pre-wrap;
+      }
+
+      #build { top: calc(var(--safe-top) + 12px); }
+      #hud { top: calc(var(--safe-top) + 54px); }
+      #hud.error { color: #ff9b9b; }
+
+      #switchboard {
+        position: fixed;
+        right: calc(var(--safe-right) + 12px);
+        top: calc(var(--safe-top) + 12px);
+        width: 320px;
+        color: #fff;
+        font: 13px/1.25 system-ui, -apple-system, sans-serif;
+        background: rgba(8, 12, 26, 0.78);
+        border: 1px solid rgba(118, 176, 255, 0.45);
+        border-radius: 12px;
+        padding: 10px 12px;
+        pointer-events: auto;
+        user-select: none;
+      }
+
+      #switchboard .sb-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      #switchboard .sb-title {
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+
+      #switchboard .sb-badge {
+        border: 1px solid rgba(118, 176, 255, 0.55);
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-size: 11px;
+      }
+
+      #switchboard .sb-row {
+        margin: 6px 0;
+      }
+
+      #switchboard .sb-controls {
+        display: flex;
+        gap: 8px;
+        margin: 8px 0;
+      }
+
+      #switchboard .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      #switchboard .small {
+        opacity: 0.86;
+        font-size: 12px;
+      }
+
+      #switchboard.collapsed #sbBody {
+        display: none;
+      }
+
+      #panel {
+        position: fixed;
+        right: calc(var(--safe-right) + 12px);
+        top: calc(var(--safe-top) + 232px);
+        color: #fff;
+        font: 13px/1.2 system-ui, -apple-system, sans-serif;
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        padding: 10px 12px;
+        border-radius: 12px;
+        pointer-events: auto;
+        width: 260px;
+        user-select: none;
+      }
+
+      #panel .title { font-weight: 700; margin-bottom: 8px; }
+      #panel .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 8px 0; }
+      #panel label { display: flex; align-items: center; gap: 8px; }
+      #panel input[type="range"] { width: 100%; }
+
+      button {
+        background: rgba(255, 255, 255, 0.13);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 10px;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+
+      button:active { transform: translateY(1px); }
+
+      @media (max-width: 520px), (pointer: coarse) {
+        #build, #hud { font-size: 12px; line-height: 1.25; }
+
+        #switchboard {
+          left: calc(var(--safe-left) + 12px);
+          right: calc(var(--safe-right) + 12px);
+          width: auto;
+          top: auto;
+          bottom: calc(var(--safe-bottom) + 172px);
+        }
+
+        #panel {
+          left: calc(var(--safe-left) + 12px);
+          right: calc(var(--safe-right) + 12px);
+          width: auto;
+          top: auto;
+          bottom: calc(var(--safe-bottom) + 12px);
+        }
+
+        #panel label, #panel button, #switchboard button { font-size: 14px; }
+        #panel input[type="checkbox"] { transform: scale(1.25); transform-origin: left center; }
+      }
+    </style>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../vendor/three/build/three.module.js",
+          "three/addons/": "../vendor/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="build">model - SWITCHBOARD BUILD seed-only-init</div>
+    <div id="hud">Loading...</div>
+
+    <div id="switchboard">
+      <div class="sb-head">
+        <div class="sb-title">Switchboard</div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <div class="sb-badge">TEMPLATE MODE</div>
+          <button id="sbCollapse" type="button">Collapse</button>
+        </div>
+      </div>
+      <div id="sbBody">
+        <div class="sb-row"><strong id="sbStimulus">Stimulus: Hearing music</strong></div>
+        <div class="sb-row small" id="sbTier">Truth tier: TEMPLATE_META_ANALYTIC</div>
+        <div class="sb-row small" id="sbExplain">
+          Simplified educational summary of seed-region activation. This does not represent clinical diagnosis or neuron-level signaling.
+        </div>
+        <div class="sb-controls">
+          <button id="sbPlay" type="button">Play</button>
+          <button id="sbStop" type="button">Stop</button>
+        </div>
+        <div class="sb-row mono">t=<span id="sbTime">0.00</span>s | A=<span id="sbEnvelope">0.00</span></div>
+        <div class="sb-row small" id="sbStatus">Status: ready</div>
+      </div>
+    </div>
+
+    <div id="panel">
+      <div class="title">Controls</div>
+
+      <div class="row">
+        <label><input id="toggleEdges" type="checkbox" checked />Edges</label>
+        <label><input id="toggleHull" type="checkbox" checked />Hull</label>
+      </div>
+
+      <div class="row">
+        <label><input id="toggleAuto" type="checkbox" />Auto-rotate</label>
+        <button id="btnReset" type="button">Reset view</button>
+      </div>
+
+      <div class="row">
+        <div>Edge threshold</div>
+        <div id="edgeVal" class="mono">0.08</div>
+      </div>
+      <input id="edgeThresh" type="range" min="0" max="1" step="0.01" value="0.08" />
+      <div class="small">Higher threshold -> fewer edges.</div>
+    </div>
+
+    <script type="module" src="./switchboard.js?v=seed-only-init"></script>
+  </body>
+</html>

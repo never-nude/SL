@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "notes": "Seed weights are placeholders. Replace with NeuroQuery/Neurosynth-derived AAL weights.",
+  "truth_tiers": [
+    "TEMPLATE_META_ANALYTIC",
+    "EMPIRICAL_TASK_FMRI",
+    "SIMULATED_PROPAGATION"
+  ],
+  "hrf": {
+    "model": "canonical_bold_like",
+    "rise_s": 4.0,
+    "peak_s": 6.0,
+    "fall_s": 12.0
+  },
+  "stimuli": [
+    {
+      "id": "music",
+      "label": "Hearing music",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "query_terms": [
+        "music",
+        "auditory"
+      ],
+      "seed_regions": [
+        {
+          "aal_label": "Heschl_L",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Heschl_R",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Temporal_Sup_L",
+          "w": 0.7
+        },
+        {
+          "aal_label": "Temporal_Sup_R",
+          "w": 0.7
+        }
+      ]
+    },
+    {
+      "id": "pain",
+      "label": "Pinprick / pain",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "query_terms": [
+        "pain",
+        "nociception"
+      ],
+      "seed_regions": [
+        {
+          "aal_label": "Postcentral_L",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Postcentral_R",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.8
+        },
+        {
+          "aal_label": "Cingulum_Ant_L",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Cingulum_Ant_R",
+          "w": 0.6
+        }
+      ]
+    },
+    {
+      "id": "fear",
+      "label": "Threat / fear",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "query_terms": [
+        "fear",
+        "threat"
+      ],
+      "seed_regions": [
+        {
+          "aal_label": "Amygdala_L",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Amygdala_R",
+          "w": 1.0
+        },
+        {
+          "aal_label": "Insula_L",
+          "w": 0.6
+        },
+        {
+          "aal_label": "Insula_R",
+          "w": 0.6
+        }
+      ]
+    },
+    {
+      "id": "reward",
+      "label": "Reward / surprise (birthday present)",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "query_terms": [
+        "reward",
+        "positive affect",
+        "reinforcement learning"
+      ],
+      "seed_regions": [
+        {
+          "aal_label": "Frontal_Orb_Med_L",
+          "w": 0.7
+        },
+        {
+          "aal_label": "Frontal_Orb_Med_R",
+          "w": 0.7
+        }
+      ]
+    }
+  ]
+}

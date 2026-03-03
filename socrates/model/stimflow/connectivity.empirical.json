@@ -1,0 +1,2351 @@
+{
+  "schema_version": 1,
+  "source_name": "connectivity.empirical.json",
+  "notes": "Educational coupling multipliers for task-family and pharmacological challenge path emphasis. Multipliers modulate edge costs but do not imply deterministic directionality, axonal wiring, or clinical validity.",
+  "global_pairs": [
+    {
+      "from": "Thalamus_L",
+      "to": "Insula_L",
+      "scale": 1.08
+    },
+    {
+      "from": "Thalamus_R",
+      "to": "Insula_R",
+      "scale": 1.08
+    },
+    {
+      "from": "Cingulum_Ant_L",
+      "to": "Cingulum_Ant_R",
+      "scale": 1.06
+    },
+    {
+      "from": "Frontal_Med_Orb_L",
+      "to": "Frontal_Med_Orb_R",
+      "scale": 1.06
+    }
+  ],
+  "stimuli": {
+    "music": {
+      "pairs": [
+        {
+          "from": "Heschl_L",
+          "to": "Temporal_Sup_L",
+          "scale": 1.46
+        },
+        {
+          "from": "Heschl_R",
+          "to": "Temporal_Sup_R",
+          "scale": 1.46
+        },
+        {
+          "from": "Temporal_Sup_L",
+          "to": "Temporal_Mid_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Temporal_Sup_R",
+          "to": "Temporal_Mid_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Temporal_Sup_L",
+          "to": "Insula_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Temporal_Sup_R",
+          "to": "Insula_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Heschl_L",
+          "to": "Heschl_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Temporal_Sup_L",
+          "to": "Temporal_Sup_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "pain": {
+      "pairs": [
+        {
+          "from": "Postcentral_L",
+          "to": "Insula_L",
+          "scale": 1.4
+        },
+        {
+          "from": "Postcentral_R",
+          "to": "Insula_R",
+          "scale": 1.4
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.3
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.3
+        },
+        {
+          "from": "Postcentral_L",
+          "to": "Thalamus_L",
+          "scale": 1.26
+        },
+        {
+          "from": "Postcentral_R",
+          "to": "Thalamus_R",
+          "scale": 1.26
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "fear": {
+      "pairs": [
+        {
+          "from": "Amygdala_L",
+          "to": "Insula_L",
+          "scale": 1.38
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Insula_R",
+          "scale": 1.38
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.3
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.3
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Amygdala_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Insula_L",
+          "to": "Insula_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "reward": {
+      "pairs": [
+        {
+          "from": "Caudate_L",
+          "to": "Putamen_L",
+          "scale": 1.34
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Putamen_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Caudate_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.26
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.26
+        },
+        {
+          "from": "Putamen_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Putamen_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Caudate_L",
+          "to": "Thalamus_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Thalamus_R",
+          "scale": 1.16
+        }
+      ]
+    },
+    "motor_tapping": {
+      "pairs": [
+        {
+          "from": "Precentral_L",
+          "to": "Supp_Motor_Area_L",
+          "scale": 1.5
+        },
+        {
+          "from": "Precentral_R",
+          "to": "Supp_Motor_Area_R",
+          "scale": 1.5
+        },
+        {
+          "from": "Precentral_L",
+          "to": "Postcentral_L",
+          "scale": 1.34
+        },
+        {
+          "from": "Precentral_R",
+          "to": "Postcentral_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Supp_Motor_Area_L",
+          "to": "Supp_Motor_Area_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Precentral_L",
+          "to": "Thalamus_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Precentral_R",
+          "to": "Thalamus_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Postcentral_L",
+          "to": "Thalamus_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Postcentral_R",
+          "to": "Thalamus_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "language_comprehension": {
+      "pairs": [
+        {
+          "from": "Temporal_Sup_L",
+          "to": "Frontal_Inf_Oper_L",
+          "scale": 1.44
+        },
+        {
+          "from": "Temporal_Sup_L",
+          "to": "Frontal_Inf_Tri_L",
+          "scale": 1.4
+        },
+        {
+          "from": "Frontal_Inf_Oper_L",
+          "to": "Frontal_Inf_Tri_L",
+          "scale": 1.26
+        },
+        {
+          "from": "Temporal_Sup_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Frontal_Inf_Oper_L",
+          "to": "Insula_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Temporal_Sup_L",
+          "to": "Temporal_Sup_R",
+          "scale": 1.08
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.08
+        }
+      ]
+    },
+    "nicotine_cue": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.34
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Insula_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Insula_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.16
+        }
+      ]
+    },
+    "alcohol_cue": {
+      "pairs": [
+        {
+          "from": "Frontal_Med_Orb_L",
+          "to": "Caudate_L",
+          "scale": 1.34
+        },
+        {
+          "from": "Frontal_Med_Orb_R",
+          "to": "Caudate_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Caudate_L",
+          "to": "Insula_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Insula_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Caudate_L",
+          "to": "Putamen_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Putamen_R",
+          "scale": 1.16
+        }
+      ]
+    },
+    "stimulant_cue": {
+      "pairs": [
+        {
+          "from": "Caudate_L",
+          "to": "Putamen_L",
+          "scale": 1.38
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Putamen_R",
+          "scale": 1.38
+        },
+        {
+          "from": "Caudate_L",
+          "to": "Thalamus_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Thalamus_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Putamen_L",
+          "to": "Thalamus_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Putamen_R",
+          "to": "Thalamus_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Caudate_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Caudate_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Thalamus_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Thalamus_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "visual_flash": {
+      "pairs": [
+        {
+          "from": "Calcarine_L",
+          "to": "Cuneus_L",
+          "scale": 1.5
+        },
+        {
+          "from": "Calcarine_R",
+          "to": "Cuneus_R",
+          "scale": 1.5
+        },
+        {
+          "from": "Calcarine_L",
+          "to": "Lingual_L",
+          "scale": 1.42
+        },
+        {
+          "from": "Calcarine_R",
+          "to": "Lingual_R",
+          "scale": 1.42
+        },
+        {
+          "from": "Cuneus_L",
+          "to": "Lingual_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Cuneus_R",
+          "to": "Lingual_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Occipital_Inf_L",
+          "to": "Fusiform_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Occipital_Inf_R",
+          "to": "Fusiform_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Calcarine_L",
+          "to": "Calcarine_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "working_memory": {
+      "pairs": [
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Parietal_Sup_L",
+          "scale": 1.44
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Parietal_Sup_R",
+          "scale": 1.44
+        },
+        {
+          "from": "Parietal_Sup_L",
+          "to": "Precuneus_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Parietal_Sup_R",
+          "to": "Precuneus_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Frontal_Mid_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Parietal_Sup_L",
+          "to": "Parietal_Sup_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "response_inhibition": {
+      "pairs": [
+        {
+          "from": "Frontal_Inf_Oper_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.46
+        },
+        {
+          "from": "Frontal_Inf_Oper_R",
+          "to": "Supp_Motor_Area_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Supp_Motor_Area_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Frontal_Inf_Oper_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Frontal_Inf_Oper_R",
+          "to": "Frontal_Inf_Oper_L",
+          "scale": 1.08
+        }
+      ]
+    },
+    "face_processing": {
+      "pairs": [
+        {
+          "from": "Occipital_Inf_L",
+          "to": "Fusiform_L",
+          "scale": 1.44
+        },
+        {
+          "from": "Occipital_Inf_R",
+          "to": "Fusiform_R",
+          "scale": 1.44
+        },
+        {
+          "from": "Fusiform_L",
+          "to": "Amygdala_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Fusiform_R",
+          "to": "Amygdala_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Occipital_Inf_L",
+          "to": "Temporal_Sup_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Occipital_Inf_R",
+          "to": "Temporal_Sup_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Fusiform_L",
+          "to": "Fusiform_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "episodic_memory_encoding": {
+      "pairs": [
+        {
+          "from": "Hippocampus_L",
+          "to": "ParaHippocampal_L",
+          "scale": 1.5
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "ParaHippocampal_R",
+          "scale": 1.5
+        },
+        {
+          "from": "ParaHippocampal_L",
+          "to": "Precuneus_L",
+          "scale": 1.2
+        },
+        {
+          "from": "ParaHippocampal_R",
+          "to": "Precuneus_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Hippocampus_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "semantic_retrieval": {
+      "pairs": [
+        {
+          "from": "Angular_L",
+          "to": "Frontal_Inf_Tri_L",
+          "scale": 1.38
+        },
+        {
+          "from": "Angular_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Angular_L",
+          "to": "Temporal_Sup_L",
+          "scale": 1.26
+        },
+        {
+          "from": "Frontal_Inf_Tri_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Precuneus_L",
+          "to": "Angular_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Angular_R",
+          "to": "Angular_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.08
+        }
+      ]
+    },
+    "caffeine_challenge": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Putamen_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Putamen_R",
+          "scale": 1.12
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Frontal_Mid_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "nicotine_administration": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.34
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Caudate_L",
+          "to": "Putamen_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Putamen_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Caudate_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Caudate_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "alcohol_intoxication": {
+      "pairs": [
+        {
+          "from": "Frontal_Med_Orb_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Frontal_Med_Orb_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "thc_challenge": {
+      "pairs": [
+        {
+          "from": "Hippocampus_L",
+          "to": "Amygdala_L",
+          "scale": 1.34
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Amygdala_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Hippocampus_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "opioid_analgesia": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.36
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.36
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.3
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.3
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "acetaminophen": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.3
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.3
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Postcentral_L",
+          "to": "Thalamus_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Postcentral_R",
+          "to": "Thalamus_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "clonazepam_klonopin": {
+      "pairs": [
+        {
+          "from": "Amygdala_L",
+          "to": "Insula_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Insula_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "losartan": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "associative_learning": {
+      "pairs": [
+        {
+          "from": "Hippocampus_L",
+          "to": "ParaHippocampal_L",
+          "scale": 1.44
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "ParaHippocampal_R",
+          "scale": 1.44
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.2
+        },
+        {
+          "from": "ParaHippocampal_L",
+          "to": "Precuneus_L",
+          "scale": 1.16
+        },
+        {
+          "from": "ParaHippocampal_R",
+          "to": "Precuneus_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Hippocampus_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "sleep_transition": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.26
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.26
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Thalamus_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "memory_retrieval": {
+      "pairs": [
+        {
+          "from": "Hippocampus_L",
+          "to": "Precuneus_L",
+          "scale": 1.36
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Precuneus_R",
+          "scale": 1.36
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Angular_L",
+          "scale": 1.3
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Angular_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Angular_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Angular_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.18
+        },
+        {
+          "from": "ParaHippocampal_L",
+          "to": "Precuneus_L",
+          "scale": 1.18
+        },
+        {
+          "from": "ParaHippocampal_R",
+          "to": "Precuneus_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Precuneus_L",
+          "to": "Precuneus_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "psilocybin_challenge": {
+      "pairs": [
+        {
+          "from": "Precuneus_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Precuneus_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Precuneus_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Precuneus_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Precuneus_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Precuneus_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "lsd_challenge": {
+      "pairs": [
+        {
+          "from": "Calcarine_L",
+          "to": "Cuneus_L",
+          "scale": 1.34
+        },
+        {
+          "from": "Calcarine_R",
+          "to": "Cuneus_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Cuneus_L",
+          "to": "Lingual_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Cuneus_R",
+          "to": "Lingual_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Calcarine_L",
+          "to": "Thalamus_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Calcarine_R",
+          "to": "Thalamus_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Precuneus_L",
+          "to": "Cuneus_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Precuneus_R",
+          "to": "Cuneus_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "ketamine_challenge": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.34
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.34
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.26
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.26
+        },
+        {
+          "from": "Insula_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Insula_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.14
+        }
+      ]
+    },
+    "morphine": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Putamen_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Putamen_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "fentanyl": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Putamen_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Putamen_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "hydromorphone": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Putamen_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Putamen_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "oxycodone": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.28
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.28
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Putamen_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Putamen_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "ketorolac": {
+      "pairs": [
+        {
+          "from": "Postcentral_L",
+          "to": "Insula_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Postcentral_R",
+          "to": "Insula_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.12
+        },
+        {
+          "from": "Postcentral_L",
+          "to": "Thalamus_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Postcentral_R",
+          "to": "Thalamus_R",
+          "scale": 1.1
+        }
+      ]
+    },
+    "ondansetron": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Insula_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Insula_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "metoclopramide": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Insula_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Insula_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "pantoprazole": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.08
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.06
+        },
+        {
+          "from": "Frontal_Med_Orb_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.04
+        },
+        {
+          "from": "Frontal_Med_Orb_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.04
+        }
+      ]
+    },
+    "enoxaparin": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.06
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.04
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.04
+        },
+        {
+          "from": "Precuneus_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.03
+        },
+        {
+          "from": "Precuneus_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.03
+        }
+      ]
+    },
+    "heparin": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.06
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.04
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.04
+        },
+        {
+          "from": "Precuneus_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.03
+        },
+        {
+          "from": "Precuneus_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.03
+        }
+      ]
+    },
+    "insulin_lispro": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Hippocampus_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Hippocampus_R",
+          "scale": 1.08
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.06
+        }
+      ]
+    },
+    "insulin_glargine": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Hippocampus_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Hippocampus_R",
+          "scale": 1.08
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.06
+        }
+      ]
+    },
+    "metoprolol": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.06
+        }
+      ]
+    },
+    "labetalol": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.06
+        }
+      ]
+    },
+    "furosemide": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.06
+        }
+      ]
+    },
+    "ceftriaxone": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.04
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.04
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.03
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.03
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.02
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.02
+        }
+      ]
+    },
+    "vancomycin": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.04
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.04
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.03
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.03
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.02
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.02
+        }
+      ]
+    },
+    "piperacillin_tazobactam": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.04
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.04
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.03
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.03
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Mid_L",
+          "scale": 1.02
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Mid_R",
+          "scale": 1.02
+        }
+      ]
+    },
+    "albuterol": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Precentral_L",
+          "to": "Insula_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Precentral_R",
+          "to": "Insula_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "ipratropium": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Precentral_L",
+          "to": "Insula_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Precentral_R",
+          "to": "Insula_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.08
+        }
+      ]
+    },
+    "dexamethasone": {
+      "pairs": [
+        {
+          "from": "Frontal_Med_Orb_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.14
+        },
+        {
+          "from": "Frontal_Med_Orb_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.14
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.1
+        },
+        {
+          "from": "Hippocampus_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.08
+        },
+        {
+          "from": "Hippocampus_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.08
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.06
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.06
+        }
+      ]
+    },
+    "lorazepam": {
+      "pairs": [
+        {
+          "from": "Frontal_Med_Orb_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.26
+        },
+        {
+          "from": "Frontal_Med_Orb_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.26
+        },
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.2
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.2
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "propofol": {
+      "pairs": [
+        {
+          "from": "Thalamus_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.3
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.3
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Precuneus_L",
+          "scale": 1.24
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Precuneus_R",
+          "scale": 1.24
+        },
+        {
+          "from": "Cingulum_Ant_L",
+          "to": "Frontal_Med_Orb_L",
+          "scale": 1.18
+        },
+        {
+          "from": "Cingulum_Ant_R",
+          "to": "Frontal_Med_Orb_R",
+          "scale": 1.18
+        },
+        {
+          "from": "Insula_L",
+          "to": "Thalamus_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Insula_R",
+          "to": "Thalamus_R",
+          "scale": 1.12
+        }
+      ]
+    },
+    "norepinephrine": {
+      "pairs": [
+        {
+          "from": "Insula_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.22
+        },
+        {
+          "from": "Insula_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.22
+        },
+        {
+          "from": "Thalamus_L",
+          "to": "Insula_L",
+          "scale": 1.16
+        },
+        {
+          "from": "Thalamus_R",
+          "to": "Insula_R",
+          "scale": 1.16
+        },
+        {
+          "from": "Amygdala_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.12
+        },
+        {
+          "from": "Amygdala_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.12
+        },
+        {
+          "from": "Frontal_Mid_L",
+          "to": "Cingulum_Ant_L",
+          "scale": 1.1
+        },
+        {
+          "from": "Frontal_Mid_R",
+          "to": "Cingulum_Ant_R",
+          "scale": 1.1
+        }
+      ]
+    }
+  }
+}

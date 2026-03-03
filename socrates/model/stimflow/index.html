@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>model - STIMFLOW</title>
+    <style>
+      :root {
+        --safe-top: env(safe-area-inset-top, 0px);
+        --safe-right: env(safe-area-inset-right, 0px);
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
+        --safe-left: env(safe-area-inset-left, 0px);
+      }
+
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #03040a;
+        color: #fff;
+        font: 13px/1.25 system-ui, -apple-system, sans-serif;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      canvas {
+        display: block;
+        touch-action: none;
+      }
+
+      #build,
+      #hud {
+        position: fixed;
+        left: calc(var(--safe-left) + 12px);
+        color: #fff;
+        background: rgba(2, 6, 17, 0.66);
+        border: 1px solid rgba(156, 207, 255, 0.24);
+        padding: 8px 10px;
+        border-radius: 10px;
+        pointer-events: none;
+        max-width: calc(100vw - var(--safe-left) - var(--safe-right) - 24px);
+        white-space: pre-wrap;
+      }
+
+      #build {
+        top: calc(var(--safe-top) + 12px);
+      }
+
+      #hud {
+        top: calc(var(--safe-top) + 58px);
+      }
+
+      #hud.error {
+        color: #ffb3b3;
+      }
+
+      #panel {
+        position: fixed;
+        right: calc(var(--safe-right) + 12px);
+        top: calc(var(--safe-top) + 12px);
+        width: 360px;
+        max-height: calc(100vh - var(--safe-top) - var(--safe-bottom) - 24px);
+        overflow: auto;
+        color: #fff;
+        background: rgba(6, 10, 30, 0.84);
+        border: 1px solid rgba(111, 157, 255, 0.42);
+        border-radius: 12px;
+        padding: 12px;
+        user-select: none;
+        pointer-events: auto;
+      }
+
+      #panel .title {
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        margin-bottom: 8px;
+      }
+
+      #stimSelectBlock {
+        border: 1px solid rgba(141, 207, 255, 0.46);
+        border-radius: 10px;
+        background: rgba(105, 156, 220, 0.14);
+        padding: 10px;
+      }
+
+      #stimSelectBlock .small {
+        font-size: 13px;
+        font-weight: 600;
+        opacity: 0.96;
+        margin-bottom: 6px;
+      }
+
+      #stimSelect {
+        font-size: 15px;
+        font-weight: 600;
+        min-height: 38px;
+      }
+
+      #uiModeRow,
+      #uiModeHint,
+      #basisBlock,
+      #graphBlock,
+      #scrubRateBlock,
+      #narrationBlock,
+      #gainBlock,
+      #breadthBlock,
+      #exportBlock,
+      #edgeThresholdBlock {
+        display: none;
+      }
+
+      #quickStartCard {
+        border: 1px solid rgba(164, 214, 255, 0.28);
+        border-radius: 10px;
+        background: rgba(130, 172, 220, 0.12);
+        padding: 8px 10px;
+        line-height: 1.4;
+      }
+
+      #uiModeHint {
+        margin-top: 4px;
+      }
+
+      #panel .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0;
+      }
+
+      #panel .stack {
+        margin: 8px 0;
+      }
+
+      #panel .small {
+        opacity: 0.86;
+        font-size: 12px;
+      }
+
+      #panel .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      #stimConfidence {
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 999px;
+        padding: 2px 8px;
+        opacity: 1;
+      }
+
+      #stimConfidence.conf-low {
+        border-color: rgba(255, 165, 155, 0.78);
+        color: #ffb4a8;
+      }
+
+      #stimConfidence.conf-medium {
+        border-color: rgba(255, 210, 120, 0.82);
+        color: #ffd878;
+      }
+
+      #stimConfidence.conf-high {
+        border-color: rgba(143, 226, 180, 0.85);
+        color: #98efc7;
+      }
+
+      #panel hr {
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        margin: 10px 0;
+      }
+
+      #panel input[type="range"],
+      #panel select,
+      #panel input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      #panel select,
+      #panel input[type="text"] {
+        color: #fff;
+        background: rgba(0, 0, 0, 0.34);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 8px;
+        padding: 6px 8px;
+      }
+
+      #panel button {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 8px 10px;
+        min-height: 34px;
+        cursor: pointer;
+      }
+
+      #panel button:active {
+        transform: translateY(1px);
+      }
+
+      #transport {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      #stepControls,
+      #arrivalJumpControls,
+      #regionSearchNav,
+      #narrationControls {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      #regionSearchRow {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        margin-top: 6px;
+      }
+
+      #regionSearchSuggest {
+        margin-top: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.34);
+        max-height: 140px;
+        overflow: auto;
+      }
+
+      #regionSearchSuggest[hidden] {
+        display: none;
+      }
+
+      #regionSearchSuggest .item {
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0;
+        background: transparent;
+        color: #eaf5ff;
+        padding: 8px 10px;
+        min-height: 0;
+      }
+
+      #regionSearchSuggest .item:last-child {
+        border-bottom: 0;
+      }
+
+      #regionSearchSuggest .item.active {
+        background: rgba(130, 178, 236, 0.24);
+      }
+
+      #progressWrap {
+        width: 100%;
+        height: 8px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      #progressFill {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #4a566c, #cfdced);
+      }
+
+      #pathSequence {
+        max-height: 132px;
+        overflow: auto;
+        white-space: pre-wrap;
+        background: rgba(0, 0, 0, 0.26);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 8px;
+      }
+
+      #majorRegionWords {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        min-height: 28px;
+        margin-top: 6px;
+      }
+
+      #majorRegionWords .token {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(190, 220, 255, 0.35);
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-size: 11px;
+        background: rgba(138, 175, 225, 0.12);
+        color: rgba(225, 240, 255, 0.86);
+        opacity: 0.86;
+      }
+
+      #majorRegionWords .token.lead {
+        border-color: rgba(170, 235, 255, 0.85);
+        background: rgba(140, 208, 255, 0.24);
+        color: #f4fbff;
+        font-weight: 600;
+      }
+
+      #exportRow {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      #legendBar {
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #313849 0%, #667185 50%, #edf4ff 100%);
+      }
+
+      #arrivalBar {
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #ff2a2a 0%, #ff9a2c 18%, #ffe044 36%, #00ef7f 56%, #09d8ff 78%, #3f69ff 100%);
+      }
+
+      #colorGuideStops {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px;
+      }
+
+      #colorGuideStops .swatch {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-size: 11px;
+        background: rgba(0, 0, 0, 0.22);
+      }
+
+      #colorGuideStops .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+      }
+
+      #routes a {
+        color: #bfe5ff;
+        text-decoration: none;
+      }
+
+      #routes a:hover {
+        text-decoration: underline;
+      }
+
+      #routes .active {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      @media (max-width: 520px), (pointer: coarse) {
+        #build,
+        #hud {
+          font-size: 12px;
+          line-height: 1.24;
+        }
+
+        #panel {
+          left: calc(var(--safe-left) + 12px);
+          right: calc(var(--safe-right) + 12px);
+          top: auto;
+          bottom: calc(var(--safe-bottom) + 12px);
+          width: auto;
+          max-height: 66vh;
+        }
+
+        #panel button,
+        #panel select,
+        #panel input[type="text"] {
+          font-size: 14px;
+        }
+
+        #panel input[type="checkbox"] {
+          transform: scale(1.25);
+          transform-origin: left center;
+        }
+      }
+    </style>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../vendor/three/build/three.module.js",
+          "three/addons/": "../vendor/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="build">STIMFLOW • SOCRATES • BUILD 1772498015</div>
+    <div id="hud">Loading...</div>
+
+    <div id="panel">
+      <div class="title">StimFlow Clinical Teaching View</div>
+      <div id="quickStartCard" class="small">
+        1) Choose a scenario. 2) Press Play. 3) Watch major regions and click a region for role details.
+      </div>
+      <div class="small" style="margin-top: 6px;">
+        Educational simulation only. Not for diagnosis, treatment decisions, or patient-specific inference.
+      </div>
+
+      <div class="row" id="uiModeRow">
+        <div>Interface level</div>
+        <select id="uiModeSelect">
+          <option value="basic">Basic (clinical-friendly)</option>
+          <option value="advanced" selected>Advanced (technical)</option>
+        </select>
+      </div>
+      <div class="small mono" id="uiModeHint">Advanced mode: all technical controls shown.</div>
+
+      <div class="stack" id="stimSelectBlock">
+        <div class="small">Scenario (stimulus)</div>
+        <select id="stimSelect"></select>
+      </div>
+
+      <div class="stack" id="basisBlock">
+        <div class="small">Evidence source</div>
+        <select id="basisSelect">
+          <option value="empirical" selected>Empirical Anchors</option>
+          <option value="template">Template Consensus</option>
+        </select>
+        <div class="small mono" id="basisStatus">Basis: loading...</div>
+      </div>
+
+      <div class="stack" id="graphBlock">
+        <div class="small">Detail level</div>
+        <select id="graphSelect">
+          <option value="auto" selected>Auto (prefer dense)</option>
+          <option value="dense">Dense (thousands)</option>
+          <option value="core">Core (AAL 116)</option>
+        </select>
+        <div class="small mono" id="graphStatus">Graph: loading...</div>
+        <div class="small mono" id="connectivityStatus">Connectivity: loading...</div>
+      </div>
+
+      <div class="stack">
+        <div class="small">Region search</div>
+        <div id="regionSearchRow">
+          <input id="regionSearchInput" type="text" placeholder="e.g., insula, hippocampus left" />
+          <button id="btnRegionSearch" type="button">Find</button>
+        </div>
+        <div id="regionSearchSuggest" hidden></div>
+        <div id="regionSearchNav">
+          <button id="btnRegionPrev" type="button">Prev match</button>
+          <button id="btnRegionNext" type="button">Next match</button>
+        </div>
+        <div class="small mono" id="regionSearchStatus">Search: enter region</div>
+      </div>
+
+      <div class="row small mono">
+        <div id="timelineText">t=0.00s / 25.00s</div>
+        <div id="statusText">ready</div>
+      </div>
+
+      <div id="progressWrap"><div id="progressFill"></div></div>
+
+      <div class="row">
+        <div>Timeline cursor</div>
+        <div id="scrubVal" class="mono">0.00s</div>
+      </div>
+      <input id="scrubRange" type="range" min="0" max="25" step="0.01" value="0" />
+
+      <div id="stepControls" class="stack">
+        <button id="btnStepBack" type="button">-0.5s</button>
+        <button id="btnStepForward" type="button">+0.5s</button>
+      </div>
+
+      <div id="scrubRateBlock">
+        <div class="row">
+          <div>Step size</div>
+          <div id="scrubRateVal" class="mono">0.50s/step</div>
+        </div>
+        <input id="scrubRateRange" type="range" min="0.10" max="2.00" step="0.10" value="0.50" />
+      </div>
+
+      <div id="arrivalJumpBlock" class="stack">
+        <div class="small">Jump by region arrival</div>
+      <div id="arrivalJumpControls" class="stack">
+        <button id="btnPrevArrival" type="button">Prev reached</button>
+        <button id="btnNextArrival" type="button">Next reached</button>
+      </div>
+      </div>
+
+      <div id="transport" class="stack">
+        <button id="btnPlay" type="button">Play</button>
+        <button id="btnPause" type="button">Pause</button>
+        <button id="btnStop" type="button">Stop</button>
+      </div>
+
+      <div class="row">
+        <div>Mode</div>
+        <select id="modeSelect">
+          <option value="once">Once</option>
+          <option value="loop" selected>Loop</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div>Playback speed</div>
+        <div id="speedVal" class="mono">1.00x</div>
+      </div>
+      <input id="speedRange" type="range" min="0.25" max="3.00" step="0.05" value="1.00" />
+
+      <div id="narrationBlock">
+        <div class="row">
+          <label><input id="toggleNarration" type="checkbox" />Voice narration</label>
+          <div id="narrationRateVal" class="mono">1.00x</div>
+        </div>
+        <div id="narrationAdvancedBlock">
+          <input id="narrationRateRange" type="range" min="0.60" max="1.80" step="0.10" value="1.00" />
+          <div id="narrationControls" class="stack">
+            <button id="btnNarrateNow" type="button">Narrate next</button>
+            <button id="btnNarrationMute" type="button">Silence</button>
+          </div>
+        </div>
+        <div id="narrationStatus" class="small mono">Narration: off</div>
+      </div>
+
+      <div id="gainBlock">
+        <div class="row">
+          <div>Signal strength</div>
+          <div id="gainVal" class="mono">1.00</div>
+        </div>
+        <input id="gainRange" type="range" min="0.20" max="2.50" step="0.05" value="1.00" />
+      </div>
+
+      <div id="breadthBlock">
+        <div class="row">
+          <div>Path coverage</div>
+          <div id="breadthVal" class="mono">0.88</div>
+        </div>
+        <input id="breadthRange" type="range" min="0.60" max="0.98" step="0.01" value="0.88" />
+      </div>
+
+      <hr />
+
+      <div class="small" id="stimConfidence">Signal confidence: n/a</div>
+      <div class="small" id="stimExplain">Path-first educational propagation model.</div>
+      <div class="small">Major regions active (coarse)</div>
+      <div id="majorRegionWords" class="small">waiting...</div>
+      <div class="small mono" id="majorRegionStatus">Major regions: n/a</div>
+      <div class="small" id="regionTitle">Region role: none</div>
+      <div class="small" id="regionSummary">Select a node or press Play to follow network activation.</div>
+      <div class="small" id="regionNetworks">Networks: n/a</div>
+
+      <div class="stack">
+        <div class="small">Path intensity legend (dim to active)</div>
+        <div id="legendBar"></div>
+      </div>
+
+      <div class="stack">
+        <div class="small">Temporal spectrum (arrival to leaving)</div>
+        <div id="arrivalBar"></div>
+        <div class="small">
+          Color guide: red means first arrival; warm colors are early spread; green is mid-path activity; cool colors are late/decaying signal.
+        </div>
+        <div id="colorGuideStops">
+          <span class="swatch"><span class="dot" style="background:#ff2a2a;"></span>Arrival</span>
+          <span class="swatch"><span class="dot" style="background:#ff9a2c;"></span>Early spread</span>
+          <span class="swatch"><span class="dot" style="background:#ffe044;"></span>Rising activity</span>
+          <span class="swatch"><span class="dot" style="background:#00ef7f;"></span>Mid-path</span>
+          <span class="swatch"><span class="dot" style="background:#09d8ff;"></span>Late phase</span>
+          <span class="swatch"><span class="dot" style="background:#3f69ff;"></span>Leaving/decay</span>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="small">Arrival sequence (first 12)</div>
+        <div id="pathSequence" class="small mono">waiting...</div>
+      </div>
+
+      <div class="stack" id="exportBlock">
+        <div class="small">Download path report (advanced)</div>
+        <div id="exportRow">
+          <button id="btnExportJson" type="button">Export JSON</button>
+          <button id="btnExportCsv" type="button">Export CSV</button>
+        </div>
+        <div id="exportStatus" class="small mono">Export: ready</div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <label><input id="toggleEdges" type="checkbox" checked />Show connections</label>
+        <label><input id="toggleHull" type="checkbox" checked />Show cortex layer</label>
+      </div>
+      <div class="row">
+        <div>Cortex opacity</div>
+        <div id="hullOpacityVal" class="mono">0.72</div>
+      </div>
+      <input id="hullOpacityRange" type="range" min="0.10" max="0.95" step="0.01" value="0.72" />
+
+      <div class="row" id="pathOnlyBlock">
+        <label><input id="togglePathOnly" type="checkbox" checked />Only show inferred active paths</label>
+      </div>
+
+      <div class="row" id="reachedOnlyBlock">
+        <label><input id="toggleReachedOnly" type="checkbox" />Dim unreached regions</label>
+      </div>
+
+      <div class="row" id="radiationBlock">
+        <label><input id="toggleRadiation" type="checkbox" checked />Arrival glow gradients</label>
+      </div>
+
+      <div class="row" id="hoverGroupBlock">
+        <label><input id="toggleHoverGroup" type="checkbox" />Highlight same-region group on hover</label>
+      </div>
+
+      <div class="row">
+        <label><input id="toggleAuto" type="checkbox" checked />Auto-rotate</label>
+        <button id="btnReset" type="button">Reset view</button>
+      </div>
+
+      <div id="edgeThresholdBlock">
+        <div class="row">
+          <div>Connection visibility threshold</div>
+          <div id="edgeVal" class="mono">0.08</div>
+        </div>
+        <input id="edgeThresh" type="range" min="0" max="1" step="0.01" value="0.08" />
+      </div>
+
+      <div id="routes" class="small stack">
+        Routes:
+        <a href="../">Model</a> |
+        <a href="../edu/">EDU</a> |
+        <a href="../switchboard/">Switchboard</a> |
+        <span class="active">StimFlow</span>
+      </div>
+    </div>
+
+    <script type="module" src="./stimflow.js?v=1772498015"></script>
+  </body>
+</html>

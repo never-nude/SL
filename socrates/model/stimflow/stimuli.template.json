@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "notes": "Template educational seeds mapped to AAL labels.",
+  "truth_tiers": [
+    "TEMPLATE_META_ANALYTIC",
+    "EMPIRICAL_TASK_FMRI",
+    "SIMULATED_PROPAGATION"
+  ],
+  "hrf": {
+    "model": "canonical_bold_like",
+    "rise_s": 4.0,
+    "peak_s": 6.0,
+    "fall_s": 12.0
+  },
+  "stimuli": [
+    {
+      "id": "music",
+      "label": "Hearing music",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "explanation": "Auditory cortices are commonly involved in early processing of musical input. This simplified model emphasizes bilateral Heschl and superior temporal seeds before broader network spread.",
+      "seed_regions": [
+        { "aal_label": "Heschl_L", "w": 1.0 },
+        { "aal_label": "Heschl_R", "w": 1.0 },
+        { "aal_label": "Temporal_Sup_L", "w": 0.7 },
+        { "aal_label": "Temporal_Sup_R", "w": 0.7 }
+      ]
+    },
+    {
+      "id": "pain",
+      "label": "Pinprick / acute pain",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "explanation": "Primary somatosensory and salience-related regions are commonly involved in nociceptive tasks. This template shows a conservative educational pattern, not a clinical pain metric.",
+      "seed_regions": [
+        { "aal_label": "Postcentral_L", "w": 0.8 },
+        { "aal_label": "Postcentral_R", "w": 0.8 },
+        { "aal_label": "Insula_L", "w": 0.8 },
+        { "aal_label": "Insula_R", "w": 0.8 },
+        { "aal_label": "Cingulum_Ant_L", "w": 0.6 },
+        { "aal_label": "Cingulum_Ant_R", "w": 0.6 }
+      ]
+    },
+    {
+      "id": "fear",
+      "label": "Fear / threat",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "explanation": "Amygdala and salience regions are often associated with threat processing. This is a simplified educational map and does not imply deterministic emotional circuitry.",
+      "seed_regions": [
+        { "aal_label": "Amygdala_L", "w": 1.0 },
+        { "aal_label": "Amygdala_R", "w": 1.0 },
+        { "aal_label": "Insula_L", "w": 0.6 },
+        { "aal_label": "Insula_R", "w": 0.6 }
+      ]
+    },
+    {
+      "id": "reward",
+      "label": "Reward / surprise",
+      "tier": "TEMPLATE_META_ANALYTIC",
+      "explanation": "Medial orbitofrontal and related valuation regions are commonly involved in reward processing paradigms. This educational template emphasizes broad network-level association only.",
+      "seed_regions": [
+        { "aal_label": "Frontal_Orb_Med_L", "w": 0.7 },
+        { "aal_label": "Frontal_Orb_Med_R", "w": 0.7 }
+      ]
+    }
+  ]
+}
