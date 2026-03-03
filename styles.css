@@ -82,6 +82,38 @@ body.discoverPage .subtitle {
   line-height: 1.22;
 }
 
+.audienceSwitch {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: #ececec;
+  padding: 3px;
+}
+
+.audienceBtn {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #2f2f2f;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 520;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.audienceBtn:hover {
+  border-color: #9c9c9c;
+  background: #e4e4e4;
+}
+
+.audienceBtn.isCurrent {
+  border-color: #8d8d8d;
+  background: #dfdfdf;
+  color: #1f1f1f;
+}
+
 .searchBar {
   margin-top: 10px;
   width: min(560px, 100%);

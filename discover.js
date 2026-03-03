@@ -2,6 +2,7 @@
   var catalog = window.SL_CATALOG || [];
   var store = window.SL_Storage;
   var graph = window.SL_Graph;
+  var audience = window.SL_Audience || null;
   var flags = window.SL_FLAGS || {};
   var ui = window.SL_UI || { fadeMs: 180 };
 
@@ -30,6 +31,7 @@
   var MAX_MAINSTREAM = 0.95;
   var MIN_RECENT = 0.22;
   var MAX_RECENT = 0.44;
+  var languagePrefCache = null;
 
   init();
 
@@ -231,6 +233,7 @@
     if (isTransitioning || !item) return;
 
     store.setRating(item.id, value);
+    invalidateLanguagePreferenceCache();
 
     leftHistory = {
       item: item,
@@ -247,6 +250,7 @@
     if (isTransitioning || !item) return;
 
     store.setDisposition(item.id, disposition);
+    invalidateLanguagePreferenceCache();
 
     leftHistory = {
       item: item,
@@ -315,7 +319,7 @@
     var anchor = opts && opts.anchor ? opts.anchor : null;
     var exclude = opts && opts.exclude ? opts.exclude : {};
 
-    var eligible = store.eligibleTitles(catalog);
+    var eligible = eligibleTitlesForSection();
     if (!eligible.length) return null;
 
     var unseen = [];
@@ -407,26 +411,29 @@
       return low.item;
     }
 
+    var languagePref = getLanguagePreference();
     var laneItems = [];
     for (var n = 0; n < lane.length; n++) laneItems.push(lane[n].item);
-    var chosen = pickOneBalancedForDiscover(laneItems, mixStats, basePool);
+    var chosen = pickOneBalancedForDiscover(laneItems, mixStats, basePool, languagePref);
     if (chosen) {
       noteMixPick(chosen, mixStats);
       return chosen;
     }
 
-    var fallback = pickWeightedItem(lane);
+    var fallback = pickWeightedItem(lane, languagePref);
     if (fallback) noteMixPick(fallback, mixStats);
     return fallback;
   }
 
-  function pickWeightedItem(weighted) {
+  function pickWeightedItem(weighted, languagePref) {
     var total = 0;
-    for (var i = 0; i < weighted.length; i++) total += weighted[i].w * yearWeight(weighted[i].item);
+    for (var i = 0; i < weighted.length; i++) {
+      total += weighted[i].w * yearWeight(weighted[i].item) * languageWeight(weighted[i].item, languagePref);
+    }
 
     var roll = Math.random() * total;
     for (var j = 0; j < weighted.length; j++) {
-      roll -= weighted[j].w * yearWeight(weighted[j].item);
+      roll -= weighted[j].w * yearWeight(weighted[j].item) * languageWeight(weighted[j].item, languagePref);
       if (roll <= 0) return weighted[j].item;
     }
 
@@ -468,9 +475,11 @@
       source = grouped.base;
     }
 
-    source = favorAmericanFamiliarPool(source, 0.84);
+    var languagePref = getLanguagePreference();
+    source = applyLanguagePoolPreference(source, languagePref);
+    source = favorAmericanFamiliarPool(source, americanFamiliarProbabilityForUser(0.84, languagePref));
 
-    var chosen = pickOneBalancedForDiscover(source, mixStats, items);
+    var chosen = pickOneBalancedForDiscover(source, mixStats, items, languagePref);
     if (chosen) noteMixPick(chosen, mixStats);
     return chosen;
   }
@@ -523,6 +532,351 @@
     return source;
   }
 
+  function invalidateLanguagePreferenceCache() {
+    languagePrefCache = null;
+  }
+
+  function getLanguagePreference() {
+    if (!store || typeof store.load !== "function") return null;
+
+    var state = store.load() || {};
+    var ratings = state.ratings || {};
+    var dispositions = state.dispositions || {};
+    var ratingTimes = state.ratingTimes || {};
+    var dispositionTimes = state.dispositionTimes || {};
+    var sig = computeLanguagePreferenceSignature(ratings, dispositions, ratingTimes, dispositionTimes);
+
+    if (languagePrefCache && languagePrefCache.sig === sig) {
+      return languagePrefCache.pref;
+    }
+
+    var pref = buildLanguagePreference(ratings, dispositions);
+    languagePrefCache = {
+      sig: sig,
+      pref: pref
+    };
+
+    return pref;
+  }
+
+  function computeLanguagePreferenceSignature(ratings, dispositions, ratingTimes, dispositionTimes) {
+    var ratingIds = Object.keys(ratings || {});
+    var dispositionIds = Object.keys(dispositions || {});
+    var ratingSum = 0;
+    var dispositionHash = 0;
+    var newest = 0;
+    var i = 0;
+
+    for (i = 0; i < ratingIds.length; i++) {
+      ratingSum += Number(ratings[ratingIds[i]]) || 0;
+    }
+
+    for (i = 0; i < dispositionIds.length; i++) {
+      var disp = String(dispositions[dispositionIds[i]] || "");
+      if (disp === "add") dispositionHash += 7;
+      else if (disp === "no") dispositionHash += 11;
+      else dispositionHash += 3;
+    }
+
+    var ratingTimeIds = Object.keys(ratingTimes || {});
+    for (i = 0; i < ratingTimeIds.length; i++) {
+      newest = Math.max(newest, Number(ratingTimes[ratingTimeIds[i]]) || 0);
+    }
+
+    var dispositionTimeIds = Object.keys(dispositionTimes || {});
+    for (i = 0; i < dispositionTimeIds.length; i++) {
+      newest = Math.max(newest, Number(dispositionTimes[dispositionTimeIds[i]]) || 0);
+    }
+
+    return [
+      ratingIds.length,
+      dispositionIds.length,
+      ratingSum.toFixed(2),
+      dispositionHash,
+      newest
+    ].join("|");
+  }
+
+  function buildLanguagePreference(ratings, dispositions) {
+    var buckets = {};
+    var totalPositive = 0;
+    var totalNegative = 0;
+
+    function addSignal(itemId, delta) {
+      if (!delta) return;
+      var item = byId[itemId];
+      if (!item) return;
+
+      var key = getLanguageKeyForItem(item);
+      if (!buckets[key]) {
+        buckets[key] = {
+          key: key,
+          pos: 0,
+          neg: 0,
+          score: 0,
+          marks: 0
+        };
+      }
+
+      var bucket = buckets[key];
+      bucket.marks += 1;
+      bucket.score += delta;
+
+      if (delta > 0) {
+        bucket.pos += delta;
+        totalPositive += delta;
+      } else {
+        var penalty = Math.abs(delta);
+        bucket.neg += penalty;
+        totalNegative += penalty;
+      }
+    }
+
+    var ratingIds = Object.keys(ratings || {});
+    for (var i = 0; i < ratingIds.length; i++) {
+      var rid = ratingIds[i];
+      var rating = Number(ratings[rid]);
+      if (isNaN(rating)) continue;
+
+      var ratingDelta = (rating - 3) * 1.35;
+      if (Math.abs(ratingDelta) < 0.01) continue;
+      addSignal(rid, ratingDelta);
+    }
+
+    var dispositionIds = Object.keys(dispositions || {});
+    for (var j = 0; j < dispositionIds.length; j++) {
+      var did = dispositionIds[j];
+      var disp = dispositions[did];
+      if (disp === "add") addSignal(did, 1.15);
+      else if (disp === "no") addSignal(did, -1.15);
+    }
+
+    var englishPos = buckets.en ? buckets.en.pos : 0;
+    var foreignPos = 0;
+    var dominantLanguage = null;
+    var dominantPos = 0;
+    var bucketKeys = Object.keys(buckets);
+
+    for (var k = 0; k < bucketKeys.length; k++) {
+      var key = bucketKeys[k];
+      if (!isForeignLanguageKey(key)) continue;
+
+      var pos = buckets[key].pos;
+      foreignPos += pos;
+      if (pos > dominantPos) {
+        dominantPos = pos;
+        dominantLanguage = key;
+      }
+    }
+
+    var signal = totalPositive + totalNegative;
+    var hasSignal = signal >= 2.2;
+    var foreignShare = totalPositive > 0 ? (foreignPos / totalPositive) : 0;
+    var foreignPreferred = hasSignal &&
+      foreignPos >= 2.0 &&
+      foreignShare >= 0.48 &&
+      foreignPos >= englishPos * 0.9;
+    var dominantPreferred = !!(foreignPreferred && dominantLanguage && dominantPos >= 1.6 && dominantPos >= foreignPos * 0.32);
+
+    return {
+      hasSignal: hasSignal,
+      foreignPreferred: foreignPreferred,
+      dominantLanguage: dominantPreferred ? dominantLanguage : null,
+      dominantPos: dominantPos,
+      foreignPos: foreignPos,
+      englishPos: englishPos,
+      totalPositive: totalPositive
+    };
+  }
+
+  function getLanguageKeyForItem(item) {
+    if (!item) return "en";
+
+    var explicit = normalizeLanguageTag(
+      item.lang ||
+      item.language ||
+      item.originalLanguage ||
+      item.original_language
+    );
+    if (explicit) return explicit;
+
+    return languageFromTitle(item.title);
+  }
+
+  function normalizeLanguageTag(raw) {
+    if (!raw) return null;
+    var key = String(raw).toLowerCase().trim();
+    if (!key) return null;
+
+    var first = key.split(/[;,/|]/)[0].trim();
+    if (!first) return null;
+    if (first.indexOf("-") !== -1) first = first.split("-")[0];
+    if (first.indexOf("_") !== -1) first = first.split("_")[0];
+
+    var map = {
+      english: "en", eng: "en", en: "en",
+      french: "fr", fra: "fr", fre: "fr", fr: "fr",
+      spanish: "es", spa: "es", es: "es",
+      italian: "it", ita: "it", it: "it",
+      german: "de", deu: "de", ger: "de", de: "de",
+      portuguese: "pt", por: "pt", pt: "pt",
+      russian: "ru", rus: "ru", ru: "ru",
+      japanese: "ja", jpn: "ja", ja: "ja",
+      korean: "ko", kor: "ko", ko: "ko",
+      chinese: "zh", zho: "zh", chi: "zh", zh: "zh",
+      hindi: "hi", hin: "hi", hi: "hi",
+      arabic: "ar", ara: "ar", ar: "ar",
+      hebrew: "he", heb: "he", he: "he",
+      greek: "el", ell: "el", gre: "el", el: "el",
+      polish: "pl", pol: "pl", pl: "pl",
+      turkish: "tr", tur: "tr", tr: "tr",
+      dutch: "nl", nld: "nl", dut: "nl", nl: "nl",
+      swedish: "sv", swe: "sv", sv: "sv",
+      danish: "da", dan: "da", da: "da",
+      norwegian: "no", nor: "no", no: "no",
+      thai: "th", tha: "th", th: "th",
+      vietnamese: "vi", vie: "vi", vi: "vi",
+      czech: "cs", ces: "cs", cze: "cs", cs: "cs",
+      ukrainian: "uk", ukr: "uk", uk: "uk"
+    };
+
+    if (map[first]) return map[first];
+    if (/^[a-z]{2}$/.test(first)) return first;
+    return null;
+  }
+
+  function languageFromTitle(title) {
+    var t = String(title || "");
+    if (!t) return "en";
+
+    if (/[\uAC00-\uD7AF]/.test(t)) return "ko";
+    if (/[\u3040-\u30FF]/.test(t)) return "ja";
+    if (/[\u4E00-\u9FFF]/.test(t)) return "zh";
+    if (/[\u0400-\u04FF]/.test(t)) return "ru";
+    if (/[\u0600-\u06FF]/.test(t)) return "ar";
+    if (/[\u0590-\u05FF]/.test(t)) return "he";
+    if (/[\u0370-\u03FF]/.test(t)) return "el";
+    if (/[\u0900-\u097F]/.test(t)) return "hi";
+    if (/[\u0E00-\u0E7F]/.test(t)) return "th";
+
+    if (/^[\x20-\x7E]+$/.test(t)) return "en";
+
+    var latinGuess = inferLatinLanguageFromTitle(t);
+    return latinGuess || "intl";
+  }
+
+  function inferLatinLanguageFromTitle(title) {
+    var lower = String(title || "")
+      .toLowerCase()
+      .replace(/[’‘]/g, "'")
+      .replace(/[“”]/g, "\"")
+      .replace(/[–—]/g, "-")
+      .replace(/[^a-z\u00C0-\u024F ]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (!lower) return null;
+    if (!/[\u00C0-\u024F]/.test(lower) && !/\b(de|la|le|el|los|las|das|der|und|una|uno)\b/.test(lower)) {
+      return null;
+    }
+
+    var tokens = lower.split(" ");
+    var counts = {
+      es: countLanguageTokens(tokens, { de: 1, la: 1, el: 1, los: 1, las: 1, una: 1, uno: 1, y: 1 }),
+      fr: countLanguageTokens(tokens, { le: 1, la: 1, les: 1, des: 1, une: 1, du: 1, et: 1, aux: 1 }),
+      it: countLanguageTokens(tokens, { il: 1, lo: 1, gli: 1, una: 1, uno: 1, dei: 1, della: 1, e: 1 }),
+      de: countLanguageTokens(tokens, { der: 1, die: 1, das: 1, und: 1, ein: 1, eine: 1, dem: 1, den: 1 }),
+      pt: countLanguageTokens(tokens, { de: 1, da: 1, do: 1, dos: 1, das: 1, e: 1, uma: 1, o: 1, os: 1, as: 1 })
+    };
+
+    var best = null;
+    var bestScore = 0;
+    var langs = Object.keys(counts);
+
+    for (var i = 0; i < langs.length; i++) {
+      var key = langs[i];
+      if (counts[key] > bestScore) {
+        bestScore = counts[key];
+        best = key;
+      }
+    }
+
+    return bestScore >= 2 ? best : null;
+  }
+
+  function countLanguageTokens(tokens, vocab) {
+    var n = 0;
+    for (var i = 0; i < tokens.length; i++) {
+      if (vocab[tokens[i]]) n += 1;
+    }
+    return n;
+  }
+
+  function isForeignLanguageKey(key) {
+    return !!key && key !== "en";
+  }
+
+  function applyLanguagePoolPreference(source, languagePref) {
+    if (!source || !source.length) return source || [];
+    if (!languagePref || !languagePref.hasSignal) return source;
+
+    if (languagePref.dominantLanguage && languagePref.dominantLanguage !== "en") {
+      var dominant = [];
+      for (var i = 0; i < source.length; i++) {
+        if (getLanguageKeyForItem(source[i]) === languagePref.dominantLanguage) {
+          dominant.push(source[i]);
+        }
+      }
+
+      if (dominant.length >= 2) {
+        var dominantProb = clamp(0.45 + Math.min(0.35, languagePref.dominantPos * 0.08), 0.45, 0.8);
+        if (Math.random() < dominantProb) return dominant;
+      }
+    }
+
+    if (languagePref.foreignPreferred) {
+      var foreign = [];
+      for (var j = 0; j < source.length; j++) {
+        if (isForeignLanguageKey(getLanguageKeyForItem(source[j]))) foreign.push(source[j]);
+      }
+
+      if (foreign.length >= 2 && Math.random() < 0.58) return foreign;
+    }
+
+    return source;
+  }
+
+  function americanFamiliarProbabilityForUser(baseProbability, languagePref) {
+    var p = numberOr(baseProbability, 0.84);
+    if (!languagePref || !languagePref.hasSignal) return p;
+
+    if (languagePref.foreignPreferred) p *= 0.48;
+    if (languagePref.dominantLanguage && languagePref.dominantLanguage !== "en") p *= 0.45;
+
+    return clamp(p, 0.08, 0.96);
+  }
+
+  function languageWeight(item, languagePref) {
+    if (!item) return 1;
+    if (!languagePref || !languagePref.hasSignal) return 1;
+
+    var key = getLanguageKeyForItem(item);
+    var w = 1;
+
+    if (languagePref.foreignPreferred) {
+      if (isForeignLanguageKey(key)) w *= 1.28;
+      else w *= 0.76;
+    }
+
+    if (languagePref.dominantLanguage && languagePref.dominantLanguage !== "en") {
+      if (key === languagePref.dominantLanguage) w *= 1.9;
+      else if (isForeignLanguageKey(key)) w *= 1.08;
+      else w *= 0.78;
+    }
+
+    return clamp(w, 0.35, 2.75);
+  }
+
   function isAllowedExpansionItem(item) {
     if (!item) return false;
     if (!isExpandedCatalogItem(item)) return true;
@@ -531,7 +885,7 @@
     return true;
   }
 
-  function pickOneBalancedForDiscover(source, stats, overflowSource) {
+  function pickOneBalancedForDiscover(source, stats, overflowSource, languagePref) {
     var constrained = applyMixConstraints(source, stats);
     var candidates = constrained.length ? constrained : (source || []);
 
@@ -572,6 +926,7 @@
       var entry = elite[j];
       var w = 1 / (0.08 + Math.max(0, entry.score));
       w *= yearWeight(entry.item);
+      w *= languageWeight(entry.item, languagePref);
       weighted.push({ item: entry.item, w: w });
       total += w;
     }
@@ -920,5 +1275,15 @@
 
   function clamp(x, a, b) {
     return Math.max(a, Math.min(b, x));
+  }
+
+  function eligibleTitlesForSection() {
+    var source = catalog;
+
+    if (audience && typeof audience.filterCatalog === "function") {
+      source = audience.filterCatalog(catalog);
+    }
+
+    return store.eligibleTitles(source);
   }
 })();

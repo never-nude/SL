@@ -1,6 +1,12 @@
 (function () {
-  var catalog = window.SL_CATALOG || [];
+  var baseCatalog = window.SL_CATALOG || [];
+  var audience = window.SL_Audience || null;
+  var catalog = baseCatalog;
   var forms = document.querySelectorAll("form[data-sl-search]");
+
+  if (audience && typeof audience.filterCatalog === "function") {
+    catalog = audience.filterCatalog(baseCatalog);
+  }
 
   if (!catalog.length || !forms.length) return;
 

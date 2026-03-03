@@ -10,6 +10,11 @@
   <header class="header">
     <div class="brand">ScreenLit</div>
     <div class="subtitle">Start here</div>
+    <nav class="audienceSwitch" data-sl-audience aria-label="Audience section">
+      <button class="audienceBtn" type="button" data-audience-mode="all">All</button>
+      <button class="audienceBtn" type="button" data-audience-mode="ya">Young Adults</button>
+      <button class="audienceBtn" type="button" data-audience-mode="kids">Kids</button>
+    </nav>
     <form class="searchBar" data-sl-search>
       <input id="slSearchInput" class="searchInput" type="search" list="slSearchTitles" placeholder="Search titles" aria-label="Search titles" autocomplete="off" />
       <button class="searchBtn" type="submit">Find</button>
@@ -33,8 +38,10 @@
   <script src="catalog.js?v=sl-cat-3"></script>
   <script src="catalog_generated.js?v=sl-cat-gen-1"></script>
   <script src="catalog_mainstream_generated.js?v=sl-main-2"></script>
+  <script src="audience_catalog.js?v=sl-aud-cat-1"></script>
+  <script src="audience.js?v=sl-aud-1"></script>
   <script src="pools.js?v=sl-pool-2"></script>
-  <script src="search.js?v=sl-search-1"></script>
+  <script src="search.js?v=sl-search-2"></script>
   <script src="storage.js"></script>
   <script src="account.js?v=sl-account-1"></script>
   <script src="facts.js"></script>
@@ -44,6 +51,6 @@
   <script src="artwork_overrides_mainstream_generated.js?v=sl-main-art-2"></script>
   <script src="artwork_overrides_active.js?v=sl-art-active-1"></script>
   <script src="artwork.js"></script>
-  <script src="index.js?v=sl-pick-9"></script>
+  <script src="index.js?v=sl-pick-10"></script>
 </body>
 </html>

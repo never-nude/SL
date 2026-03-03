@@ -1,6 +1,7 @@
 (function () {
   var catalog = window.SL_CATALOG || [];
   var store = window.SL_Storage;
+  var audience = window.SL_Audience || null;
   var ui = window.SL_UI || { fadeMs: 180 };
 
   if (!store) return;
@@ -37,7 +38,7 @@
   }
 
   function pickInitialNine() {
-    var eligible = store.eligibleTitles(catalog);
+    var eligible = eligibleTitlesForSection();
     return pickManyWeightedForIndex(eligible, 9);
   }
 
@@ -97,7 +98,7 @@
   }
 
   function pickRefreshNine() {
-    var eligible = store.eligibleTitles(catalog);
+    var eligible = eligibleTitlesForSection();
     if (!eligible.length) return [];
 
     var visible = {};
@@ -115,7 +116,7 @@
   }
 
   function pickNextForSlot() {
-    var eligible = store.eligibleTitles(catalog);
+    var eligible = eligibleTitlesForSection();
     if (!eligible.length) return null;
 
     var visible = {};
@@ -610,6 +611,16 @@
     }
 
     return out;
+  }
+
+  function eligibleTitlesForSection() {
+    var source = catalog;
+
+    if (audience && typeof audience.filterCatalog === "function") {
+      source = audience.filterCatalog(catalog);
+    }
+
+    return store.eligibleTitles(source);
   }
 
   function shuffleInPlace(arr) {
