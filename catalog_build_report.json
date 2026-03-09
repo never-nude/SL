@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-03-02T15:46:18Z",
+  "generatedAt": "2026-03-09T17:12:05Z",
   "baseCount": 312,
-  "existingGeneratedCount": 2000,
-  "newlyAddedCount": 688,
+  "existingGeneratedCount": 2688,
+  "newlyAddedCount": 0,
   "generatedCount": 2688,
   "totalCatalogCount": 3000,
   "addedByType": {
-    "film": 275,
-    "tv": 206,
-    "book": 207
+    "film": 0,
+    "tv": 0,
+    "book": 0
   },
   "overrideCount": 2688,
   "targets": {
